@@ -1,4 +1,4 @@
-# System of Equations-(2)
+# Ax = b
 
 !!! question
     How do we solve for $x$ in the equation $Ax = b$?

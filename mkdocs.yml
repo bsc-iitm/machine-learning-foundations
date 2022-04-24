@@ -3,6 +3,21 @@ site_name: Machine Learning Foundations
 theme:
     name: material
     logo: assets/images/logo.png
+    features:
+        #- navigation.tabs
+        - header.autohide
+        - navigation.indexes
+nav:
+  - Home: index.md
+  - Linear Algebra:
+    - linear_algebra/0-linear_algebra.md
+    - linear_algebra/1-ml_problem.md
+    - linear_algebra/2-linear_model.md
+    - linear_algebra/3-system_1.md
+    - linear_algebra/4-system_2.md
+    - linear_algebra/5-least_squares.md
+  - Appendix:
+    - appendix/0-gradients.md
 
 markdown_extensions:
   - pymdownx.arithmatex:

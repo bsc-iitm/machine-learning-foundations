@@ -1,4 +1,4 @@
-# System of Equations-(1)
+# Ax = 0
 
 !!! question
     How do we solve for $x$ in the equation $Ax = 0$?

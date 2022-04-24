@@ -13,7 +13,7 @@
     
     
       
-        <title>System of Equations-(1) - Machine Learning Foundations</title>
+        <title>System of Equations-(2) - Machine Learning Foundations</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#system-of-equations-1" class="md-skip">
+        <a href="#system-of-equations-2" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System of Equations-(1)
+              System of Equations-(2)
             
           </span>
         </div>
@@ -259,6 +259,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../3-system_1/" class="md-nav__link">
+        System of Equations-(1)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -271,12 +285,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          System of Equations-(1)
+          System of Equations-(2)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        System of Equations-(1)
+        System of Equations-(2)
       </a>
       
         
@@ -295,29 +309,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting" class="md-nav__link">
-    Setting
+  <a href="#column-space" class="md-nav__link">
+    Column space
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nullspace" class="md-nav__link">
-    Nullspace
+  <a href="#conditions-for-solution" class="md-nav__link">
+    Conditions for Solution
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#row-echelon-form" class="md-nav__link">
-    Row-Echelon form
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recipe-for-a-basis" class="md-nav__link">
-    Recipe for a Basis
+  <a href="#general-solution" class="md-nav__link">
+    General Solution
   </a>
   
 </li>
@@ -371,29 +378,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting" class="md-nav__link">
-    Setting
+  <a href="#column-space" class="md-nav__link">
+    Column space
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#nullspace" class="md-nav__link">
-    Nullspace
+  <a href="#conditions-for-solution" class="md-nav__link">
+    Conditions for Solution
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#row-echelon-form" class="md-nav__link">
-    Row-Echelon form
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recipe-for-a-basis" class="md-nav__link">
-    Recipe for a Basis
+  <a href="#general-solution" class="md-nav__link">
+    General Solution
   </a>
   
 </li>
@@ -419,138 +419,133 @@
                 
 
 
-<h1 id="system-of-equations-1">System of Equations-(1)<a class="headerlink" href="#system-of-equations-1" title="Permanent link">&para;</a></h1>
+<h1 id="system-of-equations-2">System of Equations-(2)<a class="headerlink" href="#system-of-equations-2" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>How do we solve for <span class="arithmatex">\(x\)</span> in the equation <span class="arithmatex">\(Ax = 0\)</span>?</p>
+<p>How do we solve for <span class="arithmatex">\(x\)</span> in the equation <span class="arithmatex">\(Ax = b\)</span>?</p>
 </div>
-<h2 id="setting">Setting<a class="headerlink" href="#setting" title="Permanent link">&para;</a></h2>
-<p>Before we tackle the general problem of <span class="arithmatex">\(Ax = b\)</span>, let us first see if we can solve the system when <span class="arithmatex">\(b\)</span> is the zero vector. In all the discussions that follow, this will be our setting:</p>
-<ul>
-<li><span class="arithmatex">\(A\)</span> is a matrix of dimensions <span class="arithmatex">\(m \times n\)</span></li>
-<li><span class="arithmatex">\(x\)</span> is a column-vector of size <span class="arithmatex">\(n\)</span></li>
-<li><span class="arithmatex">\(x \in \mathbb{R}^n\)</span></li>
-<li><span class="arithmatex">\(Ax \in \mathbb{R}^{m}\)</span></li>
-</ul>
-<p>The equation that we have taken up is:
-$$
-Ax = 0
-$$</p>
+<h2 id="column-space">Column space<a class="headerlink" href="#column-space" title="Permanent link">&para;</a></h2>
+<p>Now we come to the general form of the equation, <span class="arithmatex">\(Ax = b\)</span>. First, we need to know if the equation admits any solution at all. For this, we have to take a closer look at this equation and see what it means:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+\vdots &amp; \vdots &amp; \vdots\\
+a_1 &amp; \cdots &amp; a_n\\
+\vdots &amp; \vdots &amp; \vdots
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+\vdots\\
+x_n
+\end{bmatrix} = \begin{bmatrix}
+b_1\\
+\vdots\\
+b_m
+\end{bmatrix}
+\]</div>
+<p>Here, <span class="arithmatex">\(a_1, \cdots, a_n\)</span> are the columns of <span class="arithmatex">\(A\)</span>. Recall that the product of a matrix and a vector can be interpreted as a linear combination of the columns of the matrix:</p>
+<div class="arithmatex">\[
+x_1 a_1 + \cdots x_na_n=b
+\]</div>
+<p><span class="arithmatex">\(Ax = b\)</span> has a solution if and only if <span class="arithmatex">\(b\)</span> can be expressed as a linear combination of the columns of <span class="arithmatex">\(A\)</span>. Since the set of all linear combination of <span class="arithmatex">\(A\)</span> is given by the <span class="arithmatex">\(\text{span}(\{a_1, \cdots, a_n\})\)</span>, the equation is solvable if and only if <span class="arithmatex">\(b \in \text{span}(\{a_1, \cdots, a_n\})\)</span>. The span of the columns of <span class="arithmatex">\(A\)</span> is a subspace and is called the column space of the matrix <span class="arithmatex">\(A\)</span>. Thus, <span class="arithmatex">\(C(A)=\text{span}(\{a_1, \cdots, a_n\})\)</span>. We have now answered the question of when <span class="arithmatex">\(Ax = b\)</span> is solvable. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We have to be careful with the use of <span class="arithmatex">\(0\)</span>. Depending on the context, it could either mean a scalar or a vector.</p>
+<p>The dimension of the column space is called the rank. You must be aware of the rank-nullity theorem:
+$$
+        \text{rank} + \text{nullity} = n
+$$</p>
 </div>
-<h2 id="nullspace">Nullspace<a class="headerlink" href="#nullspace" title="Permanent link">&para;</a></h2>
-<p>We can immediately see that <span class="arithmatex">\(x = 0\)</span> is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say <span class="arithmatex">\(x_1\)</span>. Then, we can see that <span class="arithmatex">\(k x_1\)</span> is also a solution. This is because <span class="arithmatex">\(A (kx_1) = k \cdot Ax_1 = 0\)</span>. Also, if <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are two solutions to the equation, then <span class="arithmatex">\(x_1 + x_2\)</span> is also a solution, as <span class="arithmatex">\(A(x_1 + x_2) = Ax_1 + Ax_2 = 0\)</span>. From these two observations, we see that the set of all solutions to the equation <span class="arithmatex">\(Ax = 0\)</span> is a subspace of <span class="arithmatex">\(\mathbb{R}^{n}\)</span>. We denote this by <span class="arithmatex">\(N(A)\)</span> and call it the nullspace of <span class="arithmatex">\(A\)</span>. The dimension of the nullspace is called nullity.</p>
-<p>All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If <span class="arithmatex">\(B = \{v_1, \cdots, v_k\}\)</span> is a basis for the nullspace, then the set of all solutions to the equation is given by <span class="arithmatex">\(N(A) = \text{span}(B)\)</span>.</p>
-<h2 id="row-echelon-form">Row-Echelon form<a class="headerlink" href="#row-echelon-form" title="Permanent link">&para;</a></h2>
-<p>Let us take up an example and work with that:</p>
-<div class="arithmatex">\[
-A = \begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-2 &amp; 1 &amp; 0 &amp; 1\\
-3 &amp; 1 &amp; -1 &amp; 1
-\end{bmatrix}
-\]</div>
-<p>Recall that we can apply a sequence of any of these three row operations on a matrix:</p>
-<ul>
-<li>swap two rows</li>
-<li>scale a row by a non-zero constant</li>
-<li>add a scalar multiple of a row to another row</li>
-</ul>
-<p><strong>Step-1</strong></p>
+<h2 id="conditions-for-solution">Conditions for Solution<a class="headerlink" href="#conditions-for-solution" title="Permanent link">&para;</a></h2>
+<p>Let us reuse the example from the previous unit:</p>
 <div class="arithmatex">\[
 \begin{bmatrix}
 1 &amp; 0 &amp; -1 &amp; 0\\
 2 &amp; 1 &amp; 0 &amp; 1\\
 3 &amp; 1 &amp; -1 &amp; 1
-\end{bmatrix} \underrightarrow{R_2 \rightarrow R_2-2R_1} 
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-3 &amp; 1 &amp; -1 &amp; 1
-\end{bmatrix}
-\]</div>
-<p><strong>Step-2</strong></p>
-<div class="arithmatex">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-3 &amp; 1 &amp; -1 &amp; 1
-\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3-3R_1} 
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-0 &amp; 1 &amp; 2 &amp; 1
-\end{bmatrix}
-\]</div>
-<p><strong>Step-3</strong></p>
-<div class="arithmatex">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-0 &amp; 1 &amp; 2 &amp; 1
-\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3 - R_2} 
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}
-\]</div>
-<p>The final matrix that we have is in row-echelon form. Here is a quick reminder of what the row-echelon matrix is:</p>
-<ul>
-<li>All rows that have only zeros are at the bottom.</li>
-<li>The first nonzero entry in a row is always to the right of the nonzero entry in the row above it.</li>
-</ul>
-<p>The first nonzero entry in a row is called a pivot. Let us call the row-echelon matrix of <span class="arithmatex">\(A\)</span> as <span class="arithmatex">\(B\)</span>. We state the following result without a proof.</p>
-<div class="admonition note">
-<p class="admonition-title">Useful result</p>
-<p><span class="arithmatex">\(Bx = 0\)</span> if and only if <span class="arithmatex">\(Ax = 0\)</span></p>
-</div>
-<p>Thus, the nullspace of a matrix and its row-echelon matrix are the same. This lets us forget about <span class="arithmatex">\(A\)</span> and deal with its row-echelon form directly.</p>
-<h2 id="recipe-for-a-basis">Recipe for a Basis<a class="headerlink" href="#recipe-for-a-basis" title="Permanent link">&para;</a></h2>
-<p>Now we have to solve the following equation:</p>
-<div class="arithmatex">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; -1 &amp; 0\\
-0 &amp; 1 &amp; 2 &amp; 1\\
-0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}\begin{bmatrix}
+\end{bmatrix} \begin{bmatrix}
 x_1\\
 x_2\\
 x_3\\
 x_4
 \end{bmatrix} = \begin{bmatrix}
-0\\
-0\\
+b_1\\
+b_2\\
+b_3
+\end{bmatrix}
+\]</div>
+<p>We are back to the row-echelon form, but with the augmented matrix:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0 &amp; \vert &amp;  b_1\\
+2 &amp; 1 &amp; 0 &amp; 1 &amp; \vert &amp; b_2 \\
+3 &amp; 1 &amp; -1 &amp; 1 &amp; \vert &amp; b_3
+\end{bmatrix}
+\]</div>
+<p>If we apply the same sequence of row operations as in the previous case, we get:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0 &amp; \vert &amp;  b_1\\
+0 &amp; 1 &amp; 2 &amp; 1 &amp; \vert &amp; b_2 - 2b_1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \vert &amp; b_3 - b_1 - b_2
+\end{bmatrix}
+\]</div>
+<p>We can immediately see that the system has a solution if and only if the following condition is met:</p>
+<div class="arithmatex">\[
+b_3 - b_1 - b_2 = 0
+\]</div>
+<p>Now that we have the row-echelon matrix, let us rephrase the equation as follows:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+x_4
+\end{bmatrix} = \begin{bmatrix}
+b_1\\
+b_2 - 2b_1\\
+b_3 - b_1 - b_2
+\end{bmatrix}
+\]</div>
+<p>Let us call this system <span class="arithmatex">\(Bx = c\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(x\)</span> is a solution to <span class="arithmatex">\(Ax = b\)</span> if and only if <span class="arithmatex">\(x\)</span> is a solution to <span class="arithmatex">\(Bx = c\)</span></p>
+</div>
+<h2 id="general-solution">General Solution<a class="headerlink" href="#general-solution" title="Permanent link">&para;</a></h2>
+<p>If a solution exists, how do we find it? And what about all possible solutions? First note that the set of pivot columns are linearly independent and form a basis for the column space of <span class="arithmatex">\(B\)</span>. In the example we are working with, this is quite clear:</p>
+<div class="arithmatex">\[
+C(B) = \text{span}\left( \left\{\begin{bmatrix}
+1\\
 0\\
 0
-\end{bmatrix} 
-\]</div>
-<p>Columns <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(2\)</span> are called the pivot columns as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables". </p>
-<div class="admonition note">
-<p class="admonition-title">Algorithm</p>
-<p><span class="arithmatex">\(B = \{ \}\)</span></p>
-<p>For each independent variable <span class="arithmatex">\(x_i\)</span>:</p>
-<ul>
-<li>Set <span class="arithmatex">\(x_i = 1\)</span> and <span class="arithmatex">\(x_j = 0\)</span> for all independent variables, <span class="arithmatex">\(j \neq i\)</span></li>
-<li>Solve for the dependent variables        </li>
-<li>Add <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(B\)</span></li>
-</ul>
-</div>
-<p><span class="arithmatex">\(B\)</span> is the required basis. Let us try it out here. <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are the dependent variables. <span class="arithmatex">\(x_3\)</span> and <span class="arithmatex">\(x_4\)</span> are the independent variables. First, let us set <span class="arithmatex">\(x_3 = 1, x_4 = 0\)</span>. This gives us <span class="arithmatex">\(x_1 = 1, x_2 = -2\)</span>. The first element of the basis is therefore <span class="arithmatex">\(\begin{bmatrix}1 &amp; -2 &amp; 1 &amp; 0\end{bmatrix}^T\)</span>. Next, we set <span class="arithmatex">\(x_3 = 0, x_4 = 1\)</span>. This gives us <span class="arithmatex">\(x_1 = 0, x_2 = -1\)</span>. The second element of the basis is <span class="arithmatex">\(\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 1\end{bmatrix}^T\)</span>. Thus, the basis for <span class="arithmatex">\(N(A)\)</span> is:</p>
-<div class="arithmatex">\[
-B = \left \{ \begin{bmatrix}1\\
--2\\
-1\\
-0\end{bmatrix}, \begin{bmatrix}0\\
--1\\
+\end{bmatrix}, \begin{bmatrix}
 0\\
-1\end{bmatrix} \right \}
+1\\
+0
+\end{bmatrix} \right\} \right)
 \]</div>
-<p>The set of all solutions for the equation <span class="arithmatex">\(Ax = 0\)</span> is <span class="arithmatex">\(\text{span}(B)\)</span>. </p>
+<p>So, <span class="arithmatex">\(b\)</span> can be uniquely expressed as a linear combination of the columns of this basis. Let us call this particular solution <span class="arithmatex">\(x_p\)</span>. If <span class="arithmatex">\(x_n\)</span> is some vector in the nullspace of <span class="arithmatex">\(A\)</span>, then every general solution <span class="arithmatex">\(x_g\)</span> to the equation can be expressed in this form:
+$$
+x_g = x_p + x_n
+$$
+To see why this might be true, just pre-multiply both sides by <span class="arithmatex">\(A\)</span>:</p>
+<div class="arithmatex">\[
+Ax_g = A(x_p + x_n) = Ax_p + Ax_n = b
+\]</div>
+<p>This not a complete proof. We have only shown that <span class="arithmatex">\(x_p + x_n\)</span> is a solution. It may still not be clear why every solution should be of this form. But we will skip this argument in this course. Coming back to the example we are working with, how do we find the particular solution <span class="arithmatex">\(x_p\)</span>? We set all independent variables to zero and solve for the dependent variables:</p>
+<div class="arithmatex">\[
+x_p = \begin{bmatrix}
+b_1\\
+b_2 - 2b_1\\
+0\\
+0
+\end{bmatrix}
+\]</div>
+<p>We already know how to get <span class="arithmatex">\(x_n\)</span>. Refer to the previous unit on computing a basis for the nullspace of the matrix.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>In order to solve the equation <span class="arithmatex">\(Ax = 0\)</span>, we first reduce the matrix <span class="arithmatex">\(A\)</span> to its row-echelon form. Then we use an iterative algorithm to construct a basis for the null space. The span of the basis is the set of all solutions to this equation.</p>
+<p><span class="arithmatex">\(Ax = b\)</span> is solvable if and only if <span class="arithmatex">\(b\)</span> is an element of the column space of <span class="arithmatex">\(A\)</span>. If this is true, then the general solution to the equation can be expressed as <span class="arithmatex">\(x_p + x_n\)</span>, where <span class="arithmatex">\(x_p\)</span> is a particular solution and <span class="arithmatex">\(x_n\)</span> is some vector in the nullspace of <span class="arithmatex">\(A\)</span>.</p>
 
               
             </article>
@@ -564,7 +559,7 @@ B = \left \{ \begin{bmatrix}1\\
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../2-linear_model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linear Regression" rel="prev">
+        <a href="../3-system_1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: System of Equations-(1)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -573,7 +568,7 @@ B = \left \{ \begin{bmatrix}1\\
               <span class="md-footer__direction">
                 Previous
               </span>
-              Linear Regression
+              System of Equations-(1)
             </div>
           </div>
         </a>

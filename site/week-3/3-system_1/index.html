@@ -13,7 +13,7 @@
     
     
       
-        <title>Linear Algebra for ML - Machine Learning Foundations</title>
+        <title>System of Equations-(1) - Machine Learning Foundations</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linear-algebra-for-ml" class="md-skip">
+        <a href="#system-of-equations-1" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linear Algebra for ML
+              System of Equations-(1)
             
           </span>
         </div>
@@ -217,73 +217,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Linear Algebra for ML
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../0-linear_algebra/" class="md-nav__link">
         Linear Algebra for ML
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#data" class="md-nav__link">
-    Data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vectors" class="md-nav__link">
-    Vectors
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrices" class="md-nav__link">
-    Matrices
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -321,11 +259,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../3-system_1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          System of Equations-(1)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         System of Equations-(1)
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting" class="md-nav__link">
+    Setting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nullspace" class="md-nav__link">
+    Nullspace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#row-echelon-form" class="md-nav__link">
+    Row-Echelon form
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recipe-for-a-basis" class="md-nav__link">
+    Recipe for a Basis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -378,22 +385,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#data" class="md-nav__link">
-    Data
+  <a href="#setting" class="md-nav__link">
+    Setting
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vectors" class="md-nav__link">
-    Vectors
+  <a href="#nullspace" class="md-nav__link">
+    Nullspace
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrices" class="md-nav__link">
-    Matrices
+  <a href="#row-echelon-form" class="md-nav__link">
+    Row-Echelon form
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recipe-for-a-basis" class="md-nav__link">
+    Recipe for a Basis
   </a>
   
 </li>
@@ -419,167 +433,138 @@
                 
 
 
-<h1 id="linear-algebra-for-ml">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml" title="Permanent link">&para;</a></h1>
+<h1 id="system-of-equations-1">System of Equations-(1)<a class="headerlink" href="#system-of-equations-1" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Why should we study linear algebra in a course on data science?</p>
+<p>How do we solve for <span class="arithmatex">\(x\)</span> in the equation <span class="arithmatex">\(Ax = 0\)</span>?</p>
 </div>
-<h2 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h2>
-<p>The simplest answer to this question is that we choose vectors and matrices to represent data. Let us take a simple example of data coming from the housing industry. Every house in a locality has the following <strong>features</strong> or <strong>attributes</strong> associated with it:</p>
+<h2 id="setting">Setting<a class="headerlink" href="#setting" title="Permanent link">&para;</a></h2>
+<p>Before we tackle the general problem of <span class="arithmatex">\(Ax = b\)</span>, let us first see if we can solve the system when <span class="arithmatex">\(b\)</span> is the zero vector. In all the discussions that follow, this will be our setting:</p>
 <ul>
-<li>lattitude</li>
-<li>longitue</li>
-<li>age</li>
-<li>num_of_rooms</li>
-<li>area</li>
-<li>distance_from_school</li>
+<li><span class="arithmatex">\(A\)</span> is a matrix of dimensions <span class="arithmatex">\(m \times n\)</span></li>
+<li><span class="arithmatex">\(x\)</span> is a column-vector of size <span class="arithmatex">\(n\)</span></li>
+<li><span class="arithmatex">\(x \in \mathbb{R}^n\)</span></li>
+<li><span class="arithmatex">\(Ax \in \mathbb{R}^{m}\)</span></li>
 </ul>
-<p>A typical problem in ML is this:</p>
-<blockquote>
-<p>Given these attributes or features of a house, can we predict its selling price?</p>
-</blockquote>
-<p>This is called a <strong>regression problem</strong>: given a set of features, map it to a real number. </p>
-<h2 id="vectors">Vectors<a class="headerlink" href="#vectors" title="Permanent link">&para;</a></h2>
-<p>Let us take a concrete example of a single <strong>data-point</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Attributes/Target</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lattitude</td>
-<td>12.9</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>80.2</td>
-</tr>
-<tr>
-<td>age</td>
-<td>3</td>
-</tr>
-<tr>
-<td>num_of_rooms</td>
-<td>2</td>
-</tr>
-<tr>
-<td>area</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>distance_from_nearest_school</td>
-<td>3</td>
-</tr>
-<tr>
-<td>selling_price</td>
-<td>40</td>
-</tr>
-</tbody>
-</table>
-<p>Lattitude and longitude are in degrees, age is in years, area is in square feet, distance is in kilometers, selling price is in lakhs. But none of these really matter for an ML algorithm: it is going to abstract out the details (such as units) and look at this as a column of numbers, which is nothing but a vector:</p>
-<div class="arithmatex">\[
-\begin{bmatrix}
-12.9\\
-80.2\\
-3\\
-2\\
-1000\\
-3\\
-\end{bmatrix}
-\]</div>
-<p>Note that the selling price is not included as an element in the vector as that is usually unkown to us. This unkown quantity which we have to estimate or <strong>predict</strong> is called the <strong>target</strong>. </p>
+<p>The equation that we have taken up is:
+$$
+Ax = 0
+$$</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Vectors are usually represented as column vectors or <span class="arithmatex">\(n \times 1\)</span> matrices.</p>
+<p>We have to be careful with the use of <span class="arithmatex">\(0\)</span>. Depending on the context, it could either mean a scalar or a vector.</p>
 </div>
-<h2 id="matrices">Matrices<a class="headerlink" href="#matrices" title="Permanent link">&para;</a></h2>
-<p>We cannot learn anything substantial from looking at the data of one house. We have to look at the data of multiple houses. That will give us an idea of the general picture. Rather than look at each vector in isolation, we can arrange them in a tablular form:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>lattitude</th>
-<th>longitude</th>
-<th>age</th>
-<th>rooms</th>
-<th>area</th>
-<th>distance</th>
-<th>price</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>12.9</td>
-<td>80.2</td>
-<td>3</td>
-<td>2</td>
-<td>1000</td>
-<td>3</td>
-<td>40</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>50</td>
-<td>14.3</td>
-<td>75.9</td>
-<td>30</td>
-<td>2</td>
-<td>1200</td>
-<td>5</td>
-<td>20</td>
-</tr>
-<tr>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>100</td>
-<td>20.8</td>
-<td>90.5</td>
-<td>1</td>
-<td>3</td>
-<td>1500</td>
-<td>2</td>
-<td>35</td>
-</tr>
-</tbody>
-</table>
-<p>This data for <span class="arithmatex">\(100\)</span> houses is nothing but a <span class="arithmatex">\(100 \times 6\)</span> matrix:</p>
+<h2 id="nullspace">Nullspace<a class="headerlink" href="#nullspace" title="Permanent link">&para;</a></h2>
+<p>We can immediately see that <span class="arithmatex">\(x = 0\)</span> is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say <span class="arithmatex">\(x_1\)</span>. Then, we can see that <span class="arithmatex">\(k x_1\)</span> is also a solution. This is because <span class="arithmatex">\(A (kx_1) = k \cdot Ax_1 = 0\)</span>. Also, if <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are two solutions to the equation, then <span class="arithmatex">\(x_1 + x_2\)</span> is also a solution, as <span class="arithmatex">\(A(x_1 + x_2) = Ax_1 + Ax_2 = 0\)</span>. From these two observations, we see that the set of all solutions to the equation <span class="arithmatex">\(Ax = 0\)</span> is a subspace of <span class="arithmatex">\(\mathbb{R}^{n}\)</span>. We denote this by <span class="arithmatex">\(N(A)\)</span> and call it the nullspace of <span class="arithmatex">\(A\)</span>. The dimension of the nullspace is called nullity.</p>
+<p>All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If <span class="arithmatex">\(B = \{v_1, \cdots, v_k\}\)</span> is a basis for the nullspace, then the set of all solutions to the equation is given by <span class="arithmatex">\(N(A) = \text{span}(B)\)</span>.</p>
+<h2 id="row-echelon-form">Row-Echelon form<a class="headerlink" href="#row-echelon-form" title="Permanent link">&para;</a></h2>
+<p>Let us take up an example and work with that:</p>
 <div class="arithmatex">\[
-\begin{bmatrix}
-12.9 &amp; 80.2 &amp; 3 &amp; 2 &amp; 1000 &amp; 3\\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
-14.3 &amp; 75.9 &amp; 30 &amp; 2 &amp; 1200 &amp; 5\\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
-20.8 &amp; 90.5 &amp; 1 &amp; 3 &amp; 1500 &amp; 2
+A = \begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+2 &amp; 1 &amp; 0 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
 \end{bmatrix}
 \]</div>
-<p>Each row of this matrix corresponds to one data-point. In general, if a dataset has <span class="arithmatex">\(n\)</span> features and <span class="arithmatex">\(m\)</span> data-points, it is represented as a <span class="arithmatex">\(m \times n\)</span> data-matrix.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you find yourself lost when working with matrices, remember that a matrix is a way represent a collection of data-points (dataset).</p>
+<p>Recall that we can apply a sequence of any of these three row operations on a matrix:</p>
+<ul>
+<li>swap two rows</li>
+<li>scale a row by a non-zero constant</li>
+<li>add a scalar multiple of a row to another row</li>
+</ul>
+<p><strong>Step-1</strong></p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+2 &amp; 1 &amp; 0 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_2 \rightarrow R_2-2R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix}
+\]</div>
+<p><strong>Step-2</strong></p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3-3R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix}
+\]</div>
+<p><strong>Step-3</strong></p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3 - R_2} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</div>
+<p>The final matrix that we have is in row-echelon form. Here is a quick reminder of what the row-echelon matrix is:</p>
+<ul>
+<li>All rows that have only zeros are at the bottom.</li>
+<li>The first nonzero entry in a row is always to the right of the first nonzero entry in the row above it.</li>
+</ul>
+<p>The first nonzero entry in a row is called a pivot. Let us call the row-echelon matrix of <span class="arithmatex">\(A\)</span> as <span class="arithmatex">\(B\)</span>. We state the following result without a proof.</p>
+<div class="admonition note">
+<p class="admonition-title">Useful result</p>
+<p><span class="arithmatex">\(Bx = 0\)</span> if and only if <span class="arithmatex">\(Ax = 0\)</span></p>
 </div>
+<p>Thus, the nullspace of a matrix and its row-echelon matrix are the same. This lets us forget about <span class="arithmatex">\(A\)</span> and deal with its row-echelon form directly.</p>
+<h2 id="recipe-for-a-basis">Recipe for a Basis<a class="headerlink" href="#recipe-for-a-basis" title="Permanent link">&para;</a></h2>
+<p>Now we have to solve the following equation:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+x_4
+\end{bmatrix} = \begin{bmatrix}
+0\\
+0\\
+0\\
+0
+\end{bmatrix} 
+\]</div>
+<p>Columns <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(2\)</span> are called the <strong>pivot columns</strong> as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables".</p>
+<div class="admonition note">
+<p class="admonition-title">Algorithm</p>
+<p><span class="arithmatex">\(B = \{ \}\)</span></p>
+<p>For each independent variable <span class="arithmatex">\(x_i\)</span>:</p>
+<ul>
+<li>Set <span class="arithmatex">\(x_i = 1\)</span> and <span class="arithmatex">\(x_j = 0\)</span> for all independent variables, <span class="arithmatex">\(j \neq i\)</span></li>
+<li>Solve for the dependent variables        </li>
+<li>Add <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(B\)</span></li>
+</ul>
+</div>
+<p><span class="arithmatex">\(B\)</span> is the required basis. Let us try it out here. <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are the dependent variables. <span class="arithmatex">\(x_3\)</span> and <span class="arithmatex">\(x_4\)</span> are the independent variables. First, let us set <span class="arithmatex">\(x_3 = 1, x_4 = 0\)</span>. This gives us <span class="arithmatex">\(x_1 = 1, x_2 = -2\)</span>. The first element of the basis is therefore <span class="arithmatex">\(\begin{bmatrix}1 &amp; -2 &amp; 1 &amp; 0\end{bmatrix}^T\)</span>. Next, we set <span class="arithmatex">\(x_3 = 0, x_4 = 1\)</span>. This gives us <span class="arithmatex">\(x_1 = 0, x_2 = -1\)</span>. The second element of the basis is <span class="arithmatex">\(\begin{bmatrix}0 &amp; -1 &amp; 0 &amp; 1\end{bmatrix}^T\)</span>. Thus, the basis for <span class="arithmatex">\(N(A)\)</span> is:</p>
+<div class="arithmatex">\[
+B = \left \{ \begin{bmatrix}1\\
+-2\\
+1\\
+0\end{bmatrix}, \begin{bmatrix}0\\
+-1\\
+0\\
+1\end{bmatrix} \right \}
+\]</div>
+<p>The set of all solutions for the equation <span class="arithmatex">\(Ax = 0\)</span> is <span class="arithmatex">\(\text{span}(B)\)</span>. </p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Data is represented as vectors and matrices. If we wish to extract insights from data, we need to know how to manipulate vectors and matrices. Therefore, we need to have a reasonable understanding of linear algebra — the study of vectors and matrices — if we wish to understand how ML algorithms work.</p>
+<p>In order to solve the equation <span class="arithmatex">\(Ax = 0\)</span>, we first reduce the matrix <span class="arithmatex">\(A\)</span> to its row-echelon form. Then we use an iterative algorithm to construct a basis for the null space. The span of the basis is the set of all solutions to this equation.</p>
 
               
             </article>
@@ -593,7 +578,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Machine Learning Foundations" rel="prev">
+        <a href="../2-linear_model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linear Regression" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -602,20 +587,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Machine Learning Foundations
+              Linear Regression
             </div>
           </div>
         </a>
       
       
         
-        <a href="../1-ml_problem/" class="md-footer__link md-footer__link--next" aria-label="Next: ML problem" rel="next">
+        <a href="../4-system_2/" class="md-footer__link md-footer__link--next" aria-label="Next: System of Equations-(2)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              ML problem
+              System of Equations-(2)
             </div>
           </div>
           <div class="md-footer__button md-icon">

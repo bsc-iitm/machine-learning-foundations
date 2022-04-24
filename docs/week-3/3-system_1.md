@@ -105,7 +105,7 @@ $$
 The final matrix that we have is in row-echelon form. Here is a quick reminder of what the row-echelon matrix is:
 
 - All rows that have only zeros are at the bottom.
-- The first nonzero entry in a row is always to the right of the nonzero entry in the row above it.
+- The first nonzero entry in a row is always to the right of the first nonzero entry in the row above it.
 
 The first nonzero entry in a row is called a pivot. Let us call the row-echelon matrix of $A$ as $B$. We state the following result without a proof.
 
@@ -140,7 +140,7 @@ x_4
 $$
 
 
-Columns $1$ and $2$ are called the pivot columns as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables". 
+Columns $1$ and $2$ are called the **pivot columns** as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables".
 
 !!! note "Algorithm"
     $B = \{ \}$

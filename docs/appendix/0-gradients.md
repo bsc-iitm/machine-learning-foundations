@@ -75,6 +75,9 @@ a_{11} & a_{12}\\
 \begin{bmatrix}
 x_1\\
 x_2
+\end{bmatrix} - \begin{bmatrix}
+b_1\\
+b_2
 \end{bmatrix}\\\\
 E &= e^T e = e_1^2 + e_2^2 + e_3^2
 \end{aligned}

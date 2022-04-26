@@ -105,3 +105,27 @@ We still don't know if this is corresponds to a minima. Rest assured that this i
 
 
 
+## Least Squares Problem
+
+This is often called the least squares problem. To see why this name is used, let us revisit the objective function:
+
+
+$$
+E = (Ax - b)^T (Ax - b)
+$$
+
+
+Since $Ax$ is an approximation of $b$, $e = Ax - b$ can be seen as an error vector. So:
+
+
+$$
+E = e^T e = e_1^2 + \cdots + e_m^2
+$$
+
+
+From a ML standpoint, recall the housing dataset with which we started. $e_i$ is the difference between the actual selling price of the $i^{th}$ house and its predicted selling price as given by our linear model. In a sense, we are justified in calling $e$ the error vector. We are minimizing the sum of the squared errors, hence "least squares". $\hat{x}$ is that weight vector for the linear model which will give us the best possible fit. In the next few units, we shall try to understand the least squares problem from the lens of geometry.
+
+
+
+## Summary
+

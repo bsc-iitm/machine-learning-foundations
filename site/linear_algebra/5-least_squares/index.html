@@ -213,6 +213,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -357,10 +361,52 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#least-squares-problem" class="md-nav__link">
+    Least Squares Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6-best_fit/" class="md-nav__link">
+        Best Fit Hyperplane
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7-projections/" class="md-nav__link">
+        Projections
+      </a>
     </li>
   
 
@@ -471,6 +517,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#least-squares-problem" class="md-nav__link">
+    Least Squares Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -547,6 +607,17 @@ This system is called the <strong>normal equations</strong>. If the matrix <span
 \hat{x} = (A^TA)^{-1} A^Tb
 \]</div>
 <p>We still don't know if this is corresponds to a minima. Rest assured that this is indeed a minima. But we won't take up the proof now. The other worrying part is what happens if the matrix <span class="arithmatex">\(A^TA\)</span> is singular or non-invertible. This is also something that we skip for the time being.</p>
+<h2 id="least-squares-problem">Least Squares Problem<a class="headerlink" href="#least-squares-problem" title="Permanent link">&para;</a></h2>
+<p>This is often called the least squares problem. To see why this name is used, let us revisit the objective function:</p>
+<div class="arithmatex">\[
+E = (Ax - b)^T (Ax - b)
+\]</div>
+<p>Since <span class="arithmatex">\(Ax\)</span> is an approximation of <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(e = Ax - b\)</span> can be seen as an error vector. So:</p>
+<div class="arithmatex">\[
+E = e^T e = e_1^2 + \cdots + e_m^2
+\]</div>
+<p>From a ML standpoint, recall the housing dataset with which we started. <span class="arithmatex">\(e_i\)</span> is the difference between the actual selling price of the <span class="arithmatex">\(i^{th}\)</span> house and its predicted selling price as given by our linear model. In a sense, we are justified in calling <span class="arithmatex">\(e\)</span> the error vector. We are minimizing the sum of the squared errors, hence "least squares". <span class="arithmatex">\(\hat{x}\)</span> is that weight vector for the linear model which will give us the best possible fit. In the next few units, we shall try to understand the least squares problem from the lens of geometry.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 
               
             </article>
@@ -576,13 +647,13 @@ This system is called the <strong>normal equations</strong>. If the matrix <span
       
       
         
-        <a href="../../appendix/0-gradients/" class="md-footer__link md-footer__link--next" aria-label="Next: Gradients" rel="next">
+        <a href="../6-best_fit/" class="md-footer__link md-footer__link--next" aria-label="Next: Best Fit Hyperplane" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Gradients
+              Best Fit Hyperplane
             </div>
           </div>
           <div class="md-footer__button md-icon">

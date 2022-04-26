@@ -16,6 +16,8 @@ nav:
     - linear_algebra/3-system_1.md
     - linear_algebra/4-system_2.md
     - linear_algebra/5-least_squares.md
+    - linear_algebra/6-best_fit.md
+    - linear_algebra/7-projections.md
   - Appendix:
     - appendix/0-gradients.md
 

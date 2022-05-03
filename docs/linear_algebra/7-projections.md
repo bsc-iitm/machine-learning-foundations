@@ -55,7 +55,7 @@ The column space is a line passing through the origin and the point $(2, 1)$. Cl
 
 
 
-## Projections: 2-dimensional
+## Projections: 2-dimensions
 
 The key idea to remember is that the approximation is going to lie in the column space of $A$. What vector in $C(A)$ is closest to to $b$?  First up, what do we mean by closest? Recall that the distance between the two vectors is our measure of distance. In our 2D case, this is nothing but the distance between the point $b$ and some point on the line $C(A)$. The point on the line which is going to have the shortest distance is the projection of $b$ onto the line! Why is that the case? Among all line segments from a point to a line, the perpendicular to it is the shortest.
 
@@ -151,7 +151,7 @@ Algebra does agree with geometry!
 
 
 
-## Projections: m-dimensional
+## Projections: m-dimensions
 
 The main takeaway from the 2D case is this: the vector closest to $b$ in the column space of $A$ is its projection onto the column space of $A$. This can be extended to any higher dimensional space. First, we note that for a projection, the error vector is orthogonal to the column space of $A$:
 

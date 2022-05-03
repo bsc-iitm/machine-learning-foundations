@@ -9,6 +9,7 @@ theme:
         - navigation.indexes
 nav:
   - Home: index.md
+  - Contribute: contribute.md
   - Linear Algebra:
     - linear_algebra/0-linear_algebra.md
     - linear_algebra/1-ml_problem.md
@@ -18,8 +19,10 @@ nav:
     - linear_algebra/5-least_squares.md
     - linear_algebra/6-best_fit.md
     - linear_algebra/7-projections.md
+    - linear_algebra/8-eigenvalues.md
   - Appendix:
     - appendix/0-gradients.md
+    - appendix/1-cauchy_schwarz.md
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -35,5 +38,4 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
 

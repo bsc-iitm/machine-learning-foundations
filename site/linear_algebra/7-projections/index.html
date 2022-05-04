@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -189,6 +189,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -196,7 +211,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -217,15 +232,17 @@
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_3">
           Linear Algebra
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Linear Algebra" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Linear Algebra
         </label>
@@ -383,8 +400,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#projections-2-dimensional" class="md-nav__link">
-    Projections: 2-dimensional
+  <a href="#projections-2-dimensions" class="md-nav__link">
+    Projections: 2-dimensions
   </a>
   
 </li>
@@ -397,8 +414,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#projections-m-dimensional" class="md-nav__link">
-    Projections: m-dimensional
+  <a href="#projections-m-dimensions" class="md-nav__link">
+    Projections: m-dimensions
   </a>
   
 </li>
@@ -414,6 +431,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8-eigenvalues.md" class="md-nav__link">
+        None
+      </a>
     </li>
   
 
@@ -436,22 +467,24 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
         
           
         
+          
+        
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Appendix
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Appendix" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Appendix
         </label>
@@ -465,6 +498,20 @@
     <li class="md-nav__item">
       <a href="../../appendix/0-gradients/" class="md-nav__link">
         Gradients
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/1-cauchy_schwarz/" class="md-nav__link">
+        Cauchy-Schwarz Inequality
       </a>
     </li>
   
@@ -518,8 +565,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#projections-2-dimensional" class="md-nav__link">
-    Projections: 2-dimensional
+  <a href="#projections-2-dimensions" class="md-nav__link">
+    Projections: 2-dimensions
   </a>
   
 </li>
@@ -532,8 +579,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#projections-m-dimensional" class="md-nav__link">
-    Projections: m-dimensional
+  <a href="#projections-m-dimensions" class="md-nav__link">
+    Projections: m-dimensions
   </a>
   
 </li>
@@ -591,7 +638,7 @@ C(A) = \text{span}\left( \left\{ \begin{bmatrix}2\\1\end{bmatrix} \right\} \righ
 <p>The second column of <span class="arithmatex">\(A\)</span> is just three times the first column. The rank of the matrix is <span class="arithmatex">\(1\)</span>. The column space of <span class="arithmatex">\(A\)</span> is a one-dimensional subspace of <span class="arithmatex">\(\mathbb{R}^2\)</span> . Geometrically, what does this mean?</p>
 <p><img alt="" src="../../assets/images/img_005.svg" width="1000" /></p>
 <p>The column space is a line passing through the origin and the point <span class="arithmatex">\((2, 1)\)</span>. Clearly, the vector <span class="arithmatex">\(b\)</span> does not lie in the column space of <span class="arithmatex">\(A\)</span>. So, we are justified in looking for an approximation.</p>
-<h2 id="projections-2-dimensional">Projections: 2-dimensional<a class="headerlink" href="#projections-2-dimensional" title="Permanent link">&para;</a></h2>
+<h2 id="projections-2-dimensions">Projections: 2-dimensions<a class="headerlink" href="#projections-2-dimensions" title="Permanent link">&para;</a></h2>
 <p>The key idea to remember is that the approximation is going to lie in the column space of <span class="arithmatex">\(A\)</span>. What vector in <span class="arithmatex">\(C(A)\)</span> is closest to to <span class="arithmatex">\(b\)</span>?  First up, what do we mean by closest? Recall that the distance between the two vectors is our measure of distance. In our 2D case, this is nothing but the distance between the point <span class="arithmatex">\(b\)</span> and some point on the line <span class="arithmatex">\(C(A)\)</span>. The point on the line which is going to have the shortest distance is the projection of <span class="arithmatex">\(b\)</span> onto the line! Why is that the case? Among all line segments from a point to a line, the perpendicular to it is the shortest.</p>
 <p><img alt="" src="../../assets/images/img_006.svg" width="1000" /></p>
 <p>Geometric intuition therefore suggests that <span class="arithmatex">\(A\hat{x} = \begin{bmatrix}4\\2\end{bmatrix}\)</span>. </p>
@@ -659,7 +706,7 @@ A\hat{x} = \begin{bmatrix}
 \end{bmatrix}
 \]</div>
 <p>Algebra does agree with geometry!</p>
-<h2 id="projections-m-dimensional">Projections: m-dimensional<a class="headerlink" href="#projections-m-dimensional" title="Permanent link">&para;</a></h2>
+<h2 id="projections-m-dimensions">Projections: m-dimensions<a class="headerlink" href="#projections-m-dimensions" title="Permanent link">&para;</a></h2>
 <p>The main takeaway from the 2D case is this: the vector closest to <span class="arithmatex">\(b\)</span> in the column space of <span class="arithmatex">\(A\)</span> is its projection onto the column space of <span class="arithmatex">\(A\)</span>. This can be extended to any higher dimensional space. First, we note that for a projection, the error vector is orthogonal to the column space of <span class="arithmatex">\(A\)</span>:</p>
 <p><img alt="" src="../../assets/images/img_007.svg" width="1000" /></p>
 <p>The error vector <span class="arithmatex">\(e\)</span> is:
@@ -752,7 +799,7 @@ The normal equations again! </p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       

@@ -9,20 +9,28 @@ theme:
         - navigation.indexes
 nav:
   - Home: index.md
-  - Contribute: contribute.md
-  - Linear Algebra:
-    - linear_algebra/0-linear_algebra.md
-    - linear_algebra/1-ml_problem.md
-    - linear_algebra/2-linear_model.md
-    - linear_algebra/3-system_1.md
-    - linear_algebra/4-system_2.md
-    - linear_algebra/5-least_squares.md
-    - linear_algebra/6-best_fit.md
-    - linear_algebra/7-projections.md
-    - linear_algebra/8-eigenvalues.md
+  - Week-1:
+    - week-1/density_estimation.md
+  - Week-2:
+    - None
+  - Week-3:
+    - week-3/outline.md
+    - week-3/0-linear_algebra.md
+    - week-3/1-ml_problem.md
+    - week-3/2-linear_model.md
+    - week-3/3-system_1.md
+    - week-3/4-system_2.md
+    - week-3/5-least_squares.md
+    - week-3/6-best_fit.md
+    - week-3/7-projections.md
+  - Week-4:
+    - week-4/outline.md
+    - week-4/transformations.md
+    - week-4/eigenvalues.md
   - Appendix:
     - appendix/0-gradients.md
     - appendix/1-cauchy_schwarz.md
+  - Contribute: contribute.md
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -38,4 +46,11 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: True
+      css_style:
+        width: "100%"
 

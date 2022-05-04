@@ -1,7 +1,7 @@
 # Gradients
 
 !!! question
-	How do we compute the gradient of the expression $||Ax - b||^2$ with respect to $x$?
+	How do we compute the gradient of the expression $||X\theta - y||^2$ with respect to $\theta$?
 
 
 
@@ -11,7 +11,7 @@ Let us consider the objective function in the minimzation problem for linear reg
 
 
 $$
-E = ||Ax - b||^2
+L = ||X\theta - y||^2
 $$
 
 
@@ -19,34 +19,34 @@ This can be expressed as:
 
 
 $$
-E = (Ax - b)^T(Ax - b)
+L = (X\theta - y)^T(X\theta - y)
 $$
 
 
-The gradient of $E$ with respect to $x$ is given by:
+The gradient of $L$ with respect to $\theta$ is given by:
 
 
 $$
-\nabla_{x} E = \begin{bmatrix}
-\cfrac{\partial E}{\partial x_1}\\
+\nabla_{\theta} L = \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\\
 \vdots\\
-\cfrac{\partial E}{\partial x_n}
+\cfrac{\partial L}{\partial \theta_n}
 \end{bmatrix}
 $$
 
 
-How do we compute this gradient? First, let us rewrite the expression by introducing an error vector, $e = Ax - b$:
+How do we compute this gradient? First, let us rewrite the expression by introducing an error vector, $e = X\theta - y$:
 
 
 $$
-E = e^Te
+L = e^Te
 $$
 
 
-The gradient of $E$ with respect to $x$ can be obtained in a two step process:
+The gradient of $L$ with respect to $\theta$ can be obtained in a two step process:
 
-- $\nabla_e E$: first compute the gradient of $E$ with respect to the error
-- Use the chain rule of differentiation to compute the gradient of $E$ with respect to $x$
+- $\nabla_e L$: first compute the gradient of $L$ with respect to the error
+- Use the chain rule of differentiation to compute the gradient of $L$ with respect to $\theta$
 
 The chain rule when multiple variables are involved can be a bit tricky. This is what will take up next.
 
@@ -57,40 +57,40 @@ The chain rule when multiple variables are involved can be a bit tricky. This is
 !!! warning
     Heavy use of algebra. Go slowly.  
 
-Intuitively, what does $\frac{\partial E}{\partial x_i}$ mean? This partial derivative measures the effect on the variable $E$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $E$ via $e$. There is a chain reaction: $x_1$ affects some of the variables in the vector $e$, which in turn affects $E$. To get a better feel for this, let us take an example:
+Intuitively, what does $\frac{\partial L}{\partial \theta_i}$ mean? This partial derivative measures the effect on the loss $L$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $E$ via $e$. There is a chain reaction: $x_1$ affects some of the variables in the vector $e$, which in turn affects $E$. To get a better feel for this, let us take an example:
 
 
 $$
 \begin{aligned}
-e &= Ax - b\\\\
+e &= X\theta - b\\\\
 \begin{bmatrix}
 e_1\\
 e_2\\
 e_3
 \end{bmatrix} &= \begin{bmatrix}
-a_{11} & a_{12}\\
-a_{21} & a_{12}\\
-a_{11} & a_{12}\\
+x_{11} & x_{12}\\
+x_{21} & x_{22}\\
+x_{31} & x_{32}\\
 \end{bmatrix}
 \begin{bmatrix}
-x_1\\
-x_2
+\theta_1\\
+\theta_2
 \end{bmatrix} - \begin{bmatrix}
-b_1\\
-b_2
+y_1\\
+y_2
 \end{bmatrix}\\\\
 E &= e^T e = e_1^2 + e_2^2 + e_3^2
 \end{aligned}
 $$
 
 
-The variable $x_1$ influences $E$ via three *independent* routes:
+The variable $\theta_1$ influences $L$ via three *independent* routes:
 
 
 
-- $x_1 \rightarrow e_1 \rightarrow E$
-- $x_1 \rightarrow e_2 \rightarrow E$
-- $x_1 \rightarrow e_3 \rightarrow E$
+- $\theta_1 \rightarrow e_1 \rightarrow L$
+- $\theta_1 \rightarrow e_2 \rightarrow L$
+- $\theta_1 \rightarrow e_3 \rightarrow L$
 
 
 
@@ -106,7 +106,7 @@ Symbolically:
 
 
 $$
-\cfrac{\partial E}{\partial x_1} = \cfrac{\partial E}{\partial e_1} \cfrac{\partial e_1}{\partial x_1} + \cfrac{\partial E}{\partial e_2} \cfrac{\partial e_2}{\partial x_1} + \cfrac{\partial E}{\partial e_3} \cfrac{\partial e_3}{\partial x_1}
+\cfrac{\partial L}{\partial \theta_1} = \cfrac{\partial L}{\partial e_1} \cfrac{\partial e_1}{\partial \theta_1} + \cfrac{\partial L}{\partial e_2} \cfrac{\partial e_2}{\partial \theta_1} + \cfrac{\partial L}{\partial e_3} \cfrac{\partial e_3}{\partial \theta_1}
 $$
 
 
@@ -114,42 +114,42 @@ Observe that that the RHS is in the form of a dot product between two vectors:
 
 
 $$
-\cfrac{\partial E}{\partial x_1} = \begin{bmatrix}
-\cfrac{\partial e_1}{\partial x_1} & \cfrac{\partial e_2}{\partial x_1} & 
-\cfrac{\partial e_3}{\partial x_1}
+\cfrac{\partial L}{\partial \theta_1} = \begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_1} & \cfrac{\partial e_2}{\partial \theta_1} & 
+\cfrac{\partial e_3}{\partial \theta_1}
 \end{bmatrix} \begin{bmatrix}
-\cfrac{\partial E}{\partial e_1}\\
-\cfrac{\partial E}{\partial e_2}\\
-\cfrac{\partial E}{\partial e_3}
+\cfrac{\partial L}{\partial e_1}\\
+\cfrac{\partial L}{\partial e_2}\\
+\cfrac{\partial L}{\partial e_3}
 \end{bmatrix}
 $$
 
 
-Notice, that the second vector is nothing but $\nabla_e E$:
+Notice, that the second vector is nothing but $\nabla_e L$:
 
 
 $$
-\cfrac{\partial E}{\partial x_1} = \begin{bmatrix}
-\cfrac{\partial e_1}{\partial x_1} & \cfrac{\partial e_2}{\partial x_1} & 
-\cfrac{\partial e_3}{\partial x_1}
-\end{bmatrix} \nabla_e E
+\cfrac{\partial L}{\partial \theta_1} = \begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_1} & \cfrac{\partial e_2}{\partial \theta_1} & 
+\cfrac{\partial e_3}{\partial \theta_1}
+\end{bmatrix} \nabla_e L
 $$
-We can now add $\cfrac{\partial E}{\partial x_2}$ to the mix:
+We can now add $\cfrac{\partial L}{\partial \theta_2}$ to the mix:
 
 
 $$
 \begin{aligned}
-\nabla_x E &= \begin{bmatrix}
-\cfrac{\partial E}{\partial x_1}\\
-\cfrac{\partial E}{\partial x_2}
+\nabla_x L &= \begin{bmatrix}
+\cfrac{\partial E}{\partial \theta_1}\\
+\cfrac{\partial E}{\partial theta_2}
 \end{bmatrix}\\ \\
 &= \begin{bmatrix}
-\cfrac{\partial e_1}{\partial x_1} & \cfrac{\partial e_2}{\partial x_1} & 
-\cfrac{\partial e_3}{\partial x_1}\\
-\cfrac{\partial e_1}{\partial x_2} & \cfrac{\partial e_2}{\partial x_2} & 
-\cfrac{\partial e_3}{\partial x_3}
-\end{bmatrix} \nabla_e E\\\\
-&= J\ \nabla_e E
+\cfrac{\partial e_1}{\partial \theta_1} & \cfrac{\partial e_2}{\partial \theta_1} & 
+\cfrac{\partial e_3}{\partial \theta_1}\\
+\cfrac{\partial e_1}{\partial \theta_2} & \cfrac{\partial e_2}{\partial \theta_2} & 
+\cfrac{\partial e_3}{\partial \theta_2}
+\end{bmatrix} \nabla_e L\\\\
+&= J\ \nabla_e L
 \end{aligned}
 $$
 
@@ -158,25 +158,25 @@ The matrix $J$ is called the Jacobian matrix. It represents the partial derivati
 
 
 $$
-J_{ij} = \cfrac{\partial e_j}{\partial x_i}
+J_{ij} = \cfrac{\partial e_j}{\partial \theta_i}
 $$
 
 
 ## Back to the gradients
 
-Let us resume our computation, but this time with a general $m \times n$ matrix $A$, $m$ dimensional vector $b$ and $n$ dimensional vector $x$:
+Let us resume our computation, but this time with a general $m \times n$ matrix $X$, $m$ dimensional vector $y$ and $n$ dimensional vector $\theta$:
 
 
 $$
-\nabla_e E = 2 e
+\nabla_e L = 2 e
 $$
 
 
-We now need to compute the Jacobian. We have $e = Ax - b$. Since $b$ is a constant, it will vanish while computing the derivatives. We only need to worry about $Ax$ for which we can use the following relationship. If $a_i$ is the $i^{th}$ column of $A$, then:
+We now need to compute the Jacobian. We have $e = X\theta - y$. Since $y$ is a constant, it will vanish while computing the derivatives. We only need to worry about $X\theta$ for which we can use the following relationship. If $x_i$ is the $i^{th}$ column of $A$, then:
 
 
 $$
-Ax = x_1 a_1 + \cdots + x_n a_n
+X\theta = \theta_1x_1 + \cdots + \theta_nx_n
 $$
 
 
@@ -185,17 +185,17 @@ $$
 
 $$
 \begin{bmatrix}
-\cfrac{\partial e_1}{\partial x_i} & \cdots & 
-\cfrac{\partial e_m}{\partial x_i}
-\end{bmatrix} = a_i^T
+\cfrac{\partial e_1}{\partial \theta_i} & \cdots & 
+\cfrac{\partial e_m}{\partial \theta_i}
+\end{bmatrix} = x_i^T
 $$
 
+As simple as that: the $i^{th}$ row of the Jacobian is just the $i^{th}$ column of $X$. So, the Jacobian is nothing but $X^T$. We now have the complete expression for $\nabla_{\theta} L$:
 
-As simple as that: the $i^{th}$ row of the Jacobian is just the $i^{th}$ column of $A$. So, the Jacobian is nothing but $A^T$. We now have the complete expression for $\nabla_x E$:
 
 
 $$
-\nabla_x E = 2 A^T (Ax - b) = 2(A^TA x - A^T b)
+\nabla_{\theta} L = 2 X^T (X\theta - y) = 2(X^TX \theta - X^T y)
 $$
 
 

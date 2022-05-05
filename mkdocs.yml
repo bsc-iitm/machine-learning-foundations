@@ -26,7 +26,8 @@ nav:
   - Week-4:
     - week-4/outline.md
     - week-4/transformations.md
-    - week-4/eigenvalues.md
+    - week-4/eigenvectors.md
+    - week-4/char_polynomial.md
   - Appendix:
     - appendix/0-gradients.md
     - appendix/1-cauchy_schwarz.md
@@ -41,6 +42,7 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - admonition
+  - footnotes
 
 extra_javascript:
   - javascripts/mathjax.js

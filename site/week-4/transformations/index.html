@@ -458,6 +458,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -554,8 +556,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../eigenvalues/" class="md-nav__link">
-        Eigenvalues
+      <a href="../eigenvectors/" class="md-nav__link">
+        Eigenvectors and Eigenvalues
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../char_polynomial/" class="md-nav__link">
+        Characteristic Polynomial
       </a>
     </li>
   
@@ -743,7 +759,7 @@ T = \begin{bmatrix}
 0 &amp; 2
 \end{bmatrix}
 \]</div>
-<p>Let us see what this does to the basis vectors:</p>
+<p>Let us see what this does to the basis vectors<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_1.mp4" type="video/mp4" /></video></div></p>
 <p>Notice the effect it has. Each vector is scaled. In this case, it is stretched. It becomes twice as long as the input. To see why this is true algebraically, consider an arbitrary vector <span class="arithmatex">\(x = \begin{bmatrix}x_1 &amp; x_2\end{bmatrix}^T\)</span>:</p>
 <div class="arithmatex">\[
@@ -767,21 +783,37 @@ T = \begin{bmatrix}
 \]</div>
 <p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_2.mp4" type="video/mp4" /></video></div></p>
 <p>This is a rotation matrix. That is, it rotates the input vector without changing its magnitude. Moving on, let us take up another matrix. This time, let us compose the two linear transformations that we have seen. Composition of linear transformations is equivalent to matrix multiplication:</p>
-<p>$$
+<div class="arithmatex">\[
 T = \begin{bmatrix}
-0 &amp; -1\
+0 &amp; -1\\
 1 &amp; 0
 \end{bmatrix} \begin{bmatrix}
-2 &amp; 0\
+2 &amp; 0\\
 0 &amp; 2
 \end{bmatrix} = \begin{bmatrix}
-0 &amp; -2\
+0 &amp; -2\\
 2 &amp; 0
 \end{bmatrix}
-$$
-What do you expect this matrix to do?</p>
+\]</div>
+<p>What do you expect this matrix to do?</p>
 <p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_3.mp4" type="video/mp4" /></video></div></p>
-<p>It stretches the vectors and rotates them by <span class="arithmatex">\(90^{\circ}\)</span>. Note that the two matrices involved in the product are commutative. That is, <span class="arithmatex">\(T_1 T_2 = T_2 T_1\)</span>. Intuitively, we can see why this is true. We could either stretch a vector and then rotate it (OR) we could rotate it and then stretch it.</p>
+<p>It stretches the vectors and rotates them by <span class="arithmatex">\(90^{\circ}\)</span>. Note that the two matrices involved in the product are commutative. That is, <span class="arithmatex">\(T_1 T_2 = T_2 T_1\)</span>. Intuitively, we can see why this is true. We could either stretch a vector and then rotate it (OR) we could rotate it and then stretch it. Let us now move to a more complex linear transformation:</p>
+<div class="arithmatex">\[
+T = \begin{bmatrix}
+2 &amp; 1\\
+1 &amp; 2
+\end{bmatrix}
+\]</div>
+<p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_4.mp4" type="video/mp4" /></video></div></p>
+<p>Now that we have a good idea of what linear transformations do, we are ready to explore the idea of eigenvalues and eigenvectors.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The library <a href="https://www.manim.community/">Manim Community</a> was used to render these animations. The code for this can be found in the GitHub repository.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
               
             </article>
@@ -811,13 +843,13 @@ What do you expect this matrix to do?</p>
       
       
         
-        <a href="../eigenvalues/" class="md-footer__link md-footer__link--next" aria-label="Next: Eigenvalues" rel="next">
+        <a href="../eigenvectors/" class="md-footer__link md-footer__link--next" aria-label="Next: Eigenvectors and Eigenvalues" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Eigenvalues
+              Eigenvectors and Eigenvalues
             </div>
           </div>
           <div class="md-footer__button md-icon">

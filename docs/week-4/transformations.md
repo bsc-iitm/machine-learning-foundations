@@ -59,7 +59,7 @@ $$
 
 
 
-Let us see what this does to the basis vectors:
+Let us see what this does to the basis vectors[^1]:
 
 
 
@@ -102,6 +102,8 @@ $$
 This is a rotation matrix. That is, it rotates the input vector without changing its magnitude. Moving on, let us take up another matrix. This time, let us compose the two linear transformations that we have seen. Composition of linear transformations is equivalent to matrix multiplication:
 
 
+
+
 $$
 T = \begin{bmatrix}
 0 & -1\\
@@ -114,6 +116,8 @@ T = \begin{bmatrix}
 2 & 0
 \end{bmatrix}
 $$
+
+
 What do you expect this matrix to do?
 
 
@@ -122,4 +126,25 @@ What do you expect this matrix to do?
 
 
 
-It stretches the vectors and rotates them by $90^{\circ}$. Note that the two matrices involved in the product are commutative. That is, $T_1 T_2 = T_2 T_1$. Intuitively, we can see why this is true. We could either stretch a vector and then rotate it (OR) we could rotate it and then stretch it.
+It stretches the vectors and rotates them by $90^{\circ}$. Note that the two matrices involved in the product are commutative. That is, $T_1 T_2 = T_2 T_1$. Intuitively, we can see why this is true. We could either stretch a vector and then rotate it (OR) we could rotate it and then stretch it. Let us now move to a more complex linear transformation:
+
+
+
+
+$$
+T = \begin{bmatrix}
+2 & 1\\
+1 & 2
+\end{bmatrix}
+$$
+
+
+
+
+![type:video](../assets/videos/mat_4.mp4)
+
+
+
+Now that we have a good idea of what linear transformations do, we are ready to explore the idea of eigenvalues and eigenvectors.
+
+[^1]: The library [Manim Community](https://www.manim.community/) was used to render these animations. The code for this can be found in the GitHub repository.

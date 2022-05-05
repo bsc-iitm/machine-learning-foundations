@@ -13,7 +13,7 @@
     
     
       
-        <title>Linear Regression - Machine Learning Foundations</title>
+        <title>Characteristic Polynomial - Machine Learning Foundations</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linear-regression" class="md-skip">
+        <a href="#characteristic-polynomial" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linear Regression
+              Characteristic Polynomial
             
           </span>
         </div>
@@ -260,14 +260,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -310,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outline/" class="md-nav__link">
+      <a href="../../week-3/outline/" class="md-nav__link">
         Outline
       </a>
     </li>
@@ -324,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../0-linear_algebra/" class="md-nav__link">
+      <a href="../../week-3/0-linear_algebra/" class="md-nav__link">
         Linear Algebra for ML
       </a>
     </li>
@@ -338,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1-ml_problem/" class="md-nav__link">
+      <a href="../../week-3/1-ml_problem/" class="md-nav__link">
         ML problem
       </a>
     </li>
@@ -350,73 +348,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Linear Regression
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../week-3/2-linear_model/" class="md-nav__link">
         Linear Regression
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#motivation" class="md-nav__link">
-    Motivation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vector-form" class="md-nav__link">
-    Vector form
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#matrix-form" class="md-nav__link">
-    Matrix form
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -428,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3-system_1/" class="md-nav__link">
+      <a href="../../week-3/3-system_1/" class="md-nav__link">
         Xθ = 0
       </a>
     </li>
@@ -442,7 +378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4-system_2/" class="md-nav__link">
+      <a href="../../week-3/4-system_2/" class="md-nav__link">
         Xθ = y
       </a>
     </li>
@@ -456,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5-least_squares/" class="md-nav__link">
+      <a href="../../week-3/5-least_squares/" class="md-nav__link">
         Xθ ≈ y
       </a>
     </li>
@@ -470,7 +406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6-best_fit/" class="md-nav__link">
+      <a href="../../week-3/6-best_fit/" class="md-nav__link">
         Best Fit Hyperplane
       </a>
     </li>
@@ -484,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../7-projections/" class="md-nav__link">
+      <a href="../../week-3/7-projections/" class="md-nav__link">
         Projections
       </a>
     </li>
@@ -504,12 +440,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -542,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../week-4/outline/" class="md-nav__link">
+      <a href="../outline/" class="md-nav__link">
         Outline
       </a>
     </li>
@@ -556,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../week-4/transformations/" class="md-nav__link">
+      <a href="../transformations/" class="md-nav__link">
         Linear Transformations
       </a>
     </li>
@@ -570,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../week-4/eigenvectors/" class="md-nav__link">
+      <a href="../eigenvectors/" class="md-nav__link">
         Eigenvectors and Eigenvalues
       </a>
     </li>
@@ -582,11 +520,73 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../week-4/char_polynomial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Characteristic Polynomial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Characteristic Polynomial
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#necessary-condition" class="md-nav__link">
+    Necessary condition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sufficient-condition" class="md-nav__link">
+    Sufficient condition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nullspace-argument" class="md-nav__link">
+    Nullspace argument
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-polynomial" class="md-nav__link">
+    The Polynomial
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -708,29 +708,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motivation" class="md-nav__link">
-    Motivation
+  <a href="#necessary-condition" class="md-nav__link">
+    Necessary condition
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vector-form" class="md-nav__link">
-    Vector form
+  <a href="#sufficient-condition" class="md-nav__link">
+    Sufficient condition
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrix-form" class="md-nav__link">
-    Matrix form
+  <a href="#nullspace-argument" class="md-nav__link">
+    Nullspace argument
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
+  <a href="#the-polynomial" class="md-nav__link">
+    The Polynomial
   </a>
   
 </li>
@@ -749,133 +749,77 @@
                 
 
 
-<h1 id="linear-regression">Linear Regression<a class="headerlink" href="#linear-regression" title="Permanent link">&para;</a></h1>
+<h1 id="characteristic-polynomial">Characteristic Polynomial<a class="headerlink" href="#characteristic-polynomial" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What is a linear regression model?</p>
+<p>How do we find the eigenvalues of a matrix?</p>
 </div>
-<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
-<p>Let us return to the housing dataset. Consider two houses, one which has <span class="arithmatex">\(1000\)</span> square feet and the other which has <span class="arithmatex">\(2000\)</span> square feet. As the area of the house increases, the selling price is going to go up. Take another feature, say the distance from the nearest school. If the distance increases, then the selling price goes down. Perhaps the effect may not be as drastic. If we have access to only these two features, one function or model could be as follows:
-$$
-\text{Selling-price} = 2 \times \text{Area} - 0.2 \times \text{Distance} + \text{Constant}
-$$
-This is what is called a linear model. The values <span class="arithmatex">\(2\)</span> and <span class="arithmatex">\(-0.2\)</span> are called the weights. The magnitude of a weight denotes the importance of the corresponding feature. Its sign denotes the effect it has on the output. For example, the distance feature has an adverse effect on the selling-price, but is not as important as the area. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We might be totally wrong about the choice of weights. Even worse, the relationship between the selling price and the two features may not even be linear! It is important to understand that a model is some approximation of the underlying reality. There is a nice quote that summarizes this idea: </p>
-<div class="admonition quote">
-<p class="admonition-title">Quote</p>
-<p>All models are wrong, but some are useful.</p>
-</div>
-</div>
-<h2 id="vector-form">Vector form<a class="headerlink" href="#vector-form" title="Permanent link">&para;</a></h2>
-<p>Generalizing this, let us say that we have a feature vector <span class="arithmatex">\(a\)</span> and a weight vector <span class="arithmatex">\(w\)</span>. Recall that the housing data has six features:</p>
+<h2 id="necessary-condition">Necessary condition<a class="headerlink" href="#necessary-condition" title="Permanent link">&para;</a></h2>
+<p>If <span class="arithmatex">\(x\)</span> is an eigenvector of a matrix <span class="arithmatex">\(A\)</span> with eigenvalue <span class="arithmatex">\(\lambda\)</span>, then we have:</p>
 <div class="arithmatex">\[
-x = \begin{bmatrix}
-x_1\\
-x_2\\
-x_3\\
-x_4\\
-x_5\\
-x_6
-\end{bmatrix}, \theta = \begin{bmatrix}
-\theta_1\\
-\theta_2\\
-\theta_3\\
-\theta_4\\
-\theta_5\\
-\theta_6
-\end{bmatrix}
+Ax = \lambda x
 \]</div>
-<p>The function or model that maps a data-point to the label <span class="arithmatex">\(y\)</span> (selling-price) is:</p>
+<p>Let us rearrange this a bit. First, observe that if <span class="arithmatex">\(I\)</span> is the identity matrix, then:</p>
 <div class="arithmatex">\[
-y = x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 + \text{constant}
+Ix = x
 \]</div>
-<p>We can rewrite the constant as one more weight, say <span class="arithmatex">\(\theta_0\)</span>:</p>
-<div class="arithmatex">\[
-y = x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 + \theta_0
-\]</div>
-<p>Going back to the vectors, we add a feature <span class="arithmatex">\(1\)</span> to the feature vector and a <span class="arithmatex">\(w_0\)</span> to the weights:</p>
-<div class="arithmatex">\[
-x = \begin{bmatrix}
-1\\
-x_1\\
-x_2\\
-x_3\\
-x_4\\
-x_5\\
-x_6
-\end{bmatrix}, \theta = \begin{bmatrix}
-\theta_0\\
-\theta_1\\
-\theta_2\\
-\theta_3\\
-\theta_4\\
-\theta_5\\
-\theta_6
-\end{bmatrix}
-\]</div>
-<p>If we now look at the expression for <span class="arithmatex">\(b\)</span>, it is nothing but the dot-product of the two vectors:</p>
+<p>Using this fact, we can express the eigenvalue equation as:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-y &amp;= x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 + \theta_0\\\\
-&amp;= \theta^T x
+Ax &amp;= \lambda Ix\\\\
+Ax - \lambda I x &amp;= 0\\\\
+(A - \lambda I)x &amp;= 0
 \end{aligned}
 \]</div>
-<p><span class="arithmatex">\(\theta^Tx\)</span> is the dot product between the two vectors <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(x\)</span>. This is the notation that we will be using for the dot product from now on. The matrix-product of a row-vector and a column-vector:</p>
+<p>If <span class="arithmatex">\((\lambda, x)\)</span> is an eigenpair, then <span class="arithmatex">\((A - \lambda I) x = 0\)</span>. Another way of expressing this is: </p>
+<div class="admonition note">
+<p class="admonition-title">Necessary condition</p>
+<p><span class="arithmatex">\((A - \lambda I)x = 0\)</span> is a necessary condition for <span class="arithmatex">\(x\)</span> to be an eigenvector of <span class="arithmatex">\(A\)</span> with eigenvalue <span class="arithmatex">\(\lambda\)</span>.</p>
+</div>
+<h2 id="sufficient-condition">Sufficient condition<a class="headerlink" href="#sufficient-condition" title="Permanent link">&para;</a></h2>
+<p>Let us try the other direction. What if <span class="arithmatex">\((A - \lambda I)x = 0\)</span>? We have:</p>
 <div class="arithmatex">\[
-y = \theta^T a = \begin{bmatrix}
-\theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \theta_3 &amp; \theta_4 &amp; \theta_5 &amp; \theta_6
-\end{bmatrix}\begin{bmatrix}
-1\\
-x_1\\
-x_2\\
-x_3\\
-x_4\\
-x_5\\
-x_6
+\begin{aligned}
+(A - \lambda I)x &amp;= 0\\\\
+Ax - \lambda Ix &amp;= 0\\\\
+Ax &amp;= \lambda x
+\end{aligned}
+\]</div>
+<p>Thus we see that <span class="arithmatex">\(x\)</span> is an eigenvector of <span class="arithmatex">\(A\)</span> with eigenvalue <span class="arithmatex">\(\lambda\)</span>. </p>
+<div class="admonition note">
+<p class="admonition-title">Sufficient condition</p>
+<p><span class="arithmatex">\((A - \lambda I)x = 0\)</span> is a sufficient condition for <span class="arithmatex">\(x\)</span> to be an eigenvector of <span class="arithmatex">\(A\)</span> with eigenvalue <span class="arithmatex">\(\lambda\)</span>.</p>
+</div>
+<h2 id="nullspace-argument">Nullspace argument<a class="headerlink" href="#nullspace-argument" title="Permanent link">&para;</a></h2>
+<p>Thus we see that <span class="arithmatex">\((\lambda, x)\)</span> is an eigenpair of <span class="arithmatex">\(A\)</span> <em>if and only if</em> <span class="arithmatex">\((A - \lambda I)x = 0\)</span>. From this, we deduce that <span class="arithmatex">\(x\)</span> has to be in the nullspace of <span class="arithmatex">\(A - \lambda I\)</span>. Thus the nullspace of <span class="arithmatex">\(A - \lambda I\)</span> is non-trivial. If the nullspace is non-trivial, we can conclude that the matrix is not invertible. To see why this is true, think about the linear transformation corresponding to this matrix. If the nullspace is non-trivial, then the transformation is not one-one. Therefore, it doesn't have an inverse. If the transformation doesn't have an inverse, the corresponding matrix is not invertible.</p>
+<p>If the matrix is not invertible, then its determinant is zero. So, we have the following result:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><span class="arithmatex">\(\lambda\)</span> is an eigenvalue of <span class="arithmatex">\(A\)</span> if and only if <span class="arithmatex">\(|A - \lambda I| = 0\)</span></p>
+</div>
+<p>Notice how we end up with a result that doesn't involve the eigenvector and only the matrix and its eigenvalue.</p>
+<h2 id="the-polynomial">The Polynomial<a class="headerlink" href="#the-polynomial" title="Permanent link">&para;</a></h2>
+<p>At this stage, let us take up an example:</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
 \end{bmatrix}
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All vectors will be expressed as column vectors. If we want to express a row-vector, then it will be denoted as <span class="arithmatex">\(x^T\)</span>, where <span class="arithmatex">\(x\)</span> is some column-vector.</p>
-</div>
-<h2 id="matrix-form">Matrix form<a class="headerlink" href="#matrix-form" title="Permanent link">&para;</a></h2>
-<p>So much for one house. But we have several houses. All these can be clubbed into a data-matrix. This is nothing but stacking all feature-vectors one below the other. Likewise, we can stack all selling prices into a label-vector:</p>
+<p>For <span class="arithmatex">\(\lambda\)</span> to be an eigenvalue of the matrix <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(|A - \lambda I| = 0\)</span>. This translates to:</p>
 <div class="arithmatex">\[
-\begin{bmatrix}
-y_{1}\\
-\vdots\\
-y_{100}
-\end{bmatrix}= \begin{bmatrix}
-1 &amp; x_{1,1} &amp; x_{1,2} &amp; x_{1,3} &amp; x_{1,4} &amp; x_{1,5} &amp; x_{1,6}\\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
-1 &amp; x_{100,1} &amp; x_{100,2} &amp; x_{100,3} &amp; x_{100,4} &amp; x_{100,5} &amp; x_{100,6}\\
-\end{bmatrix}\begin{bmatrix}
-\theta_0\\
-\theta_1\\
-\theta_2\\
-\theta_3\\
-\theta_5\\
-\theta_6
-\end{bmatrix}
+\begin{vmatrix}
+3 - \lambda &amp; 1\\
+0 &amp; 2 - \lambda
+\end{vmatrix} = 0
 \]</div>
-<p>If we call the feature matrix <span class="arithmatex">\(X\)</span>, the label vector <span class="arithmatex">\(y\)</span> and the weight vector <span class="arithmatex">\(\theta\)</span>, this is the equation we have:</p>
+<p>Expanding the determinant, we get:</p>
 <div class="arithmatex">\[
-X\theta = y
+\begin{aligned}
+(3 - \lambda)(2 - \lambda) = 0
+\end{aligned}
 \]</div>
-<p>We are given both <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(y\)</span>. This is nothing but our labeled dataset. We have to find <span class="arithmatex">\(\theta\)</span>. This leaves us with two questions:</p>
-<ul>
-<li>Does the equation <span class="arithmatex">\(X\theta = y\)</span> have a solution?</li>
-<li>If it doesn't have a solution, then how do we estimate <span class="arithmatex">\(\theta\)</span>?</li>
-</ul>
-<p>We can see how a ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. For a more accurate handling of this topic, please refer to week-2 of the MLT course. </p>
-</div>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>A linear regression model assumes a linear relationship between inputs and outputs. This results in a system of linear equation of the form <span class="arithmatex">\(X\theta = y\)</span>.</p>
+<p>The expression on the LHS is a polynomial of degree <span class="arithmatex">\(2\)</span> and is called the <strong>characteristic polynomial</strong>. We see that <span class="arithmatex">\(\lambda = 2, 3\)</span> are the eigenvalues of the matrix <span class="arithmatex">\(A\)</span>. In general, for an <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span>, the characteristic polynomial has degree <span class="arithmatex">\(n\)</span>. </p>
 
               
             </article>
@@ -889,7 +833,7 @@ X\theta = y
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../1-ml_problem/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ML problem" rel="prev">
+        <a href="../eigenvectors/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Eigenvectors and Eigenvalues" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -898,20 +842,20 @@ X\theta = y
               <span class="md-footer__direction">
                 Previous
               </span>
-              ML problem
+              Eigenvectors and Eigenvalues
             </div>
           </div>
         </a>
       
       
         
-        <a href="../3-system_1/" class="md-footer__link md-footer__link--next" aria-label="Next: Xθ = 0" rel="next">
+        <a href="../../appendix/0-gradients/" class="md-footer__link md-footer__link--next" aria-label="Next: Gradients" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Xθ = 0
+              Gradients
             </div>
           </div>
           <div class="md-footer__button md-icon">

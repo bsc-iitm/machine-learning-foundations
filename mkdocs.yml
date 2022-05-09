@@ -10,30 +10,41 @@ theme:
 nav:
   - Home: index.md
   - Week-1:
-    - week-1/density_estimation.md
+    - week-1/outline.md
+    - week-1/linear_algebra.md
+    - week-1/ml_problem.md
+    - week-1/dataset.md
   - Week-2:
     - None
   - Week-3:
     - week-3/outline.md
-    - week-3/0-linear_algebra.md
-    - week-3/1-ml_problem.md
-    - week-3/2-linear_model.md
-    - week-3/3-system_1.md
-    - week-3/4-system_2.md
-    - week-3/5-least_squares.md
-    - week-3/6-best_fit.md
-    - week-3/7-projections.md
+    - week-3/linear_model.md
+    - week-3/system_1.md
+    - week-3/system_2.md
+    - week-3/least_squares.md
+    - week-3/best_fit.md
+    - week-3/projections.md
   - Week-4:
     - week-4/outline.md
     - week-4/transformations.md
     - week-4/eigenvectors.md
     - week-4/char_polynomial.md
+    - week-4/computation.md
+    - week-4/diagonalization.md
   - Appendix:
-    - appendix/0-gradients.md
-    - appendix/1-cauchy_schwarz.md
+    - appendix/gradients.md
+    - appendix/cauchy_schwarz.md
+    - appendix/rank_one.md
+    - appendix/matrix_product.md
+    - appendix/density_estimation.md 
   - Contribute: contribute.md
 
 markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.arithmatex:
       generic: true
   - toc:
@@ -50,6 +61,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
+  - search
   - mkdocs-video:
       is_video: True
       video_autoplay: True

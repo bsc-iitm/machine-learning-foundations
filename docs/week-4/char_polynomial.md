@@ -79,7 +79,10 @@ If the matrix is not invertible, then its determinant is zero. So, we have the f
 
 
 
-Notice how we end up with a result that doesn't involve the eigenvector and only the matrix and its eigenvalue.
+Notice how we end up with a result that doesn't involve the eigenvector and only the matrix and its eigenvalue. 
+
+!!! note
+	The eigenspace corresponding to an eigenvalue $\lambda$ is the nullspace of $A - \lambda I$.
 
 
 
@@ -117,4 +120,38 @@ $$
 $$
 
 
-The expression on the LHS is a polynomial of degree $2$ and is called the **characteristic polynomial**. We see that $\lambda = 2, 3$ are the eigenvalues of the matrix $A$. In general, for an $n \times n$ matrix $A$, the characteristic polynomial has degree $n$. 
+The expression on the LHS is a polynomial of degree $2$ and is called the **characteristic polynomial** of $A$. We see that $\lambda = 2, 3$ are the eigenvalues of the matrix $A$. 
+
+
+
+## Properties
+
+In general, for an $n \times n$ matrix $A$, the characteristic polynomial has degree $n$. The roots of the characteristic polynomial are the eigenvalues of the matrix $A$. There are two properties of the polynomial that are worth knowing:
+
+- the sum of the eigenvalues of the matrix is equal to its trace
+- the product of the eigenvalues of the matrix is equal to its determinant
+
+The second property is easy to see. Assume that the polynomial splits into $n$ factors corresponding to $n$ eigenvalues $\lambda_1, \cdots, \lambda_n$, then:
+
+
+$$
+|A - \lambda I| = (\lambda - \lambda_1) \cdots (\lambda - \lambda_n)
+$$
+
+
+If we set $\lambda = 0$, then:
+
+
+$$
+|A| = \lambda_1 \cdots \lambda_n
+$$
+
+
+
+
+## Summary
+
+To find the eigenvalues of a matrix $A$, we first compute the characteristic polynomial $|A - \lambda I|$. The roots of this polynomial are the eigenvalues of the matrix $A$. There are two important properties:
+
+- sum of the eigenvalues is equal to the trace of the matrix
+- product of the eigenvalues is equal to the determinant of the matrix

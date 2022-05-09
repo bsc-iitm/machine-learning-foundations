@@ -13,7 +13,7 @@
     
     
       
-        <title>Eigenvectors and Eigenvalues - Machine Learning Foundations</title>
+        <title>Gradients - Machine Learning Foundations</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eigenvectors-and-eigenvalues" class="md-skip">
+        <a href="#gradients" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eigenvectors and Eigenvalues
+              Gradients
             
           </span>
         </div>
@@ -489,14 +489,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
@@ -533,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outline/" class="md-nav__link">
+      <a href="../../week-4/outline/" class="md-nav__link">
         Outline
       </a>
     </li>
@@ -547,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transformations/" class="md-nav__link">
+      <a href="../../week-4/transformations/" class="md-nav__link">
         Linear Transformations
       </a>
     </li>
@@ -559,80 +557,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Eigenvectors and Eigenvalues
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../week-4/eigenvectors/" class="md-nav__link">
         Eigenvectors and Eigenvalues
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#case-1" class="md-nav__link">
-    Case-1
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#case-2" class="md-nav__link">
-    Case-2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eigenvectors-and-eigenvalues_1" class="md-nav__link">
-    Eigenvectors and Eigenvalues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eigenspace" class="md-nav__link">
-    Eigenspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -644,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../char_polynomial/" class="md-nav__link">
+      <a href="../../week-4/char_polynomial/" class="md-nav__link">
         Characteristic Polynomial
       </a>
     </li>
@@ -658,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../computation/" class="md-nav__link">
+      <a href="../../week-4/computation/" class="md-nav__link">
         Computing Eigenvectors
       </a>
     </li>
@@ -672,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../diagonalization/" class="md-nav__link">
+      <a href="../../week-4/diagonalization/" class="md-nav__link">
         Diagonalization
       </a>
     </li>
@@ -692,12 +621,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -730,11 +661,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../appendix/gradients/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Gradients
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Gradients
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting" class="md-nav__link">
+    Setting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-rule-for-multiple-variables" class="md-nav__link">
+    Chain rule for multiple variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#back-to-the-gradients" class="md-nav__link">
+    Back to the gradients
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -746,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/cauchy_schwarz/" class="md-nav__link">
+      <a href="../cauchy_schwarz/" class="md-nav__link">
         Cauchy-Schwarz Inequality
       </a>
     </li>
@@ -760,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/rank_one/" class="md-nav__link">
+      <a href="../rank_one/" class="md-nav__link">
         Rank-1 matrices
       </a>
     </li>
@@ -774,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/matrix_product/" class="md-nav__link">
+      <a href="../matrix_product/" class="md-nav__link">
         Matrix product
       </a>
     </li>
@@ -788,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appendix/density_estimation/" class="md-nav__link">
+      <a href="../density_estimation/" class="md-nav__link">
         Density Estimation
       </a>
     </li>
@@ -844,36 +830,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#case-1" class="md-nav__link">
-    Case-1
+  <a href="#setting" class="md-nav__link">
+    Setting
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#case-2" class="md-nav__link">
-    Case-2
+  <a href="#chain-rule-for-multiple-variables" class="md-nav__link">
+    Chain rule for multiple variables
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#eigenvectors-and-eigenvalues_1" class="md-nav__link">
-    Eigenvectors and Eigenvalues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eigenspace" class="md-nav__link">
-    Eigenspace
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
+  <a href="#back-to-the-gradients" class="md-nav__link">
+    Back to the gradients
   </a>
   
 </li>
@@ -892,65 +864,136 @@
                 
 
 
-<h1 id="eigenvectors-and-eigenvalues">Eigenvectors and Eigenvalues<a class="headerlink" href="#eigenvectors-and-eigenvalues" title="Permanent link">&para;</a></h1>
+<h1 id="gradients">Gradients<a class="headerlink" href="#gradients" title="Permanent link">&para;</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What are eigenvectors and eigenvalues?</p>
+<p>How do we compute the gradient of the expression <span class="arithmatex">\(||X\theta - y||^2\)</span> with respect to <span class="arithmatex">\(\theta\)</span>?</p>
 </div>
-<p>Let us consider the following linear transformation<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> from <span class="arithmatex">\(\mathbb{R}^{2}\)</span> to itself:</p>
+<h2 id="setting">Setting<a class="headerlink" href="#setting" title="Permanent link">&para;</a></h2>
+<p>Let us consider the objective function in the minimzation problem for linear regression:</p>
 <div class="arithmatex">\[
-T = \begin{bmatrix}
-3 &amp; 1\\
-0 &amp; 2
+L = ||X\theta - y||^2
+\]</div>
+<p>This can be expressed as:</p>
+<div class="arithmatex">\[
+L = (X\theta - y)^T(X\theta - y)
+\]</div>
+<p>The gradient of <span class="arithmatex">\(L\)</span> with respect to <span class="arithmatex">\(\theta\)</span> is given by:</p>
+<div class="arithmatex">\[
+\nabla_{\theta} L = \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\\
+\vdots\\
+\cfrac{\partial L}{\partial \theta_n}
 \end{bmatrix}
 \]</div>
-<p>We will look at how this linear transformation operates on vectors from the geometric point of view. Specifically, we will record these two quantities:</p>
+<p>How do we compute this gradient? First, let us rewrite the expression by introducing an error vector, <span class="arithmatex">\(e = X\theta - y\)</span>:</p>
+<div class="arithmatex">\[
+L = e^Te
+\]</div>
+<p>The gradient of <span class="arithmatex">\(L\)</span> with respect to <span class="arithmatex">\(\theta\)</span> can be obtained in a two step process:</p>
 <ul>
-<li>direction of the vector before the transformation</li>
-<li>direction of the vector after the transformation</li>
+<li><span class="arithmatex">\(\nabla_e L\)</span>: first compute the gradient of <span class="arithmatex">\(L\)</span> with respect to the error</li>
+<li>Use the chain rule of differentiation to compute the gradient of <span class="arithmatex">\(L\)</span> with respect to <span class="arithmatex">\(\theta\)</span></li>
 </ul>
-<h2 id="case-1">Case-1<a class="headerlink" href="#case-1" title="Permanent link">&para;</a></h2>
-<p>The vector <span class="arithmatex">\(u = \begin{bmatrix}1\\1\end{bmatrix}\)</span> is transformed into <span class="arithmatex">\(Tu = \begin{bmatrix}4\\2\end{bmatrix}\)</span>. </p>
-<p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_6.mp4" type="video/mp4" /></video></div></p>
-<p>The vector <span class="arithmatex">\(u\)</span> was initially pointing in a particular direction. After the transformation, it points in a different direction. This case corresponds to vectors whose direction changes after the linear transformation.</p>
-<h2 id="case-2">Case-2<a class="headerlink" href="#case-2" title="Permanent link">&para;</a></h2>
-<p>The vector <span class="arithmatex">\(u = \begin{bmatrix}-1\\1\end{bmatrix}\)</span> is transformed into <span class="arithmatex">\(Tu = \begin{bmatrix}-2\\2\end{bmatrix}\)</span>. </p>
-<p><div class="video-container"><video style="width: 100%" controls autoplay ><source src="../../assets/videos/mat_5.mp4" type="video/mp4" /></video></div></p>
-<p>The direction of the vector <span class="arithmatex">\(Tu\)</span> is the same as the direction of the vector <span class="arithmatex">\(u\)</span>. In other words, the linear transformation has preserved the direction of this vector. However, its magnitude has changed. In this case, the vector <span class="arithmatex">\(u\)</span> has been stretched by a factor of <span class="arithmatex">\(2\)</span>.</p>
-<div class="arithmatex">\[
-Tu = \begin{bmatrix}-2\\2\end{bmatrix} = 2u
-\]</div>
-<p>Another example for this case is the basis vector <span class="arithmatex">\(\begin{bmatrix}1\\0\end{bmatrix}\)</span>. For this vector:</p>
-<div class="arithmatex">\[
-Tu = \begin{bmatrix}3\\0\end{bmatrix} = 3u
-\]</div>
-<p>This case corresponds to vectors whose direction remains unchanged after the linear transformation.</p>
-<h2 id="eigenvectors-and-eigenvalues_1">Eigenvectors and Eigenvalues<a class="headerlink" href="#eigenvectors-and-eigenvalues_1" title="Permanent link">&para;</a></h2>
-<p>A <em>non-zero</em> vector which point in the same direction before and after the linear transformation is called an <strong>eigenvector</strong>. Since the direction of an eigenvector is unchanged by the transformation, it makes sense to look at the magnitude by which it is scaled after the transformation. This scalar value is called the <strong>eigenvalue</strong>. The eigenvector and the corresponding eigenvalue make up an eigenpair. For the matrix (linear transformation) that we have been working with, <span class="arithmatex">\(\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)\)</span> and <span class="arithmatex">\(\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)\)</span> are two eigenpairs.</p>
-<h2 id="eigenspace">Eigenspace<a class="headerlink" href="#eigenspace" title="Permanent link">&para;</a></h2>
-<p>We will now shift to matrices from linear transformations. Consider an arbitrary <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span>. How big is the space of eigenvectors? Let <span class="arithmatex">\(A\)</span> be a matrix. If <span class="arithmatex">\(u\)</span> is an eigenvector of <span class="arithmatex">\(A\)</span> with  eigenvalue <span class="arithmatex">\(\lambda\)</span>, what can we say about the vector <span class="arithmatex">\(2u\)</span>?</p>
-<div class="arithmatex">\[
-A(2u) = 2 Au = 2 \lambda u = \lambda(2u)
-\]</div>
-<p>We see that <span class="arithmatex">\(2u\)</span> is also an eigenvector with eigenvalue <span class="arithmatex">\(\lambda\)</span>. In fact, <span class="arithmatex">\(ku\)</span> is an eigenvector for every non-zero <span class="arithmatex">\(k\)</span>. Coming from another direction, let <span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(v\)</span> be two eigenvectors for the same eigenvalue <span class="arithmatex">\(\lambda\)</span>. Then:</p>
-<div class="arithmatex">\[
-A(u + v) = Au + Av = \lambda u + \lambda v = \lambda(u + v)
-\]</div>
-<p>Therefore, <span class="arithmatex">\(u + v\)</span> is also an eigenvector of <span class="arithmatex">\(A\)</span> with eigenvalue of <span class="arithmatex">\(\lambda\)</span>. From these two observations, we see that the set of all eigenvectors with eigenvalue <span class="arithmatex">\(\lambda\)</span>, along with the zero vector, is a subspace of <span class="arithmatex">\(\mathbb{R}^{n}\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><span class="arithmatex">\(0\)</span> can never be an eigenvector. This is because if <span class="arithmatex">\(A0 = \lambda 0\)</span> then there is no fixed <span class="arithmatex">\(\lambda\)</span> that we can associate with <span class="arithmatex">\(0\)</span>. Therefore, eigenvectors are non-zero vectors.</p>
+<p>The chain rule when multiple variables are involved can be a bit tricky. This is what will take up next.</p>
+<h2 id="chain-rule-for-multiple-variables">Chain rule for multiple variables<a class="headerlink" href="#chain-rule-for-multiple-variables" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Heavy use of algebra. Go slowly.  </p>
 </div>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>For a matrix <span class="arithmatex">\(A\)</span>, a non-zero <span class="arithmatex">\(x\)</span> is an eigenvector with eigenvalue <span class="arithmatex">\(\lambda\)</span> if <span class="arithmatex">\(Ax = \lambda x\)</span>.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>The entire visual presentation has been borrowed from Grant Sanderson's videos on linear algebra. The specific example has been borrowed from this <a href="https://youtu.be/PFDu9oVAE-g">video</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>Intuitively, what does <span class="arithmatex">\(\frac{\partial L}{\partial \theta_i}\)</span> mean? This partial derivative measures the effect on the loss <span class="arithmatex">\(L\)</span> when <span class="arithmatex">\(x_i\)</span> is perturbed a little keeping all other variables constant. This perturbation propagates to <span class="arithmatex">\(E\)</span> via <span class="arithmatex">\(e\)</span>. There is a chain reaction: <span class="arithmatex">\(x_1\)</span> affects some of the variables in the vector <span class="arithmatex">\(e\)</span>, which in turn affects <span class="arithmatex">\(E\)</span>. To get a better feel for this, let us take an example:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+e &amp;= X\theta - b\\\\
+\begin{bmatrix}
+e_1\\
+e_2\\
+e_3
+\end{bmatrix} &amp;= \begin{bmatrix}
+x_{11} &amp; x_{12}\\
+x_{21} &amp; x_{22}\\
+x_{31} &amp; x_{32}\\
+\end{bmatrix}
+\begin{bmatrix}
+\theta_1\\
+\theta_2
+\end{bmatrix} - \begin{bmatrix}
+y_1\\
+y_2
+\end{bmatrix}\\\\
+E &amp;= e^T e = e_1^2 + e_2^2 + e_3^2
+\end{aligned}
+\]</div>
+<p>The variable <span class="arithmatex">\(\theta_1\)</span> influences <span class="arithmatex">\(L\)</span> via three <em>independent</em> routes:</p>
+<ul>
+<li><span class="arithmatex">\(\theta_1 \rightarrow e_1 \rightarrow L\)</span></li>
+<li><span class="arithmatex">\(\theta_1 \rightarrow e_2 \rightarrow L\)</span></li>
+<li><span class="arithmatex">\(\theta_1 \rightarrow e_3 \rightarrow L\)</span></li>
+</ul>
+<p>The partial derivative needs to take into account the contributions from each of these three routes. Pictorially:</p>
+<p><img alt="" src="../../assets/images/img_001.svg" width="1000" /></p>
+<p>Symbolically:</p>
+<div class="arithmatex">\[
+\cfrac{\partial L}{\partial \theta_1} = \cfrac{\partial L}{\partial e_1} \cfrac{\partial e_1}{\partial \theta_1} + \cfrac{\partial L}{\partial e_2} \cfrac{\partial e_2}{\partial \theta_1} + \cfrac{\partial L}{\partial e_3} \cfrac{\partial e_3}{\partial \theta_1}
+\]</div>
+<p>Observe that that the RHS is in the form of a dot product between two vectors:</p>
+<div class="arithmatex">\[
+\cfrac{\partial L}{\partial \theta_1} = \begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_1} &amp; \cfrac{\partial e_2}{\partial \theta_1} &amp; 
+\cfrac{\partial e_3}{\partial \theta_1}
+\end{bmatrix} \begin{bmatrix}
+\cfrac{\partial L}{\partial e_1}\\
+\cfrac{\partial L}{\partial e_2}\\
+\cfrac{\partial L}{\partial e_3}
+\end{bmatrix}
+\]</div>
+<p>Notice, that the second vector is nothing but <span class="arithmatex">\(\nabla_e L\)</span>:</p>
+<p>$$
+\cfrac{\partial L}{\partial \theta_1} = \begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_1} &amp; \cfrac{\partial e_2}{\partial \theta_1} &amp; 
+\cfrac{\partial e_3}{\partial \theta_1}
+\end{bmatrix} \nabla_e L
+$$
+We can now add <span class="arithmatex">\(\cfrac{\partial L}{\partial \theta_2}\)</span> to the mix:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\nabla_x L &amp;= \begin{bmatrix}
+\cfrac{\partial E}{\partial \theta_1}\\
+\cfrac{\partial E}{\partial theta_2}
+\end{bmatrix}\\ \\
+&amp;= \begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_1} &amp; \cfrac{\partial e_2}{\partial \theta_1} &amp; 
+\cfrac{\partial e_3}{\partial \theta_1}\\
+\cfrac{\partial e_1}{\partial \theta_2} &amp; \cfrac{\partial e_2}{\partial \theta_2} &amp; 
+\cfrac{\partial e_3}{\partial \theta_2}
+\end{bmatrix} \nabla_e L\\\\
+&amp;= J\ \nabla_e L
+\end{aligned}
+\]</div>
+<p>The matrix <span class="arithmatex">\(J\)</span> is called the Jacobian matrix. It represents the partial derivatives of each component of the vector <span class="arithmatex">\(e\)</span> with respect to each component of the vector, <span class="arithmatex">\(x\)</span>. That is, every element of the Jacobian is of the form:</p>
+<div class="arithmatex">\[
+J_{ij} = \cfrac{\partial e_j}{\partial \theta_i}
+\]</div>
+<h2 id="back-to-the-gradients">Back to the gradients<a class="headerlink" href="#back-to-the-gradients" title="Permanent link">&para;</a></h2>
+<p>Let us resume our computation, but this time with a general <span class="arithmatex">\(m \times n\)</span> matrix <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(m\)</span> dimensional vector <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(n\)</span> dimensional vector <span class="arithmatex">\(\theta\)</span>:</p>
+<div class="arithmatex">\[
+\nabla_e L = 2 e
+\]</div>
+<p>We now need to compute the Jacobian. We have <span class="arithmatex">\(e = X\theta - y\)</span>. Since <span class="arithmatex">\(y\)</span> is a constant, it will vanish while computing the derivatives. We only need to worry about <span class="arithmatex">\(X\theta\)</span> for which we can use the following relationship. If <span class="arithmatex">\(x_i\)</span> is the <span class="arithmatex">\(i^{th}\)</span> column of <span class="arithmatex">\(A\)</span>, then:</p>
+<div class="arithmatex">\[
+X\theta = \theta_1x_1 + \cdots + \theta_nx_n
+\]</div>
+<p>The <span class="arithmatex">\(i^{th}\)</span> row of the Jacobian is:</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+\cfrac{\partial e_1}{\partial \theta_i} &amp; \cdots &amp; 
+\cfrac{\partial e_m}{\partial \theta_i}
+\end{bmatrix} = x_i^T
+\]</div>
+<p>As simple as that: the <span class="arithmatex">\(i^{th}\)</span> row of the Jacobian is just the <span class="arithmatex">\(i^{th}\)</span> column of <span class="arithmatex">\(X\)</span>. So, the Jacobian is nothing but <span class="arithmatex">\(X^T\)</span>. We now have the complete expression for <span class="arithmatex">\(\nabla_{\theta} L\)</span>:</p>
+<div class="arithmatex">\[
+\nabla_{\theta} L = 2 X^T (X\theta - y) = 2(X^TX \theta - X^T y)
+\]</div>
 
               
             </article>
@@ -964,7 +1007,7 @@ A(u + v) = Au + Av = \lambda u + \lambda v = \lambda(u + v)
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../transformations/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linear Transformations" rel="prev">
+        <a href="../../week-4/diagonalization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Diagonalization" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -973,20 +1016,20 @@ A(u + v) = Au + Av = \lambda u + \lambda v = \lambda(u + v)
               <span class="md-footer__direction">
                 Previous
               </span>
-              Linear Transformations
+              Diagonalization
             </div>
           </div>
         </a>
       
       
         
-        <a href="../char_polynomial/" class="md-footer__link md-footer__link--next" aria-label="Next: Characteristic Polynomial" rel="next">
+        <a href="../cauchy_schwarz/" class="md-footer__link md-footer__link--next" aria-label="Next: Cauchy-Schwarz Inequality" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Characteristic Polynomial
+              Cauchy-Schwarz Inequality
             </div>
           </div>
           <div class="md-footer__button md-icon">

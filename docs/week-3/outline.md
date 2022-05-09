@@ -4,12 +4,10 @@ In this week we will study regression, a supervised learning problem, and a simp
 
 
 
-- Why should we study linear algebra in a course on data science?
-- What does a typical ML problem look like?
 - What is a linear regression model?
 - How do we solve for $\theta$ in the equation $X\theta = 0$?
 - How do we solve for $\theta$ in the equation $X\theta = y$?
--  How do we solve for $\theta$ in $X\theta \approx y$?
+- How do we solve for $\theta$ in $X\theta \approx y$?
 - What does a linear model look like?
 - Geometrically, what is the relationship between the approximation $X \hat{\theta}$ and the vector $y$?
 

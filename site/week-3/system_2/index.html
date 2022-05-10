@@ -887,9 +887,9 @@
 <p>Now we come to the general form of the equation, <span class="arithmatex">\(X\theta = y\)</span>. First, we need to know if the equation admits any solution at all. For this, we have to take a closer look at this equation and see what it means:</p>
 <div class="arithmatex">\[
 \begin{bmatrix}
-\big\vert &amp; \big\vert &amp; \big\vert\\
+\big\vert &amp;  &amp; \big\vert\\
 x_1 &amp; \cdots &amp; x_n\\
-\big\vert &amp; \big\vert &amp; \big\vert
+\big\vert &amp; &amp; \big\vert
 \end{bmatrix} \begin{bmatrix}
 \theta_1\\
 \vdots\\
@@ -905,13 +905,6 @@ y_m
 \theta_1 x_1 + \cdots + \theta_n x_n = y
 \]</div>
 <p><span class="arithmatex">\(X \theta = y\)</span> has a solution if and only if <span class="arithmatex">\(y\)</span> can be expressed as a linear combination of the columns of <span class="arithmatex">\(X\)</span>. Since the set of all linear combination of <span class="arithmatex">\(X\)</span> is given by the <span class="arithmatex">\(\text{span}(\{x_1, \cdots, x_n\})\)</span>, the equation is solvable if and only if <span class="arithmatex">\(y \in \text{span}(\{x_1, \cdots, x_n\})\)</span>. The span of the columns of <span class="arithmatex">\(X\)</span> is a subspace and is called the column space of the matrix <span class="arithmatex">\(X\)</span>. Thus, <span class="arithmatex">\(C(X)=\text{span}(\{x_1, \cdots, x_n\})\)</span>. We have now answered the question of when <span class="arithmatex">\(X\theta = y\)</span> is solvable.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The dimension of the column space is called the rank. You must be aware of the rank-nullity theorem:</p>
-</div>
-<div class="arithmatex">\[
-            \text{rank} + \text{nullity} = n
-\]</div>
 <h2 id="conditions-for-solution">Conditions for Solution<a class="headerlink" href="#conditions-for-solution" title="Permanent link">&para;</a></h2>
 <p>Let us reuse the example from the previous unit:</p>
 <div class="arithmatex">\[

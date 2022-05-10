@@ -86,7 +86,7 @@ What is so special about a ML model? All models take some input and produce a co
 
 ### Learning
 
-ML is all about learning from data. But who or what is learning? More importantly, who or what enables the learning? There is a learning algorithm which drives the learning. We can think of the model as the outcome of the learning process. During the learning stage, the dataset is fed as input to a learning algorithm, which in turn outputs a model. 
+ML is all about learning from data. But who or what is learning? More importantly, who or what enables the learning? There is a learning algorithm which drives the learning. We can think of the model as the outcome of the learning process. During the learning stage, the dataset is fed as input to a learning algorithm, which in turn outputs a model.
 
 
 
@@ -100,19 +100,34 @@ graph LR
 
 There is one important detail that is missing in this diagram. There are several models from which we could choose from. Going back to our analogy, there are different ways to understand three digit addition:
 
-- representing numbers as physical objects
-- representing numbers as abstract objects
 
-Teachers might might choose the first model to help kids understand addition. As kids grow up, teachers might move to the second model, which is more sophisticated. Something similar happens in ML. We are the teachers for the machines. So, we should pick a suitable family of models and offer it to the machine. The machine will then use our input and the learning algorithm to output a model.
+
+- representing numbers as counts of physical objects
+- representing numbers as abstract entities that can be manipulated
+
+
+
+Teachers might choose the first model to help kids understand addition. As kids grow up, teachers might move to the second model, which is more sophisticated. Something similar happens in ML. We are the teachers for the machines. Our responsibility is to choose a family or a space of models and present it to the machine.
 
 
 
 ```mermaid
 graph LR
   A[Labeled-dataset] --> B[Learning-algorithm];
-  D[Human] --> B[Learnin-algorithm]
+  D[Model-family] --> B[Learnin-algorithm]
   B[Learning-algorithm] --> C[Model];
 ```
+
+
+
+Thus there are two inputs to the learning algorithm:
+
+- labeled dataset
+- family of models
+
+
+
+The task of the algorithm is to explore the space of models and pick the one that best fits the labeled dataset.
 
 
 

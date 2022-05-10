@@ -477,6 +477,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    Proof
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     Summary
   </a>
@@ -872,6 +879,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#proof" class="md-nav__link">
+    Proof
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     Summary
   </a>
@@ -914,10 +928,10 @@ $$</p>
 <p>We have to be careful with the use of <span class="arithmatex">\(0\)</span>. Depending on the context, it could either mean a scalar or a vector.</p>
 </div>
 <h2 id="nullspace">Nullspace<a class="headerlink" href="#nullspace" title="Permanent link">&para;</a></h2>
-<p>We can immediately see that <span class="arithmatex">\(\theta = 0\)</span> is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say <span class="arithmatex">\(\theta_1\)</span>. Then, we can see that <span class="arithmatex">\(k \theta_1\)</span> is also a solution. This is because <span class="arithmatex">\(X (k\theta_1) = k \cdot X\theta_1 = 0\)</span>. Also, if <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> are two solutions to the equation, then <span class="arithmatex">\(\theta_1 + \theta_2\)</span> is also a solution, as <span class="arithmatex">\(X(\theta_1 + \theta_2) = X\theta_1 + X\theta_2 = 0\)</span>. From these two observations, we see that the set of all solutions to the equation <span class="arithmatex">\(X \theta = 0\)</span> is a subspace of <span class="arithmatex">\(\mathbb{R}^{n}\)</span>. We denote this by <span class="arithmatex">\(N(X)\)</span> and call it the nullspace of <span class="arithmatex">\(X\)</span>. The dimension of the nullspace is called nullity.</p>
-<p>All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If <span class="arithmatex">\(B = \{v_1, \cdots, v_k\}\)</span> is a basis for the nullspace, then the set of all solutions to the equation is given by <span class="arithmatex">\(N(X) = \text{span}(B)\)</span>.</p>
+<p>We can immediately see that <span class="arithmatex">\(\theta = 0\)</span> is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say <span class="arithmatex">\(\theta_1\)</span>. Then, we can see that <span class="arithmatex">\(k \theta_1\)</span> is also a solution. This is because <span class="arithmatex">\(X (k\theta_1) = k \cdot X\theta_1 = 0\)</span>. Also, if <span class="arithmatex">\(\theta_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> are two solutions to the equation, then <span class="arithmatex">\(\theta_1 + \theta_2\)</span> is also a solution, as <span class="arithmatex">\(X(\theta_1 + \theta_2) = X\theta_1 + X\theta_2 = 0\)</span>. From these two observations, we see that the set of all solutions to the equation <span class="arithmatex">\(X \theta = 0\)</span> is a subspace of <span class="arithmatex">\(\mathbb{R}^{n}\)</span>. We denote this by <span class="arithmatex">\(N(X)\)</span> and we call it the nullspace of <span class="arithmatex">\(X\)</span>. The dimension of the nullspace is called nullity.</p>
+<p>All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If <span class="arithmatex">\(B = \{v_1, \cdots, v_k\}\)</span> is a basis for the nullspace, then the set of all solutions to the equation is given by <span class="arithmatex">\(N(X) = \text{span}(B)\)</span>. To get to the basis, we first need to revisit Gaussian elimination.</p>
 <h2 id="row-echelon-form">Row-Echelon form<a class="headerlink" href="#row-echelon-form" title="Permanent link">&para;</a></h2>
-<p>Let us take up an example and work with that:</p>
+<p>The central idea in Gaussian elimination is to transform a matrix into its row-echelon form. Let us take up an example and work with that:</p>
 <div class="arithmatex">\[
 X = \begin{bmatrix}
 1 &amp; 0 &amp; -1 &amp; 0\\
@@ -1000,7 +1014,7 @@ X = \begin{bmatrix}
 0
 \end{bmatrix}
 \]</div>
-<p>Columns <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(2\)</span> are called the <strong>pivot columns</strong> as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables".</p>
+<p>Columns <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(2\)</span> are called the <strong>pivot columns</strong> as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables". We can now state the algorithm for finding a basis for the nullspace of <span class="arithmatex">\(X\)</span>:</p>
 <div class="admonition note">
 <p class="admonition-title">Algorithm</p>
 <p><span class="arithmatex">\(B = \{ \}\)</span></p>
@@ -1022,8 +1036,15 @@ B = \left \{ \begin{bmatrix}1\\
 1\end{bmatrix} \right \}
 \]</div>
 <p>The set of all solutions for the equation <span class="arithmatex">\(X\theta = 0\)</span> is <span class="arithmatex">\(\text{span}(B)\)</span>.</p>
+<h2 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link">&para;</a></h2>
+<p>If you are wondering why this algorithm works, note that the rank of the matrix <span class="arithmatex">\(r\)</span> is equal to the number of non-zero rows. From the rank-nullity theorem, we know that the nullity is going to be <span class="arithmatex">\(n - r\)</span>. Thus the basis of <span class="arithmatex">\(N(X)\)</span> will have <span class="arithmatex">\(n - r\)</span> linearly independent vectors. We have to hunt for these <span class="arithmatex">\(n - r\)</span> vectors. To get there, we divide the <span class="arithmatex">\(n\)</span> variables into two parts:</p>
+<ul>
+<li><span class="arithmatex">\(r\)</span> pivot variables: these are also called the dependent variables</li>
+<li><span class="arithmatex">\(n - r\)</span> free variables: these are also called the independent variables</li>
+</ul>
+<p>To get a vector, we set one of the <span class="arithmatex">\(n - r\)</span> free variables to <span class="arithmatex">\(1\)</span> and the rest to <span class="arithmatex">\(0\)</span>. Then, we determine the <span class="arithmatex">\(r\)</span> pivot variables by solving the first <span class="arithmatex">\(r\)</span> equations. By repeating this process with each of the <span class="arithmatex">\(n - r\)</span> free variables, we are guaranteed to have <span class="arithmatex">\(n - r\)</span> linearly independent vectors.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>In order to solve the equation <span class="arithmatex">\(X\theta = 0\)</span>, we first reduce the matrix <span class="arithmatex">\(X\)</span> to its row-echelon form. Then we use an iterative algorithm to construct a basis for the null space. The span of the basis is the set of all solutions to this equation.</p>
+<p>In order to solve the equation <span class="arithmatex">\(X\theta = 0\)</span>, we first reduce the matrix <span class="arithmatex">\(X\)</span> to its row-echelon form. Then we use an iterative algorithm to construct a basis for the nullspace of <span class="arithmatex">\(X\)</span>. The span of the basis is the set of all solutions to this equation.</p>
 
               
             </article>

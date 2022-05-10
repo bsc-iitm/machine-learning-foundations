@@ -78,7 +78,7 @@ $$
 $$
 
 
-Let us now compute the gradient and set it to zero. If you want a detailed mathematical explanation of how the gradient is computed, refer to the [appendix](../appendix/0-gradients.md):
+Let us now compute the gradient and set it to zero. If you want a detailed mathematical explanation of how the gradient is computed, refer to the section on [gradients](../appendix/gradients.md):
 
 
 

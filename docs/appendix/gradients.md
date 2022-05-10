@@ -57,7 +57,7 @@ The chain rule when multiple variables are involved can be a bit tricky. This is
 !!! warning
     Heavy use of algebra. Go slowly.  
 
-Intuitively, what does $\frac{\partial L}{\partial \theta_i}$ mean? This partial derivative measures the effect on the loss $L$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $E$ via $e$. There is a chain reaction: $x_1$ affects some of the variables in the vector $e$, which in turn affects $E$. To get a better feel for this, let us take an example:
+Intuitively, what does $\frac{\partial L}{\partial \theta_i}$ mean? This partial derivative measures the effect on the loss $L$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $L$ via $e$. There is a chain reaction: $x_1$ affects some of the variables in the vector $e$, which in turn affects $L$. To get a better feel for this, let us take an example:
 
 
 $$
@@ -79,7 +79,7 @@ x_{31} & x_{32}\\
 y_1\\
 y_2
 \end{bmatrix}\\\\
-E &= e^T e = e_1^2 + e_2^2 + e_3^2
+L &= e^T e = e_1^2 + e_2^2 + e_3^2
 \end{aligned}
 $$
 
@@ -110,7 +110,7 @@ $$
 $$
 
 
-Observe that that the RHS is in the form of a dot product between two vectors:
+Observe that the RHS is in the form of a dot product between two vectors:
 
 
 $$
@@ -137,11 +137,12 @@ $$
 We can now add $\cfrac{\partial L}{\partial \theta_2}$ to the mix:
 
 
+
 $$
 \begin{aligned}
-\nabla_x L &= \begin{bmatrix}
-\cfrac{\partial E}{\partial \theta_1}\\
-\cfrac{\partial E}{\partial theta_2}
+\nabla_{\theta} L &= \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\\
+\cfrac{\partial L}{\partial \theta_2}
 \end{bmatrix}\\ \\
 &= \begin{bmatrix}
 \cfrac{\partial e_1}{\partial \theta_1} & \cfrac{\partial e_2}{\partial \theta_1} & 
@@ -154,8 +155,8 @@ $$
 $$
 
 
-The matrix $J$ is called the Jacobian matrix. It represents the partial derivatives of each component of the vector $e$ with respect to each component of the vector, $x$. That is, every element of the Jacobian is of the form:
 
+The matrix $J$ is called the Jacobian matrix. It represents the partial derivatives of each component of the vector $e$ with respect to each component of the vector, $\theta$. That is, every element of the Jacobian is of the form:
 
 $$
 J_{ij} = \cfrac{\partial e_j}{\partial \theta_i}
@@ -164,7 +165,8 @@ $$
 
 ## Back to the gradients
 
-Let us resume our computation, but this time with a general $m \times n$ matrix $X$, $m$ dimensional vector $y$ and $n$ dimensional vector $\theta$:
+Let us resume our computation, but this time with a general $m \times n$ matrix $X$, $m$ dimensional vector $y$ and $n$ dimensional vector $\theta$. Since $L = e^Te$, we have:
+
 
 
 $$
@@ -172,8 +174,8 @@ $$
 $$
 
 
-We now need to compute the Jacobian. We have $e = X\theta - y$. Since $y$ is a constant, it will vanish while computing the derivatives. We only need to worry about $X\theta$ for which we can use the following relationship. If $x_i$ is the $i^{th}$ column of $A$, then:
 
+We now need to compute the Jacobian. We have $e = X\theta - y$. Since $y$ is a constant, it will vanish while computing the derivatives. We only need to worry about $X\theta$ for which we can use the following relationship. If $x_i$ is the $i^{th}$ column of $A$, then:
 
 $$
 X\theta = \theta_1x_1 + \cdots + \theta_nx_n

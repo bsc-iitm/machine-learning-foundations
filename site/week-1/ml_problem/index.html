@@ -983,20 +983,26 @@ y = f(x)
 <p>You can think about an ML model as a function that maps a feature-vector to a label.</p>
 </div>
 <h3 id="learning">Learning<a class="headerlink" href="#learning" title="Permanent link">&para;</a></h3>
-<p>ML is all about learning from data. But who or what is learning? More importantly, who or what enables the learning? There is a learning algorithm which drives the learning. We can think of the model as the outcome of the learning process. During the learning stage, the dataset is fed as input to a learning algorithm, which in turn outputs a model. </p>
+<p>ML is all about learning from data. But who or what is learning? More importantly, who or what enables the learning? There is a learning algorithm which drives the learning. We can think of the model as the outcome of the learning process. During the learning stage, the dataset is fed as input to a learning algorithm, which in turn outputs a model.</p>
 <pre class="mermaid"><code>graph LR
   A[Labeled-dataset] --&gt; B[Learning-algorithm];
   B[Learning-algorithm] --&gt; C[Model];</code></pre>
 <p>There is one important detail that is missing in this diagram. There are several models from which we could choose from. Going back to our analogy, there are different ways to understand three digit addition:</p>
 <ul>
-<li>representing numbers as physical objects</li>
-<li>representing numbers as abstract objects</li>
+<li>representing numbers as counts of physical objects</li>
+<li>representing numbers as abstract entities that can be manipulated</li>
 </ul>
-<p>Teachers might might choose the first model to help kids understand addition. As kids grow up, teachers might move to the second model, which is more sophisticated. Something similar happens in ML. We are the teachers for the machines. So, we should pick a suitable family of models and offer it to the machine. The machine will then use our input and the learning algorithm to output a model.</p>
+<p>Teachers might choose the first model to help kids understand addition. As kids grow up, teachers might move to the second model, which is more sophisticated. Something similar happens in ML. We are the teachers for the machines. Our responsibility is to choose a family or a space of models and present it to the machine.</p>
 <pre class="mermaid"><code>graph LR
   A[Labeled-dataset] --&gt; B[Learning-algorithm];
-  D[Human] --&gt; B[Learnin-algorithm]
+  D[Model-family] --&gt; B[Learnin-algorithm]
   B[Learning-algorithm] --&gt; C[Model];</code></pre>
+<p>Thus there are two inputs to the learning algorithm:</p>
+<ul>
+<li>labeled dataset</li>
+<li>family of models</li>
+</ul>
+<p>The task of the algorithm is to explore the space of models and pick the one that best fits the labeled dataset.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For some regression models, once you have learnt the model, you can throw away the dataset (textbook). This is not true of all regression models though! Think about how you learnt three-digit addition. Do you still carry your primary school textbooks around? No! Your mind has a representation of what addition is. </p>

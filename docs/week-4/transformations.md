@@ -15,7 +15,7 @@ In this course, we will be dealing with $\mathbb{R}^n$. So, our transformations 
 $$
 T: \mathbb{R}^n \rightarrow \mathbb{R}^m
 $$
-To get a better idea about what a linear transformation does, let us restrict our attention to a map from $\mathbb{R}^{2}$ to itself. If $u$ is a vector in $\mathbb{R}^{2}$, then the transformation returns another vector in the same space. We can associated a matrix for every linear transformation. Assuming that we use the standard basis $\beta = \{e_1, e_2\}$ for $\mathbb{R}^2$:
+To get a better idea about what a linear transformation does, let us restrict our attention to a map from $\mathbb{R}^{2}$ to itself. If $u$ is a vector in $\mathbb{R}^{2}$, then the transformation returns another vector in the same space. We can associate a matrix for every linear transformation. Assuming that we use the standard ordered basis $\beta = \{e_1, e_2\}$ for $\mathbb{R}^2$:
 
 
 $$
@@ -145,6 +145,6 @@ $$
 
 
 
-Now that we have a good idea of what linear transformations do, we are ready to explore the idea of eigenvalues and eigenvectors.
+This is not simple rotation or stretching. It is an example of a shear transformation. Now that we have a good idea of what linear transformations do, we are ready to explore the idea of eigenvalues and eigenvectors.
 
 [^1]: The library [Manim Community](https://www.manim.community/) was used to render these animations. The code for this can be found in the GitHub repository.

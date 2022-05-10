@@ -25,16 +25,15 @@ $$
 
 ## Nullspace
 
-We can immediately see that $\theta = 0$ is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say $\theta_1$. Then, we can see that $k \theta_1$ is also a solution. This is because $X (k\theta_1) = k \cdot X\theta_1 = 0$. Also, if $\theta_1$ and $\theta_2$ are two solutions to the equation, then $\theta_1 + \theta_2$ is also a solution, as $X(\theta_1 + \theta_2) = X\theta_1 + X\theta_2 = 0$. From these two observations, we see that the set of all solutions to the equation $X \theta = 0$ is a subspace of $\mathbb{R}^{n}$. We denote this by $N(X)$ and call it the nullspace of $X$. The dimension of the nullspace is called nullity.
+We can immediately see that $\theta = 0$ is a solution. However, this is a trivial solution and is not particularly interesting. We would like to search for non-trivial solutions. Let us begin optimistically by assuming that at least one such solution exists, say $\theta_1$. Then, we can see that $k \theta_1$ is also a solution. This is because $X (k\theta_1) = k \cdot X\theta_1 = 0$. Also, if $\theta_1$ and $\theta_2$ are two solutions to the equation, then $\theta_1 + \theta_2$ is also a solution, as $X(\theta_1 + \theta_2) = X\theta_1 + X\theta_2 = 0$. From these two observations, we see that the set of all solutions to the equation $X \theta = 0$ is a subspace of $\mathbb{R}^{n}$. We denote this by $N(X)$ and we call it the nullspace of $X$. The dimension of the nullspace is called nullity.
 
-All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If $B = \{v_1, \cdots, v_k\}$ is a basis for the nullspace, then the set of all solutions to the equation is given by $N(X) = \text{span}(B)$.
+All this is fine, but how does it help us find all the solutions? If we can find a basis for the nullspace, that will help us characterize all the solutions. If $B = \{v_1, \cdots, v_k\}$ is a basis for the nullspace, then the set of all solutions to the equation is given by $N(X) = \text{span}(B)$. To get to the basis, we first need to revisit Gaussian elimination.
 
 
 
 ## Row-Echelon form
 
-Let us take up an example and work with that:
-
+The central idea in Gaussian elimination is to transform a matrix into its row-echelon form. Let us take up an example and work with that:
 
 $$
 X = \begin{bmatrix}
@@ -142,7 +141,7 @@ $$
 $$
 
 
-Columns $1$ and $2$ are called the **pivot columns** as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables".
+Columns $1$ and $2$ are called the **pivot columns** as they contain the pivots. The variables corresponding to the pivots are called "dependent variables", while the others are called "independent variables". We can now state the algorithm for finding a basis for the nullspace of $X$:
 
 !!! note "Algorithm"
     $B = \{ \}$
@@ -173,6 +172,22 @@ The set of all solutions for the equation $X\theta = 0$ is $\text{span}(B)$.
 
 
 
+## Proof
+
+If you are wondering why this algorithm works, note that the rank of the matrix $r$ is equal to the number of non-zero rows. From the rank-nullity theorem, we know that the nullity is going to be $n - r$. Thus the basis of $N(X)$ will have $n - r$ linearly independent vectors. We have to hunt for these $n - r$ vectors. To get there, we divide the $n$ variables into two parts:
+
+
+
+- $r$ pivot variables: these are also called the dependent variables
+- $n - r$ free variables: these are also called the independent variables
+
+
+
+To get a vector, we set one of the $n - r$ free variables to $1$ and the rest to $0$. Then, we determine the $r$ pivot variables by solving the first $r$ equations. By repeating this process with each of the $n - r$ free variables, we are guaranteed to have $n - r$ linearly independent vectors.
+
+
+
 ## Summary
 
-In order to solve the equation $X\theta = 0$, we first reduce the matrix $X$ to its row-echelon form. Then we use an iterative algorithm to construct a basis for the null space. The span of the basis is the set of all solutions to this equation.
+In order to solve the equation $X\theta = 0$, we first reduce the matrix $X$ to its row-echelon form. Then we use an iterative algorithm to construct a basis for the nullspace of $X$. The span of the basis is the set of all solutions to this equation.
+

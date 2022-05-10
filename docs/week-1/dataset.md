@@ -7,7 +7,7 @@
 
 ## Datasets
 
-There are different kinds of datasets. The housing dataset that we saw in the last section is tabular data. Each column is called an attribute or a feature and each row represents one record or observation. By far, this is the most common form in which data is represented. Tabular data can be neatly packed into comma-separated files or CSVs. Few other forms of data:
+There are different kinds of datasets. The housing dataset that we saw right at the [beginning](../week-1/linear_algebra.md) is tabular data. Each column is called an attribute or a feature and each row represents one record or observation. By far, this is the most common form in which data is represented. Tabular data can be neatly packed into comma-separated files or CSVs. Few other forms of data:
 
 
 
@@ -76,7 +76,7 @@ By a slight extension of this definition, we could say that a supervisor is a te
 
 ## Partitioning the dataset
 
-As humans, how do we if know if someone has learnt a skill or not? Tests or exams are the way to go. Exams are so ubiquitous that we often conflate learning and scoring well in an exam. However, for a machine, getting a good score in an exam is a good enough proxy for learning. For almost every skill that one can think of, there is some test or exam that evaluates the performance. Take the analogy that we have been working with: three-digit addition. To know if kids have learnt addition, we conduct a test that has problems on three digit addition.
+As humans, how do we if know if someone has learnt a skill or not? Tests or exams are the way to go. Exams are so ubiquitous that we often conflate learning with scoring well in exams. However, for a machine, getting a good score in an exam is a good enough proxy for learning. For almost every skill that we can think of, there is some test or exam to evaluate our competency in that skill. Take the analogy that we have been working with: three-digit addition. To know if kids have learnt addition, teachers conduct tests that have problems on three digit addition.
 
 An important feature of testing is to make sure that it is challenging. If we ask the same questions that are there in the textbook, kids might score high marks. But chances are that a lot of them would have memorized the answers. Therefore, whenever we have a dataset, we always partition it into two parts:
 

@@ -153,7 +153,7 @@ Algebra does agree with geometry!
 
 ## Projections: m-dimensions
 
-The main takeaway from the 2D case is this: the vector closest to $b$ in the column space of $X$ is its projection onto the column space of $X$. This can be extended to any higher dimensional space. First, we note that for a projection, the error vector is orthogonal to the column space of $X$:
+The main takeaway from the 2D case is this: the vector closest to $y$ in the column space of $X$ is its projection onto the column space of $X$. This can be extended to any higher dimensional space. First, we note that for a projection, the error vector is orthogonal to the column space of $X$:
 
 
 

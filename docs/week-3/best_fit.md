@@ -36,7 +36,7 @@ The red points represent the predicted selling prices. The errors are the vertic
 
 
 !!! note
-    The error is parallel to the $b$ axis and is *not* perpendicular to the line.
+    The error is parallel to the $y$-axis and is *not* perpendicular to the line.
 
 
 

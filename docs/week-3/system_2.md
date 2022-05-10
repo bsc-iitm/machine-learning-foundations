@@ -11,13 +11,11 @@ Now we come to the general form of the equation, $X\theta = y$. First, we need t
 
 
 
-
-
 $$
 \begin{bmatrix}
-\big\vert & \big\vert & \big\vert\\
+\big\vert &  & \big\vert\\
 x_1 & \cdots & x_n\\
-\big\vert & \big\vert & \big\vert
+\big\vert & & \big\vert
 \end{bmatrix} \begin{bmatrix}
 \theta_1\\
 \vdots\\
@@ -39,11 +37,6 @@ $$
 
 $X \theta = y$ has a solution if and only if $y$ can be expressed as a linear combination of the columns of $X$. Since the set of all linear combination of $X$ is given by the $\text{span}(\{x_1, \cdots, x_n\})$, the equation is solvable if and only if $y \in \text{span}(\{x_1, \cdots, x_n\})$. The span of the columns of $X$ is a subspace and is called the column space of the matrix $X$. Thus, $C(X)=\text{span}(\{x_1, \cdots, x_n\})$. We have now answered the question of when $X\theta = y$ is solvable.
 
-!!! note
-    The dimension of the column space is called the rank. You must be aware of the rank-nullity theorem:
-$$
-            \text{rank} + \text{nullity} = n
-$$
 
 
 ## Conditions for Solution

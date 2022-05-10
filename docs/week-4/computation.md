@@ -65,7 +65,7 @@ $$
 $$
 
 
-What have we done so far? We have just computed the nullspace of $A - \lambda I$. So, this is the recipe to follow: compute a basis for the nullspace of the matrix $A - \lambda I$. The span of this basis (exculding the zero vector) is the set of all eigenvectors of the matrix $A$ corresponding to the eigenvalue $\lambda$. We have already discussed an [algorithm](../week-3/3-system_1.md) to compute the basis for the nullspace of a matrix.
+What have we done so far? We have just computed the nullspace of $A - \lambda I$. So, this is the recipe to follow: compute a basis for the nullspace of the matrix $A - \lambda I$. The span of this basis (exculding the zero vector) is the set of all eigenvectors of the matrix $A$ corresponding to the eigenvalue $\lambda$. We have already discussed an [algorithm](../week-3/system_1.md) to compute the basis for the nullspace of a matrix.
 
 !!! note
     For any matrix $A$, then the nullspace of $A$ (excluding the vector $0$) has all the eigenvectors of $A$ with eigenvalue $0$. This is because $Ax = 0 = 0x$ if $x \in N(A)$.

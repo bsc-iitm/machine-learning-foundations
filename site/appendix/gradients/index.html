@@ -901,7 +901,7 @@ L = e^Te
 <p class="admonition-title">Warning</p>
 <p>Heavy use of algebra. Go slowly.  </p>
 </div>
-<p>Intuitively, what does <span class="arithmatex">\(\frac{\partial L}{\partial \theta_i}\)</span> mean? This partial derivative measures the effect on the loss <span class="arithmatex">\(L\)</span> when <span class="arithmatex">\(x_i\)</span> is perturbed a little keeping all other variables constant. This perturbation propagates to <span class="arithmatex">\(E\)</span> via <span class="arithmatex">\(e\)</span>. There is a chain reaction: <span class="arithmatex">\(x_1\)</span> affects some of the variables in the vector <span class="arithmatex">\(e\)</span>, which in turn affects <span class="arithmatex">\(E\)</span>. To get a better feel for this, let us take an example:</p>
+<p>Intuitively, what does <span class="arithmatex">\(\frac{\partial L}{\partial \theta_i}\)</span> mean? This partial derivative measures the effect on the loss <span class="arithmatex">\(L\)</span> when <span class="arithmatex">\(x_i\)</span> is perturbed a little keeping all other variables constant. This perturbation propagates to <span class="arithmatex">\(L\)</span> via <span class="arithmatex">\(e\)</span>. There is a chain reaction: <span class="arithmatex">\(x_1\)</span> affects some of the variables in the vector <span class="arithmatex">\(e\)</span>, which in turn affects <span class="arithmatex">\(L\)</span>. To get a better feel for this, let us take an example:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 e &amp;= X\theta - b\\\\
@@ -921,7 +921,7 @@ x_{31} &amp; x_{32}\\
 y_1\\
 y_2
 \end{bmatrix}\\\\
-E &amp;= e^T e = e_1^2 + e_2^2 + e_3^2
+L &amp;= e^T e = e_1^2 + e_2^2 + e_3^2
 \end{aligned}
 \]</div>
 <p>The variable <span class="arithmatex">\(\theta_1\)</span> influences <span class="arithmatex">\(L\)</span> via three <em>independent</em> routes:</p>
@@ -936,7 +936,7 @@ E &amp;= e^T e = e_1^2 + e_2^2 + e_3^2
 <div class="arithmatex">\[
 \cfrac{\partial L}{\partial \theta_1} = \cfrac{\partial L}{\partial e_1} \cfrac{\partial e_1}{\partial \theta_1} + \cfrac{\partial L}{\partial e_2} \cfrac{\partial e_2}{\partial \theta_1} + \cfrac{\partial L}{\partial e_3} \cfrac{\partial e_3}{\partial \theta_1}
 \]</div>
-<p>Observe that that the RHS is in the form of a dot product between two vectors:</p>
+<p>Observe that the RHS is in the form of a dot product between two vectors:</p>
 <div class="arithmatex">\[
 \cfrac{\partial L}{\partial \theta_1} = \begin{bmatrix}
 \cfrac{\partial e_1}{\partial \theta_1} &amp; \cfrac{\partial e_2}{\partial \theta_1} &amp; 
@@ -957,9 +957,9 @@ $$
 We can now add <span class="arithmatex">\(\cfrac{\partial L}{\partial \theta_2}\)</span> to the mix:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\nabla_x L &amp;= \begin{bmatrix}
-\cfrac{\partial E}{\partial \theta_1}\\
-\cfrac{\partial E}{\partial theta_2}
+\nabla_{\theta} L &amp;= \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\\
+\cfrac{\partial L}{\partial \theta_2}
 \end{bmatrix}\\ \\
 &amp;= \begin{bmatrix}
 \cfrac{\partial e_1}{\partial \theta_1} &amp; \cfrac{\partial e_2}{\partial \theta_1} &amp; 
@@ -970,12 +970,12 @@ We can now add <span class="arithmatex">\(\cfrac{\partial L}{\partial \theta_2}\
 &amp;= J\ \nabla_e L
 \end{aligned}
 \]</div>
-<p>The matrix <span class="arithmatex">\(J\)</span> is called the Jacobian matrix. It represents the partial derivatives of each component of the vector <span class="arithmatex">\(e\)</span> with respect to each component of the vector, <span class="arithmatex">\(x\)</span>. That is, every element of the Jacobian is of the form:</p>
+<p>The matrix <span class="arithmatex">\(J\)</span> is called the Jacobian matrix. It represents the partial derivatives of each component of the vector <span class="arithmatex">\(e\)</span> with respect to each component of the vector, <span class="arithmatex">\(\theta\)</span>. That is, every element of the Jacobian is of the form:</p>
 <div class="arithmatex">\[
 J_{ij} = \cfrac{\partial e_j}{\partial \theta_i}
 \]</div>
 <h2 id="back-to-the-gradients">Back to the gradients<a class="headerlink" href="#back-to-the-gradients" title="Permanent link">&para;</a></h2>
-<p>Let us resume our computation, but this time with a general <span class="arithmatex">\(m \times n\)</span> matrix <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(m\)</span> dimensional vector <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(n\)</span> dimensional vector <span class="arithmatex">\(\theta\)</span>:</p>
+<p>Let us resume our computation, but this time with a general <span class="arithmatex">\(m \times n\)</span> matrix <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(m\)</span> dimensional vector <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(n\)</span> dimensional vector <span class="arithmatex">\(\theta\)</span>. Since <span class="arithmatex">\(L = e^Te\)</span>, we have:</p>
 <div class="arithmatex">\[
 \nabla_e L = 2 e
 \]</div>

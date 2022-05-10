@@ -7,11 +7,11 @@
 
 ## Motivation
 
-Let us return to the housing dataset. Consider two houses, one which has $1000$ square feet and the other which has $2000$ square feet. As the area of the house increases, the selling price is going to go up. Take another feature, say the distance from the nearest school. If the distance increases, then the selling price goes down. Perhaps the effect may not be as drastic. If we have access to only these two features, one function or model could be as follows:
+Let us return to the [housing dataset](../week-1/linear_algebra.md). Consider two houses, one which has $1000$ square feet and the other which has $2000$ square feet. As the area of the house increases, the selling price is going to go up. Take another feature, say the distance from the nearest school. If the distance increases, then the selling price goes down. Perhaps the effect may not be as drastic. If we have access to only these two features, one function or model could be as follows:
 $$
 \text{Selling-price} = 2 \times \text{Area} - 0.2 \times \text{Distance} + \text{Constant}
 $$
-This is what is called a linear model. The values $2$ and $-0.2$ are called the weights. The magnitude of a weight denotes the importance of the corresponding feature. Its sign denotes the effect it has on the output. For example, the distance feature has an adverse effect on the selling-price, but is not as important as the area. 
+This is what is called a linear model. The values $2$ and $-0.2$ are called the weights. The magnitude of a weight denotes the importance of the corresponding feature. Its sign denotes the effect it has on the output. For example, the distance feature is negatively correlated with the selling-price, but it is not as important as the area.
 
 !!! note 
     We might be totally wrong about the choice of weights. Even worse, the relationship between the selling price and the two features may not even be linear! It is important to understand that a model is some approximation of the underlying reality. There is a nice quote that summarizes this idea: 
@@ -23,7 +23,7 @@ This is what is called a linear model. The values $2$ and $-0.2$ are called the 
 
 ## Vector form
 
-Generalizing this, let us say that we have a feature vector $a$ and a weight vector $w$. Recall that the housing data has six features:
+Generalizing this, let us say that we have a feature vector $x$ and a weight vector $\theta$. Recall that the housing data has six features:
 
 
 $$
@@ -60,7 +60,7 @@ $$
 y = x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 + \theta_0
 $$
 
-Going back to the vectors, we add a feature $1$ to the feature vector and a $w_0$ to the weights:
+Going back to the vectors, we add a feature $1$ to the feature vector and a $\theta_0$ to the weights:
 
 
 
@@ -85,21 +85,21 @@ x_6
 $$
 
 
-If we now look at the expression for $b$, it is nothing but the dot-product of the two vectors:
+If we now look at the expression for $y$, it is nothing but the dot-product of the two vectors:
 
 $$
 \begin{aligned}
-y &= x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 + \theta_0\\\\
+y &= 1\cdot \theta_0 + x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 \\\\
 &= \theta^T x
 \end{aligned}
 $$
 
 
-$\theta^Tx$ is the dot product between the two vectors $\theta$ and $x$. This is the notation that we will be using for the dot product from now on. The matrix-product of a row-vector and a column-vector:
+$\theta^Tx$ is the dot product between the two vectors $\theta$ and $x$. This is the notation that we will be using for the dot product from now on. This is the same as the matrix-product of a row-vector and a column-vector:
 
 
 $$
-y = \theta^T a = \begin{bmatrix}
+y = \theta^T x = \begin{bmatrix}
 \theta_0 & \theta_1 & \theta_2 & \theta_3 & \theta_4 & \theta_5 & \theta_6
 \end{bmatrix}\begin{bmatrix}
 1\\
@@ -139,6 +139,7 @@ y_{100}
 \theta_1\\
 \theta_2\\
 \theta_3\\
+\theta_4\\
 \theta_5\\
 \theta_6
 \end{bmatrix}
@@ -164,7 +165,7 @@ We are given both $X$ and $y$. This is nothing but our labeled dataset. We have 
 
 
 
-We can see how a ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question.
+We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question.
 
 !!! Note
     A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. For a more accurate handling of this topic, please refer to week-2 of the MLT course. 

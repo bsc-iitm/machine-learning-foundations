@@ -31,6 +31,7 @@ nav:
     - week-4/char_polynomial.md
     - week-4/computation.md
     - week-4/diagonalization.md
+    - week-4/tests_diagonal.md
   - Appendix:
     - appendix/gradients.md
     - appendix/cauchy_schwarz.md

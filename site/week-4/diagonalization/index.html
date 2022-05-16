@@ -694,6 +694,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -879,6 +886,58 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Slides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Slides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Slides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slides/links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../contribute/" class="md-nav__link">
         Contribute
@@ -969,6 +1028,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
   </a>
@@ -1040,7 +1106,7 @@ a_1 &amp; \\
 <h3 id="matrix-power">Matrix power<a class="headerlink" href="#matrix-power" title="Permanent link">&para;</a></h3>
 <p>Consider the product <span class="arithmatex">\(D^k\)</span>. This is extremely simple in the case of a diagonal matrix:</p>
 <p>$$
-D^n = \text{diag}(a_1^k, \cdots, a_n^k)
+D^k = \text{diag}(a_1^k, \cdots, a_n^k)
 $$
 We won't prove this statement now. But this is quite easy to see.</p>
 <h3 id="eigenvalues">Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permanent link">&para;</a></h3>
@@ -1083,7 +1149,7 @@ v_n
 \]</div>
 <p>Since, <span class="arithmatex">\(\lambda_i \neq \lambda_j\)</span> for <span class="arithmatex">\(i \neq j\)</span>, we have, <span class="arithmatex">\(v_j = 0\)</span> for <span class="arithmatex">\(j \neq i\)</span>. Thus, the eigenvector corresponding to <span class="arithmatex">\(\lambda_i\)</span> is some non-zero vector in <span class="arithmatex">\(\text{span}(\{e_i\})\)</span>.</p>
 <h2 id="diagonalizability">Diagonalizability<a class="headerlink" href="#diagonalizability" title="Permanent link">&para;</a></h2>
-<p>Now that we have seen some interesting properties concerning diagonal matrices, we shall study a special kind of matrices called <strong>diagonalizable matrices</strong>. These matrices are not diagonal, yet share a close kinship with them. Even if a matrix is not diagonal, can we hope that it is related in some way to a diagonal matrix?</p>
+<p>Now that we have seen some interesting properties concerning diagonal matrices, we shall study a special kind of matrices called <strong>diagonalizable matrices</strong>. These matrices are not necessarily diagonal, yet share a close kinship with them. Even if a matrix is not diagonal, can we hope that it is related in some way to a diagonal matrix?</p>
 <p>In the last section, we noted that the vectors in the standard basis are eigenvectors of a diagonal matrix. We will generalize this property. Assume that an <span class="arithmatex">\(n \times n\)</span> matrix has a set of <span class="arithmatex">\(n\)</span> linearly independent eigenvectors: <span class="arithmatex">\(\beta = \{v_1, \cdots, v_n\}\)</span>. Then <span class="arithmatex">\(\beta\)</span> is a basis for <span class="arithmatex">\(\mathbb{R}^n\)</span>. From this, we have a definition for diagonalizable matrices:</p>
 <div class="admonition note">
 <p class="admonition-title">Definition-1</p>
@@ -1139,6 +1205,31 @@ A = QDQ^{-1}
 <p class="admonition-title">Definition-2</p>
 <p>A matrix <span class="arithmatex">\(A\)</span> is diagonalizable if it is similar to a diagonal matrix.</p>
 </div>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>All diagonal matrices are diagonalizable. These are trivial examples of diagonalizable matrices. Let us take up a slightly non-trivial example of a diaongalizable matrix:</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+4 &amp; 3\\
+1 &amp; 2
+\end{bmatrix}
+\]</div>
+<p>The eigenvalues are <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(5\)</span>. The eigenvectors corresponding to these two eigenvalues are <span class="arithmatex">\([1, -1]^T\)</span> and <span class="arithmatex">\([3, 1]^T\)</span>. If we let these two matrices be the columns of a matrix <span class="arithmatex">\(Q\)</span>, then:</p>
+<div class="arithmatex">\[
+Q = \begin{bmatrix}
+1 &amp; 3\\
+-1 &amp; 1
+\end{bmatrix}, Q^{-1} = \begin{bmatrix}
+\frac{1}{2} &amp; -\frac{1}{2}\\
+\frac{1}{6} &amp; \frac{1}{6}
+\end{bmatrix}, D = \begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 5
+\end{bmatrix}
+\]</div>
+<p>We have:</p>
+<div class="arithmatex">\[
+A = Q D Q^{-1}
+\]</div>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
 <p>Let us look at two observations which exemplify the relationship between diagonalizable matrices and their diagonal counterparts.</p>
 <h3 id="eigenvalues_1">Eigenvalues<a class="headerlink" href="#eigenvalues_1" title="Permanent link">&para;</a></h3>
@@ -1160,19 +1251,19 @@ A = QDQ^{-1}
 <p>The two matrices have the same characteristic polynomial and hence the same eigenvalues. Thus, a diagonalizable matrix has <span class="arithmatex">\(n\)</span> eigenvalues, not necessarily distinct. These eigenvalues can be directly read off if we know the diagonal counterpart corresponding to <span class="arithmatex">\(A\)</span>.</p>
 <h3 id="matrix-power_1">Matrix power<a class="headerlink" href="#matrix-power_1" title="Permanent link">&para;</a></h3>
 <p>If <span class="arithmatex">\(A\)</span> is a diagonalizable matrix, then:</p>
-<p>$$
+<div class="arithmatex">\[
 \begin{aligned}
-A^k &amp;= (QDQ^{-1})^k\\
-&amp;= (QDQ^{-1}) \cdots (QDQ^{-1})\\
+A^k &amp;= (QDQ^{-1})^k\\\\
+&amp;= \underbrace{(QDQ^{-1}) \cdots (QDQ^{-1})}_{k \text{ blocks}}\\\\
 &amp;= Q D^k Q^{-1}
 \end{aligned}
-$$
-We see that <span class="arithmatex">\(A^{k}\)</span> is also diagonalizable. The eigenvlaues of <span class="arithmatex">\(A^k\)</span> are the <span class="arithmatex">\(k^{th}\)</span> powers of the eigenvalues of <span class="arithmatex">\(A\)</span>.</p>
+\]</div>
+<p>We see that <span class="arithmatex">\(A^{k}\)</span> is also diagonalizable. The eigenvlaues of <span class="arithmatex">\(A^k\)</span> are the <span class="arithmatex">\(k^{th}\)</span> powers of the eigenvalues of <span class="arithmatex">\(A\)</span>.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The following are equivalent definitions. An <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span> is diagonalizable if:</p>
+<p>Diagonalizable matrices are those matrices that are not necessarily diagonal, yet share a close kinship with them. The following are equivalent definitions. An <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span> is diagonalizable if:</p>
 <ul>
-<li><span class="arithmatex">\(\mathbb{R}^n\)</span> has a basis of eigenvectors of <span class="arithmatex">\(A\)</span></li>
-<li>it is similar to a diagonal matrix</li>
+<li><span class="arithmatex">\(\mathbb{R}^n\)</span> has a basis of eigenvectors of <span class="arithmatex">\(A\)</span>.</li>
+<li><span class="arithmatex">\(A\)</span> is similar to a diagonal matrix.</li>
 </ul>
 
               

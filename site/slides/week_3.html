@@ -1,0 +1,1658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MLF | Live Session | Week-3</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">MLF | Live Session | Week-3</h1>
+</div>
+<div id="course-outline" class="slide section level1">
+<h1>Course Outline</h1>
+<ul>
+<li>Week 1: Introduction to ML</li>
+<li>Week 2: Recap of calculus for ML</li>
+<li>Weeks 3 - 6: Linear algebra for ML</li>
+<li>Weeks 7 - 9: Optimization for ML</li>
+<li>Weeks 10 - 12: Probability and Statistics for ML</li>
+</ul>
+</div>
+<div id="session-outline" class="slide section level1">
+<h1>Session Outline</h1>
+<ul>
+<li>Linear Algebra for ML</li>
+<li>Regression problem
+<ul>
+<li>Dataset</li>
+</ul></li>
+<li>Linear regression model</li>
+<li>Algebra
+<ul>
+<li><span class="math inline">\(X \theta = 0\)</span></li>
+<li><span class="math inline">\(X \theta = y\)</span></li>
+<li><span class="math inline">\(X \theta \approx y\)</span></li>
+</ul></li>
+<li>Geometry
+<ul>
+<li>Best-fit</li>
+<li>Projections</li>
+</ul></li>
+</ul>
+</div>
+<div id="linear-algebra-for-ml" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+</div>
+<div id="linear-algebra-for-ml-1" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p>Why should we study linear algebra in ML?</p>
+</div>
+<div id="linear-algebra-for-ml-2" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p>Why should we study linear algebra in ML?</p>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<h2 id="data">Data</h2>
+</div>
+</div>
+</div>
+<div id="linear-algebra-for-ml-3" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p>Housing dataset</p>
+<ul>
+<li>lattitude</li>
+<li>longitue</li>
+<li>age</li>
+<li>num_of_rooms</li>
+<li>area</li>
+<li>distance_from_school</li>
+</ul>
+</div>
+<div id="linear-algebra-for-ml-4" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p><span class="math inline">\(1\)</span> house</p>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>Attributes/Target</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lattitude</td>
+<td>12.9</td>
+</tr>
+<tr class="even">
+<td>longitude</td>
+<td>80.2</td>
+</tr>
+<tr class="odd">
+<td>age</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>rooms</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>area</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>distance</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>price</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="linear-algebra-for-ml-5" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p><span class="math inline">\(1\)</span> house</p>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>Attributes/Target</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lattitude</td>
+<td>12.9</td>
+</tr>
+<tr class="even">
+<td>longitude</td>
+<td>80.2</td>
+</tr>
+<tr class="odd">
+<td>age</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>rooms</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>area</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>distance</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>price</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{bmatrix}
+12.9\\
+80.2\\
+3\\
+2\\
+1000\\
+3\\
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p>Vector</p>
+</div>
+</div>
+</div>
+<div id="linear-algebra-for-ml-6" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p><span class="math inline">\(100\)</span> houses?</p>
+</div>
+<div id="linear-algebra-for-ml-7" class="slide section level1">
+<h1>Linear Algebra for ML</h1>
+<p><span class="math inline">\(100\)</span> houses</p>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\begin{bmatrix}
+12.9 &amp; 80.2 &amp; 3 &amp; 2 &amp; 1000 &amp; 3\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+14.3 &amp; 75.9 &amp; 30 &amp; 2 &amp; 1200 &amp; 5\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+20.8 &amp; 90.5 &amp; 1 &amp; 3 &amp; 1500 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(100 \times 6\)</span> matrix</p>
+<p>Each row is a house</p>
+</div><div class="column" style="width:0%;">
+
+</div>
+</div>
+</div>
+<div id="regression" class="slide section level1">
+<h1>Regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><strong>Given</strong></p>
+<p><br></p>
+<p>lattitude</p>
+<p>longitue</p>
+<p>age</p>
+<p>num_of_rooms</p>
+<p>area</p>
+<p>distance_from_school</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Predict</strong></p>
+<p><br><br></p>
+<p><br></p>
+<p>selling_price</p>
+</div>
+</div>
+</div>
+<div id="regression-1" class="slide section level1">
+<h1>Regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><strong>Given</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{x \in \mathbb{R}^{6}}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Predict</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{y \in \mathbb{R}}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="regression-2" class="slide section level1">
+<h1>Regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><strong>Given</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{x \in \mathbb{R}^{n}}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Predict</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{y \in \mathbb{R}}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="regression-3" class="slide section level1">
+<h1>Regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><strong>Given</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{x \in \mathbb{R}^{n}}
+\]</span> <br></p>
+<p><br></p>
+<p>Feature-vector</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Predict</strong></p>
+<p><br><br> <span class="math display">\[
+\huge{y \in \mathbb{R}}
+\]</span></p>
+<p><br><br></p>
+<p>Label</p>
+</div>
+</div>
+</div>
+<div id="model" class="slide section level1">
+<h1>Model</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="model-1" class="slide section level1">
+<h1>Model</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+\]</span> <br><br> <span class="math display">\[
+\huge{f(x)=y}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="model-2" class="slide section level1">
+<h1>Model</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+\]</span> <br><br> <span class="math display">\[
+\huge{f(x)=y}
+\]</span></p>
+<p><br><br></p>
+<p>Learning a model?</p>
+</div><div class="column" style="width:0%;">
+
+</div>
+</div>
+</div>
+<div id="labeled-dataset" class="slide section level1">
+<h1>Labeled Dataset</h1>
+<p>Data for <span class="math inline">\(m\)</span> houses; each house is described by <span class="math inline">\(n\)</span> features:</p>
+<p><br><br></p>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+X = \begin{bmatrix}
+\cdots &amp; x_1 &amp; \cdots\\
+&amp; \vdots &amp;\\
+\cdots &amp; x_m &amp; \cdots\\
+\end{bmatrix}
+\]</span> <br><br></p>
+<p><span class="math inline">\(m \times n\)</span> data-matrix (feature matrix)</p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+y = \begin{bmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{bmatrix}
+\]</span></p>
+<p><br><br></p>
+<p><span class="math inline">\(m \times 1\)</span> label vector</p>
+</div>
+</div>
+</div>
+<div id="linear-regression" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+\large{\text{Selling-price} = 2 \times \text{Area} - 0.2 \times \text{Distance} + \text{Constant}}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-1" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+\begin{aligned}
+y &amp;= \theta_0 + x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 \\\\
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-2" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+\begin{aligned}
+y &amp;= \theta_0 + x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 \\\\
+&amp;= \theta^T x
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-3" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+y = \theta^T x = \begin{bmatrix}
+\theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \theta_3 &amp; \theta_4 &amp; \theta_5 &amp; \theta_6
+\end{bmatrix}\begin{bmatrix}
+1\\
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+x_5\\
+x_6
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-4" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+\huge{f(x) = \theta^T x}
+\]</span></p>
+<p><br><br></p>
+<p><span class="math inline">\(\large \theta\)</span> is a vector of parameters (weights) of the model</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-5" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+y = \theta^T x = \begin{bmatrix}
+\theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \theta_3 &amp; \theta_4 &amp; \theta_5 &amp; \theta_6
+\end{bmatrix}\begin{bmatrix}
+1\\
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+x_5\\
+x_6
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-6" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+y = x^T \theta = \begin{bmatrix}
+1 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_6
+\end{bmatrix} \begin{bmatrix}
+\theta_0 \\ \theta_1 \\ \theta_2 \\ \theta_3 \\ \theta_4 \\ \theta_5 \\ \theta_6
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-7" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+\begin{bmatrix}
+y_{1}\\
+\vdots\\
+y_{100}
+\end{bmatrix}= \begin{bmatrix}
+1 &amp; x_{1,1} &amp; x_{1,2} &amp; x_{1,3} &amp; x_{1,4} &amp; x_{1,5} &amp; x_{1,6}\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+1 &amp; x_{100,1} &amp; x_{100,2} &amp; x_{100,3} &amp; x_{100,4} &amp; x_{100,5} &amp; x_{100,6}\\
+\end{bmatrix}\begin{bmatrix}
+\theta_0\\
+\theta_1\\
+\theta_2\\
+\theta_3\\
+\theta_4\\
+\theta_5\\
+\theta_6
+\end{bmatrix}
+\]</span></p>
+<p><br><br></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-8" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\huge{X \theta} = y
+\]</span> <br><br></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-regression-9" class="slide section level1">
+<h1>Linear regression</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\huge{X \theta} = y
+\]</span> <br><br></p>
+<p>Enter Linear Algebra</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="setting" class="slide section level1">
+<h1>Setting</h1>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(X\)</span> is a data-matrix of dimensions <span class="math inline">\(m \times n\)</span></li>
+<li><span class="math inline">\(y\)</span> is a column-vector of size <span class="math inline">\(m\)</span></li>
+<li><span class="math inline">\(\theta \in \mathbb{R}^n\)</span></li>
+<li><span class="math inline">\(X\theta \in \mathbb{R}^{m}\)</span></li>
+</ul>
+</div>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{X \theta} = y
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br><br> <span class="math display">\[
+\huge{X \theta = 0}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0-1" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p>If:</p>
+<ul>
+<li><span class="math inline">\(X \theta_1 = 0\)</span></li>
+<li><span class="math inline">\(X \theta_2 = 0\)</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="x-theta-0-2" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p>If:</p>
+<ul>
+<li><span class="math inline">\(X \theta_1 = 0\)</span></li>
+<li><span class="math inline">\(X \theta_2 = 0\)</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><br><br></p>
+<p>Then:</p>
+<ul>
+<li><span class="math inline">\(X (\theta_1 + \theta_2) = X\theta_1 + X \theta_2 = 0\)</span></li>
+<li><span class="math inline">\(X(k \theta_1) = k(X \theta_1) = 0\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="x-theta-0-3" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="math inline">\(X \theta = 0\)</span> is <span class="math inline">\(\underline{} \underline{} \underline{} \underline{}\)</span> .</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0-4" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="math inline">\(X \theta = 0\)</span> is <span class="math inline">\(N(X)\)</span>.</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0-5" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="math inline">\(X \theta = 0\)</span> is <span class="math inline">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p>Find a basis for <span class="math inline">\(N(X)\)</span>.</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0-6" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="math inline">\(X \theta = 0\)</span> is <span class="math inline">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p>Find a basis for <span class="math inline">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p><span class="math inline">\(N(X) = \text{span}(B)\)</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-0-7" class="slide section level1">
+<h1><span class="math inline">\(X \theta = 0\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br><br> <span class="math display">\[
+\huge{X \theta = 0}
+\]</span> <br><br><br></p>
+<p>Gaussian elimination</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="row-operations" class="slide section level1">
+<h1>Row-operations</h1>
+<div>
+<ul class="incremental">
+<li>swap two rows</li>
+<li>scale a row by a non-zero constant</li>
+<li>add a scalar multiple of a row to another row</li>
+</ul>
+</div>
+</div>
+<div id="example" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+2 &amp; 1 &amp; 0 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="example-step-1" class="slide section level1">
+<h1>Example: Step-1</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+2 &amp; 1 &amp; 0 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_2 \rightarrow R_2-2R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="example-step-2" class="slide section level1">
+<h1>Example: Step-2</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3-3R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="example-step-3" class="slide section level1">
+<h1>Example: Step-3</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3 - R_2} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="row-echelon-matrix" class="slide section level1">
+<h1>Row-echelon matrix</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="row-echelon-matrix-1" class="slide section level1">
+<h1>Row-echelon matrix</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="solve" class="slide section level1">
+<h1>Solve</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+\color{blue}{\theta_1}\\
+\color{blue}{\theta_2}\\
+\theta_3\\
+\theta_4
+\end{bmatrix} = \begin{bmatrix}
+0\\
+0\\
+0\\
+0
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="algorithm" class="slide section level1">
+<h1>Algorithm</h1>
+<div class="columns" align="left">
+<div class="column" style="width:100%;">
+<p><span class="math inline">\(B = \{ \}\)</span></p>
+<div>
+<p>For each independent variable <span class="math inline">\(\theta_i\)</span>:</p>
+<ul class="incremental">
+<li>Set <span class="math inline">\(\theta_i = 1\)</span> and <span class="math inline">\(\theta_j = 0\)</span> for all independent variables, <span class="math inline">\(j \neq i\)</span></li>
+<li>Solve for the dependent variables<br />
+</li>
+<li>Add <span class="math inline">\(\theta\)</span> to <span class="math inline">\(B\)</span></li>
+</ul>
+</div>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="solved" class="slide section level1">
+<h1>Solved</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+\color{blue}{\theta_1}\\
+\color{blue}{\theta_2}\\
+\theta_3\\
+\theta_4
+\end{bmatrix} = \begin{bmatrix}
+0\\
+0\\
+0\\
+0
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+B = \left \{ \begin{bmatrix}1\\
+-2\\
+1\\
+0\end{bmatrix}, \begin{bmatrix}0\\
+-1\\
+0\\
+1\end{bmatrix} \right \}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-y" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br></p>
+<p>When will <span class="math inline">\(X \theta = y\)</span> have a solution?</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-y-1" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\\
+\vdots\\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="x-theta-y-2" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\\
+\vdots\\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+\theta_1 x_1 + \cdots + \theta_n x_n = y
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-y-3" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\\
+\vdots\\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\\
+\vdots\\
+y_m
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+\theta_1 x_1 + \cdots + \theta_n x_n = y
+\]</span> <br><br> <span class="math display">\[
+y \in C(X)
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-y-4" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br></p>
+<p>When will <span class="math inline">\(X \theta = y\)</span> have a solution?</p>
+<p><br><br></p>
+<p><span class="math inline">\(y \in C(X)\)</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-y-5" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(X\)</span> is the data-matrix</li>
+<li><span class="math inline">\(m \times n\)</span></li>
+<li><span class="math inline">\(m\)</span> data-points, <span class="math inline">\(n\)</span> features</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="x-theta-y-6" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<ul>
+<li><span class="math inline">\(X\)</span> is the data-matrix</li>
+<li><span class="math inline">\(m \times n\)</span></li>
+<li><span class="math inline">\(m\)</span> data-points, <span class="math inline">\(n\)</span> features</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>Typical dataset:</p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(m = 10000\)</span></li>
+<li><span class="math inline">\(n = 10\)</span></li>
+<li>Can <span class="math inline">\(10\)</span> vectors span <span class="math inline">\(\mathbb{R}^{10000}\)</span>?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="x-theta-y-7" class="slide section level1">
+<h1><span class="math inline">\(X \theta = y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<ul>
+<li><span class="math inline">\(X\)</span> is the data-matrix</li>
+<li><span class="math inline">\(m \times n\)</span></li>
+<li><span class="math inline">\(m\)</span> data-points, <span class="math inline">\(n\)</span> features</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p>Typical dataset:</p>
+<ul>
+<li><span class="math inline">\(m = 10000\)</span></li>
+<li><span class="math inline">\(n = 10\)</span></li>
+<li>Can <span class="math inline">\(10\)</span> vectors span <span class="math inline">\(\mathbb{R}^{10000}\)</span>?</li>
+</ul>
+</div>
+</div>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br></p>
+<p><span class="math inline">\(X \theta = y\)</span> is generally unsolvable.</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:100%;">
+
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-1" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:100%;">
+<p>What does the <span class="math inline">\(\approx\)</span> symbol mean?</p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(1.234 \approx 1\)</span></li>
+<li><span class="math inline">\(1.234 \approx 1.2\)</span></li>
+<li><span class="math inline">\(1.234 \approx 1.23\)</span></li>
+</ul>
+</div>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-2" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\hat{y} \approx y
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-3" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\hat{y} \approx y
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+||\hat{y} - y||
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-4" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\hat{y} \approx y
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+||\hat{y} - y||^2
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-5" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\hat{y} \approx y
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+||\hat{y} - y||^2 = (\hat{y}_1 - y_1)^2 + \cdots + (\hat{y}_m - y_m)^2
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="x-theta-approx-y-6" class="slide section level1">
+<h1><span class="math inline">\(X \theta \approx y\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X\hat{\theta} \approx y
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\hat{\theta} = \arg \min \limits_{\theta} ||X\theta - y||^2
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="loss" class="slide section level1">
+<h1>Loss</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\huge{L = ||X \theta - y||^2}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="loss-1" class="slide section level1">
+<h1>Loss</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+L &amp;= ||X \theta - y||^2
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="loss-2" class="slide section level1">
+<h1>Loss</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+L &amp;= ||X \theta - y||^2\\\\
+&amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="optimization" class="slide section level1">
+<h1>Optimization</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="optimization-1" class="slide section level1">
+<h1>Optimization</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+\nabla_{\theta} L = \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\\
+\vdots\\
+\cfrac{\partial L}{\partial \theta_n}
+\end{bmatrix} = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="optimization-2" class="slide section level1">
+<h1>Optimization</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+\nabla_{\theta} L = 2(X^TX)\theta - 2X^Ty = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="normal-equations" class="slide section level1">
+<h1>Normal Equations</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br> <span class="math display">\[
+\huge{(X^TX)\theta = X^Ty}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="solution" class="slide section level1">
+<h1>Solution</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br></p>
+<p>If <span class="math inline">\(X^TX\)</span> is invertible, then:</p>
+<p><br> <span class="math display">\[
+\hat{\theta} = (X^TX)^{-1} X^Ty
+\]</span> <br><br></p>
+<p>When is <span class="math inline">\(X^TX\)</span> invertible?</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="xtx" class="slide section level1">
+<h1><span class="math inline">\(X^TX\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(n \times n\)</span> matrix</li>
+<li>Symmetric</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="xtx-1" class="slide section level1">
+<h1><span class="math inline">\(X^TX\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+N(X) = N(X^TX)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="xtx-2" class="slide section level1">
+<h1><span class="math inline">\(X^TX\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+N(X) = N(X^TX)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><u>Proof</u></p>
+<p>If <span class="math inline">\(\theta \in N(X)\)</span>:</p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(X\theta =0\)</span></li>
+<li><span class="math inline">\(X^TX \theta = 0\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="xtx-3" class="slide section level1">
+<h1><span class="math inline">\(X^TX\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+N(X) = N(X^TX)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><u>Proof</u></p>
+<p>If <span class="math inline">\(\theta \in N(X)\)</span>:</p>
+<ul>
+<li><span class="math inline">\(X\theta =0\)</span></li>
+<li><span class="math inline">\(X^TX \theta = 0\)</span></li>
+</ul>
+<p>If <span class="math inline">\(\theta \in N(X^T X)\)</span></p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(X^TX \theta = 0\)</span></li>
+<li><span class="math inline">\(\theta^T X^TX \theta = 0\)</span></li>
+<li><span class="math inline">\((X \theta)^T (X \theta) = 0\)</span></li>
+<li><span class="math inline">\(X \theta = 0\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="xtx-4" class="slide section level1">
+<h1><span class="math inline">\(X^TX\)</span></h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(\text{rank}(X) = n\)</span>, <span class="math inline">\(X^TX\)</span> is invertible</p>
+</div><div class="column" style="width:50%;">
+<p><u>Proof</u></p>
+<p>If <span class="math inline">\(\text{rank}(X) = n\)</span>:</p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(\text{nullity}(X) = 0\)</span></li>
+<li><span class="math inline">\(\text{nullity}(X^TX) = 0\)</span></li>
+<li><span class="math inline">\(\text{rank}(X^TX) = n\)</span></li>
+<li><span class="math inline">\(X^TX\)</span> is full rank, hence invertible</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="geometry" class="slide section level1">
+<h1>Geometry</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br><br></p>
+<p>What does a linear regression model look like?</p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="data-1" class="slide section level1">
+<h1>Data</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><img src="../assets/images/img_002.svg" width="800" /></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="linear-model" class="slide section level1">
+<h1>Linear model</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><img src="../assets/images/img_003.svg" width="800" /></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="errors" class="slide section level1">
+<h1>Errors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><img src="../assets/images/img_004.svg" width="800" /></p>
+</div><div class="column" style="width:0%;">
+<p>right</p>
+</div>
+</div>
+</div>
+<div id="projections" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+(X^TX)\hat{\theta} = X^Ty
+\]</span> <br><br></p>
+<p><span class="math inline">\(X \hat{\theta}\)</span> is an approximation for <span class="math inline">\(y\)</span></p>
+<p><br><br></p>
+<p>How are <span class="math inline">\(X \hat{\theta}\)</span> and <span class="math inline">\(y\)</span> related geometrically?</p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="projections-1" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+(X^TX)\hat{\theta} = X^Ty
+\]</span> <br><br></p>
+<p><span class="math inline">\(X \hat{\theta}\)</span> is an approximation for <span class="math inline">\(y\)</span></p>
+<p><br><br></p>
+<p>How are <span class="math inline">\(X \hat{\theta}\)</span> and <span class="math inline">\(y\)</span> related geometrically?</p>
+</div><div class="column" style="width:50%;">
+<p><br><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+2 &amp; 6\\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-2" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="left">
+<div class="column" style="width:70%;">
+<p><img src="../assets/images/img_005.svg" width="700" /></p>
+</div><div class="column" style="width:30%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+X = \begin{bmatrix}
+2 &amp; 6\\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-3" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="left">
+<div class="column" style="width:70%;">
+<p><img src="../assets/images/img_006.svg" width="700" /></p>
+</div><div class="column" style="width:30%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+X = \begin{bmatrix}
+2 &amp; 6\\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-4" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><img src="../assets/images/img_007.svg" width="700" /></p>
+</div><div class="column" style="width:50%;">
+<p><br><br></p>
+<p><br> <span class="math display">\[
+e = y - X \hat{\theta}
+\]</span> <br><br> <span class="math display">\[
+e \perp C(X)
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-5" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="projections-6" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br> <span class="math display">\[
+e \perp x_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</div>
+<div id="projections-7" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br> <span class="math display">\[
+e \perp x_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+x_i^T e = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-8" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br> <span class="math display">\[
+e \perp x_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+x_i^T e = 0
+\]</span> <br> <span class="math display">\[
+X^T e = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-9" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br> <span class="math display">\[
+e \perp x_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+x_i^T e = 0
+\]</span> <br> <span class="math display">\[
+X^T e = 0
+\]</span> <br> <span class="math display">\[
+X^T(y - X\hat{\theta}) = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="projections-10" class="slide section level1">
+<h1>Projections</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\\
+x_1 &amp; \cdots &amp; x_n\\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+\]</span> <br><br> <span class="math display">\[
+e \perp x_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+x_i^T e = 0
+\]</span> <br> <span class="math display">\[
+X^T e = 0
+\]</span> <br> <span class="math display">\[
+X^T(y - X\hat{\theta}) = 0
+\]</span> <br> <span class="math display">\[
+X^TX \hat{\theta} = X^T y
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="summary" class="slide section level1">
+<h1>Summary</h1>
+<ul>
+<li>Linear Algebra for ML</li>
+<li>Regression problem
+<ul>
+<li>Dataset</li>
+</ul></li>
+<li>Linear regression model</li>
+<li>Algebra
+<ul>
+<li><span class="math inline">\(X \theta = 0\)</span></li>
+<li><span class="math inline">\(X \theta = y\)</span></li>
+<li><span class="math inline">\(X \theta \approx y\)</span></li>
+</ul></li>
+<li>Geometry
+<ul>
+<li>Best-fit</li>
+<li>Projections</li>
+</ul></li>
+</ul>
+</div>
+</body>
+</html>

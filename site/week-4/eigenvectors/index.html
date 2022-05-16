@@ -825,6 +825,58 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Slides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Slides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Slides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slides/links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../contribute/" class="md-nav__link">
         Contribute
@@ -942,7 +994,7 @@ Tu = \begin{bmatrix}3\\0\end{bmatrix} = 3u
 \]</div>
 <p>This case corresponds to vectors whose direction remains unchanged after the linear transformation.</p>
 <h2 id="eigenvectors-and-eigenvalues_1">Eigenvectors and Eigenvalues<a class="headerlink" href="#eigenvectors-and-eigenvalues_1" title="Permanent link">&para;</a></h2>
-<p>A <em>non-zero</em> vector which point in the same direction before and after the linear transformation is called an <strong>eigenvector</strong>. Since the direction of an eigenvector is unchanged by the transformation, it makes sense to look at the magnitude by which it is scaled after the transformation. This scalar value is called the <strong>eigenvalue</strong>. The eigenvector and the corresponding eigenvalue make up an eigenpair. For the matrix (linear transformation) that we have been working with, <span class="arithmatex">\(\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)\)</span> and <span class="arithmatex">\(\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)\)</span> are two eigenpairs.</p>
+<p>A <em>non-zero</em> vector which points in the same direction before and after the linear transformation is called an <strong>eigenvector</strong>. Since the direction of an eigenvector is unchanged by the transformation, it makes sense to look at the magnitude by which it is scaled after the transformation. This scalar value is called the <strong>eigenvalue</strong>. The eigenvector and the corresponding eigenvalue make up an eigenpair. For the matrix (linear transformation) that we have been working with, <span class="arithmatex">\(\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)\)</span> and <span class="arithmatex">\(\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)\)</span> are two eigenpairs.</p>
 <h2 id="eigenspace">Eigenspace<a class="headerlink" href="#eigenspace" title="Permanent link">&para;</a></h2>
 <p>We will now shift to matrices from linear transformations. Consider an arbitrary <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span>. How big is the space of eigenvectors? Let <span class="arithmatex">\(A\)</span> be a matrix. If <span class="arithmatex">\(u\)</span> is an eigenvector of <span class="arithmatex">\(A\)</span> with  eigenvalue <span class="arithmatex">\(\lambda\)</span>, what can we say about the vector <span class="arithmatex">\(2u\)</span>?</p>
 <div class="arithmatex">\[
@@ -958,7 +1010,7 @@ A(u + v) = Au + Av = \lambda u + \lambda v = \lambda(u + v)
 <p><span class="arithmatex">\(0\)</span> can never be an eigenvector. This is because if <span class="arithmatex">\(A0 = \lambda 0\)</span> then there is no fixed <span class="arithmatex">\(\lambda\)</span> that we can associate with <span class="arithmatex">\(0\)</span>. Therefore, eigenvectors are non-zero vectors.</p>
 </div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>For a matrix <span class="arithmatex">\(A\)</span>, a non-zero <span class="arithmatex">\(x\)</span> is an eigenvector with eigenvalue <span class="arithmatex">\(\lambda\)</span> if <span class="arithmatex">\(Ax = \lambda x\)</span>.</p>
+<p>For a matrix <span class="arithmatex">\(A\)</span>, a non-zero vector <span class="arithmatex">\(x\)</span> is an eigenvector with eigenvalue <span class="arithmatex">\(\lambda\)</span> if <span class="arithmatex">\(Ax = \lambda x\)</span>.</p>
 <div class="footnote">
 <hr />
 <ol>

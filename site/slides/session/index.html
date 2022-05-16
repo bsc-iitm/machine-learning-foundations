@@ -1,0 +1,2502 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>MLF | Live Session | Week-3 - Machine Learning Foundations</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#course-outline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Machine Learning Foundations" class="md-header__button md-logo" aria-label="Machine Learning Foundations" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Foundations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MLF | Live Session | Week-3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Machine Learning Foundations" class="md-nav__button md-logo" aria-label="Machine Learning Foundations" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Machine Learning Foundations
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Week-1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week-1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-1/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-1/linear_algebra/" class="md-nav__link">
+        Linear Algebra for ML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-1/ml_problem/" class="md-nav__link">
+        ML problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-1/dataset/" class="md-nav__link">
+        Datasets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Week-2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week-2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../None" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Week-3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week-3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/linear_model/" class="md-nav__link">
+        Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/system_1/" class="md-nav__link">
+        Xθ = 0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/system_2/" class="md-nav__link">
+        Xθ = y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/least_squares/" class="md-nav__link">
+        Xθ ≈ y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/best_fit/" class="md-nav__link">
+        Best Fit Hyperplane
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-3/projections/" class="md-nav__link">
+        Projections
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Week-4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week-4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/transformations/" class="md-nav__link">
+        Linear Transformations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/eigenvectors/" class="md-nav__link">
+        Eigenvectors and Eigenvalues
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/char_polynomial/" class="md-nav__link">
+        Characteristic Polynomial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/computation/" class="md-nav__link">
+        Computing Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/diagonalization/" class="md-nav__link">
+        Diagonalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../week-4/tests_diagonal/" class="md-nav__link">
+        Test for Diagonalizability
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Appendix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/gradients/" class="md-nav__link">
+        Gradients
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/cauchy_schwarz/" class="md-nav__link">
+        Cauchy-Schwarz Inequality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/rank_one/" class="md-nav__link">
+        Rank-1 matrices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/matrix_product/" class="md-nav__link">
+        Matrix product
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/density_estimation/" class="md-nav__link">
+        Density Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Slides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Slides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Slides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="course-outline">Course Outline<a class="headerlink" href="#course-outline" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Week 1: Introduction to ML</li>
+<li>Week 2: Recap of calculus for ML</li>
+<li>Weeks 3 - 6: Linear algebra for ML</li>
+<li>Weeks 7 - 9: Optimization for ML</li>
+<li>Weeks 10 - 12: Probability and Statistics for ML</li>
+</ul>
+<h1 id="session-outline">Session Outline<a class="headerlink" href="#session-outline" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Linear Algebra for ML</li>
+<li>Regression problem</li>
+<li>Dataset</li>
+<li>Linear regression model</li>
+<li>Algebra</li>
+<li><span class="arithmatex">\(X \theta = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta = y\)</span></li>
+<li><span class="arithmatex">\(X \theta \approx y\)</span></li>
+<li>Geometry</li>
+<li>Best-fit</li>
+<li>Projections</li>
+</ul>
+<h1 id="linear-algebra-for-ml">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml" title="Permanent link">&para;</a></h1>
+<h1 id="linear-algebra-for-ml_1">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_1" title="Permanent link">&para;</a></h1>
+<p>Why should we study linear algebra in ML?</p>
+<h1 id="linear-algebra-for-ml_2">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_2" title="Permanent link">&para;</a></h1>
+<p>Why should we study linear algebra in ML?</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<h2 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h2>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-algebra-for-ml_3">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_3" title="Permanent link">&para;</a></h1>
+<p>Housing dataset</p>
+<ul>
+<li>lattitude</li>
+<li>longitue</li>
+<li>age</li>
+<li>num_of_rooms</li>
+<li>area</li>
+<li>distance_from_school</li>
+</ul>
+<h1 id="linear-algebra-for-ml_4">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_4" title="Permanent link">&para;</a></h1>
+<p><span class="arithmatex">\(1\)</span> house</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<table>
+<thead>
+<tr>
+<th>Attributes/Target</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lattitude</td>
+<td>12.9</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>80.2</td>
+</tr>
+<tr>
+<td>age</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rooms</td>
+<td>2</td>
+</tr>
+<tr>
+<td>area</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>price</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-algebra-for-ml_5">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_5" title="Permanent link">&para;</a></h1>
+<p><span class="arithmatex">\(1\)</span> house</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<table>
+<thead>
+<tr>
+<th>Attributes/Target</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lattitude</td>
+<td>12.9</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>80.2</td>
+</tr>
+<tr>
+<td>age</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rooms</td>
+<td>2</td>
+</tr>
+<tr>
+<td>area</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>price</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>:::</p>
+<p>::: {.column width="50%"}
+$$
+\begin{bmatrix}
+12.9\
+80.2\
+3\
+2\
+1000\
+3\
+\end{bmatrix}
+$$</p>
+<p><br></p>
+<p>Vector</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-algebra-for-ml_6">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_6" title="Permanent link">&para;</a></h1>
+<p><span class="arithmatex">\(100\)</span> houses?</p>
+<h1 id="linear-algebra-for-ml_7">Linear Algebra for ML<a class="headerlink" href="#linear-algebra-for-ml_7" title="Permanent link">&para;</a></h1>
+<p><span class="arithmatex">\(100\)</span> houses</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+12.9 &amp; 80.2 &amp; 3 &amp; 2 &amp; 1000 &amp; 3\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+14.3 &amp; 75.9 &amp; 30 &amp; 2 &amp; 1200 &amp; 5\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+20.8 &amp; 90.5 &amp; 1 &amp; 3 &amp; 1500 &amp; 2
+\end{bmatrix}
+\]</div>
+<p><br></p>
+<p><span class="arithmatex">\(100 \times 6\)</span> matrix</p>
+<p>Each row is a house</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Given</strong></p>
+<p><br></p>
+<p>lattitude</p>
+<p>longitue</p>
+<p>age</p>
+<p>num_of_rooms</p>
+<p>area</p>
+<p>distance_from_school</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Predict</strong></p>
+<p><br><br></p>
+<p><br></p>
+<p>selling_price</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="regression_1">Regression<a class="headerlink" href="#regression_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Given</strong></p>
+<p><br><br>
+$$
+\huge{x \in \mathbb{R}^{6}}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Predict</strong></p>
+<p><br><br>
+$$
+\huge{y \in \mathbb{R}}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="regression_2">Regression<a class="headerlink" href="#regression_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Given</strong></p>
+<p><br><br>
+$$
+\huge{x \in \mathbb{R}^{n}}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Predict</strong></p>
+<p><br><br>
+$$
+\huge{y \in \mathbb{R}}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="regression_3">Regression<a class="headerlink" href="#regression_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Given</strong></p>
+<p><br><br>
+$$
+\huge{x \in \mathbb{R}^{n}}
+$$
+<br></p>
+<p><br></p>
+<p>Feature-vector</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><strong>Predict</strong></p>
+<p><br><br>
+$$
+\huge{y \in \mathbb{R}}
+$$</p>
+<p><br><br></p>
+<p>Label</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}
+$$
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+$$
+:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="model_1">Model<a class="headerlink" href="#model_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}
+$$
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+$$
+<br><br>
+$$
+\huge{f(x)=y}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="model_2">Model<a class="headerlink" href="#model_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}
+$$
+\huge{f: \mathbb{R}^{n}} \rightarrow \mathbb{R}
+$$
+<br><br>
+$$
+\huge{f(x)=y}
+$$</p>
+<p><br><br></p>
+<p>Learning a model?</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="labeled-dataset">Labeled Dataset<a class="headerlink" href="#labeled-dataset" title="Permanent link">&para;</a></h1>
+<p>Data for <span class="arithmatex">\(m\)</span> houses; each house is described by <span class="arithmatex">\(n\)</span> features:</p>
+<p><br><br></p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}
+$$
+X = \begin{bmatrix}
+\cdots &amp; x_1 &amp; \cdots\
+&amp; \vdots &amp;\
+\cdots &amp; x_m &amp; \cdots\
+\end{bmatrix}
+$$
+<br><br></p>
+<p><span class="arithmatex">\(m \times n\)</span> data-matrix (feature matrix)</p>
+<p>:::</p>
+<p>::: {.column width="50%"}
+$$
+y = \begin{bmatrix}
+y_1\
+\vdots\
+y_m
+\end{bmatrix}
+$$</p>
+<p><br><br></p>
+<p><span class="arithmatex">\(m \times 1\)</span> label vector</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression">Linear regression<a class="headerlink" href="#linear-regression" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+\large{\text{Selling-price} = 2 \times \text{Area} - 0.2 \times \text{Distance} + \text{Constant}}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_1">Linear regression<a class="headerlink" href="#linear-regression_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+\begin{aligned}
+y &amp;= \theta_0 + x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 \\
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_2">Linear regression<a class="headerlink" href="#linear-regression_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+\begin{aligned}
+y &amp;= \theta_0 + x_1 \theta_1 + x_2 \theta_2 + x_3\theta_3 + x_4 \theta_4 + x_5 \theta_5 + x_6 \theta_6 \\
+&amp;= \theta^T x
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_3">Linear regression<a class="headerlink" href="#linear-regression_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+y = \theta^T x = \begin{bmatrix}
+\theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \theta_3 &amp; \theta_4 &amp; \theta_5 &amp; \theta_6
+\end{bmatrix}\begin{bmatrix}
+1\
+x_1\
+x_2\
+x_3\
+x_4\
+x_5\
+x_6
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_4">Linear regression<a class="headerlink" href="#linear-regression_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+\huge{f(x) = \theta^T x}
+$$</p>
+<p><br><br></p>
+<p><span class="arithmatex">\(\large \theta\)</span> is a vector of parameters (weights) of the model</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_5">Linear regression<a class="headerlink" href="#linear-regression_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+y = \theta^T x = \begin{bmatrix}
+\theta_0 &amp; \theta_1 &amp; \theta_2 &amp; \theta_3 &amp; \theta_4 &amp; \theta_5 &amp; \theta_6
+\end{bmatrix}\begin{bmatrix}
+1\
+x_1\
+x_2\
+x_3\
+x_4\
+x_5\
+x_6
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_6">Linear regression<a class="headerlink" href="#linear-regression_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+y = x^T \theta = \begin{bmatrix}
+1 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_6
+\end{bmatrix} \begin{bmatrix}
+\theta_0 \ \theta_1 \ \theta_2 \ \theta_3 \ \theta_4 \ \theta_5 \ \theta_6
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_7">Linear regression<a class="headerlink" href="#linear-regression_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br>
+$$
+\begin{bmatrix}
+y_{1}\
+\vdots\
+y_{100}
+\end{bmatrix}= \begin{bmatrix}
+1 &amp; x_{1,1} &amp; x_{1,2} &amp; x_{1,3} &amp; x_{1,4} &amp; x_{1,5} &amp; x_{1,6}\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\
+1 &amp; x_{100,1} &amp; x_{100,2} &amp; x_{100,3} &amp; x_{100,4} &amp; x_{100,5} &amp; x_{100,6}\
+\end{bmatrix}\begin{bmatrix}
+\theta_0\
+\theta_1\
+\theta_2\
+\theta_3\
+\theta_4\
+\theta_5\
+\theta_6
+\end{bmatrix}
+$$</p>
+<p><br><br></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_8">Linear regression<a class="headerlink" href="#linear-regression_8" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br><br></p>
+<p><br>
+$$
+\huge{X \theta} = y
+$$
+<br><br></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-regression_9">Linear regression<a class="headerlink" href="#linear-regression_9" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br><br></p>
+<p><br>
+$$
+\huge{X \theta} = y
+$$
+<br><br></p>
+<p>Enter Linear Algebra</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="setting">Setting<a class="headerlink" href="#setting" title="Permanent link">&para;</a></h1>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is a data-matrix of dimensions <span class="arithmatex">\(m \times n\)</span></li>
+<li><span class="arithmatex">\(y\)</span> is a column-vector of size <span class="arithmatex">\(m\)</span></li>
+<li><span class="arithmatex">\(\theta \in \mathbb{R}^n\)</span></li>
+<li><span class="arithmatex">\(X\theta \in \mathbb{R}^{m}\)</span></li>
+</ul>
+<p>:::</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\huge{X \theta} = y
+$$
+:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br><br>
+$$
+\huge{X \theta = 0}
+$$
+:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_1"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p>If:</p>
+<ul>
+<li><span class="arithmatex">\(X \theta_1 = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta_2 = 0\)</span></li>
+</ul>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_2"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p>If:</p>
+<ul>
+<li><span class="arithmatex">\(X \theta_1 = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta_2 = 0\)</span></li>
+</ul>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p>Then:</p>
+<ul>
+<li><span class="arithmatex">\(X (\theta_1 + \theta_2) = X\theta_1 + X \theta_2 = 0\)</span></li>
+<li><span class="arithmatex">\(X(k \theta_1) = k(X \theta_1) = 0\)</span></li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_3"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="arithmatex">\(X \theta = 0\)</span> is <span class="arithmatex">\(\underline{} \underline{} \underline{} \underline{}\)</span> .</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_4"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="arithmatex">\(X \theta = 0\)</span> is <span class="arithmatex">\(N(X)\)</span>.</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_5"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="arithmatex">\(X \theta = 0\)</span> is <span class="arithmatex">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p>Find a basis for <span class="arithmatex">\(N(X)\)</span>.</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_6"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>The set of all solutions of <span class="arithmatex">\(X \theta = 0\)</span> is <span class="arithmatex">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p>Find a basis for <span class="arithmatex">\(N(X)\)</span>.</p>
+<p><br></p>
+<p><br></p>
+<p><span class="arithmatex">\(N(X) = \text{span}(B)\)</span></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-0_7"><span class="arithmatex">\(X \theta = 0\)</span><a class="headerlink" href="#x-theta-0_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br><br>
+$$
+\huge{X \theta = 0}
+$$
+<br><br><br></p>
+<p>Gaussian elimination</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="row-operations">Row-operations<a class="headerlink" href="#row-operations" title="Permanent link">&para;</a></h1>
+<p>::: incremental</p>
+<ul>
+<li>swap two rows</li>
+<li>scale a row by a non-zero constant</li>
+<li>add a scalar multiple of a row to another row</li>
+</ul>
+<p>:::</p>
+<h1 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+X = \begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+2 &amp; 1 &amp; 0 &amp; 1\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="example-step-1">Example: Step-1<a class="headerlink" href="#example-step-1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+2 &amp; 1 &amp; 0 &amp; 1\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_2 \rightarrow R_2-2R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="example-step-2">Example: Step-2<a class="headerlink" href="#example-step-2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+3 &amp; 1 &amp; -1 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3-3R_1} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="example-step-3">Example: Step-3<a class="headerlink" href="#example-step-3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+0 &amp; 1 &amp; 2 &amp; 1
+\end{bmatrix} \underrightarrow{R_3 \rightarrow R_3 - R_2} 
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="row-echelon-matrix">Row-echelon matrix<a class="headerlink" href="#row-echelon-matrix" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; -1 &amp; 0\
+0 &amp; 1 &amp; 2 &amp; 1\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="row-echelon-matrix_1">Row-echelon matrix<a class="headerlink" href="#row-echelon-matrix_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="solve">Solve<a class="headerlink" href="#solve" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+\color{blue}{\theta_1}\
+\color{blue}{\theta_2}\
+\theta_3\
+\theta_4
+\end{bmatrix} = \begin{bmatrix}
+0\
+0\
+0\
+0
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p><span class="arithmatex">\(B = \{ \}\)</span></p>
+<p>::: incremental</p>
+<p>For each independent variable <span class="arithmatex">\(\theta_i\)</span>:</p>
+<ul>
+<li>Set <span class="arithmatex">\(\theta_i = 1\)</span> and <span class="arithmatex">\(\theta_j = 0\)</span> for all independent variables, <span class="arithmatex">\(j \neq i\)</span></li>
+<li>Solve for the dependent variables        </li>
+<li>Add <span class="arithmatex">\(\theta\)</span> to <span class="arithmatex">\(B\)</span></li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="solved">Solved<a class="headerlink" href="#solved" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\begin{bmatrix}
+\color{blue}{1} &amp; 0 &amp; -1 &amp; 0\
+0 &amp; \color{blue}{1} &amp; 2 &amp; 1\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\begin{bmatrix}
+\color{blue}{\theta_1}\
+\color{blue}{\theta_2}\
+\theta_3\
+\theta_4
+\end{bmatrix} = \begin{bmatrix}
+0\
+0\
+0\
+0
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+B = \left { \begin{bmatrix}1\
+-2\
+1\
+0\end{bmatrix}, \begin{bmatrix}0\
+-1\
+0\
+1\end{bmatrix} \right }
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br></p>
+<p>When will <span class="arithmatex">\(X \theta = y\)</span> have a solution?</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_1"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\
+x_1 &amp; \cdots &amp; x_n\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\
+\vdots\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\
+\vdots\
+y_m
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_2"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\
+x_1 &amp; \cdots &amp; x_n\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\
+\vdots\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\
+\vdots\
+y_m
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+\theta_1 x_1 + \cdots + \theta_n x_n = y
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_3"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+\begin{bmatrix}
+\big\vert &amp;  &amp; \big\vert\
+x_1 &amp; \cdots &amp; x_n\
+\big\vert &amp; &amp; \big\vert
+\end{bmatrix} \begin{bmatrix}
+\theta_1\
+\vdots\
+\theta_n
+\end{bmatrix} = \begin{bmatrix}
+y_1\
+\vdots\
+y_m
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+\theta_1 x_1 + \cdots + \theta_n x_n = y
+$$
+<br><br>
+$$
+y \in C(X)
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_4"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br></p>
+<p>When will <span class="arithmatex">\(X \theta = y\)</span> have a solution?</p>
+<p><br><br></p>
+<p><span class="arithmatex">\(y \in C(X)\)</span></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_5"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the data-matrix</li>
+<li><span class="arithmatex">\(m \times n\)</span></li>
+<li><span class="arithmatex">\(m\)</span> data-points, <span class="arithmatex">\(n\)</span> features</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_6"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the data-matrix</li>
+<li><span class="arithmatex">\(m \times n\)</span></li>
+<li><span class="arithmatex">\(m\)</span> data-points, <span class="arithmatex">\(n\)</span> features</li>
+</ul>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p>Typical dataset:</p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(m = 10000\)</span></li>
+<li><span class="arithmatex">\(n = 10\)</span></li>
+<li>Can <span class="arithmatex">\(10\)</span> vectors span <span class="arithmatex">\(\mathbb{R}^{10000}\)</span>?</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-y_7"><span class="arithmatex">\(X \theta = y\)</span><a class="headerlink" href="#x-theta-y_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<ul>
+<li><span class="arithmatex">\(X\)</span> is the data-matrix</li>
+<li><span class="arithmatex">\(m \times n\)</span></li>
+<li><span class="arithmatex">\(m\)</span> data-points, <span class="arithmatex">\(n\)</span> features</li>
+</ul>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p>Typical dataset:</p>
+<ul>
+<li><span class="arithmatex">\(m = 10000\)</span></li>
+<li><span class="arithmatex">\(n = 10\)</span></li>
+<li>Can <span class="arithmatex">\(10\)</span> vectors span <span class="arithmatex">\(\mathbb{R}^{10000}\)</span>?</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br></p>
+<p><span class="arithmatex">\(X \theta = y\)</span> is generally unsolvable.</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_1"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p>What does the <span class="arithmatex">\(\approx\)</span> symbol mean?</p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(1.234 \approx 1\)</span></li>
+<li><span class="arithmatex">\(1.234 \approx 1.2\)</span></li>
+<li><span class="arithmatex">\(1.234 \approx 1.23\)</span></li>
+</ul>
+<p>::: </p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_2"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\hat{y} \approx y
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_3"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\hat{y} \approx y
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+||\hat{y} - y||
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_4"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\hat{y} \approx y
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+||\hat{y} - y||^2
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_5"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\hat{y} \approx y
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+||\hat{y} - y||^2 = (\hat{y}_1 - y_1)^2 + \cdots + (\hat{y}_m - y_m)^2
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="x-theta-approx-y_6"><span class="arithmatex">\(X \theta \approx y\)</span><a class="headerlink" href="#x-theta-approx-y_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X\hat{\theta} \approx y
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\hat{\theta} = \arg \min \limits_{\theta} ||X\theta - y||^2
+$$
+:::</p>
+<p>:::</p>
+<h1 id="loss">Loss<a class="headerlink" href="#loss" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\huge{L = ||X \theta - y||^2}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="loss_1">Loss<a class="headerlink" href="#loss_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\begin{aligned}
+L &amp;= ||X \theta - y||^2
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="loss_2">Loss<a class="headerlink" href="#loss_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\begin{aligned}
+L &amp;= ||X \theta - y||^2\\
+&amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="optimization_1">Optimization<a class="headerlink" href="#optimization_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+\nabla_{\theta} L = \begin{bmatrix}
+\cfrac{\partial L}{\partial \theta_1}\
+\vdots\
+\cfrac{\partial L}{\partial \theta_n}
+\end{bmatrix} = 0
+$$
+:::</p>
+<p>:::</p>
+<h1 id="optimization_2">Optimization<a class="headerlink" href="#optimization_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\begin{aligned}
+L &amp;= (X \theta - y)^T (X \theta - y)
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+\nabla_{\theta} L = 2(X^TX)\theta - 2X^Ty = 0
+$$
+:::</p>
+<p>:::</p>
+<h1 id="normal-equations">Normal Equations<a class="headerlink" href="#normal-equations" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br>
+$$
+\huge{(X^TX)\theta = X^Ty}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br></p>
+<p>If <span class="arithmatex">\(X^TX\)</span> is invertible, then:</p>
+<p><br>
+$$
+\hat{\theta} = (X^TX)^{-1} X^Ty
+$$
+<br><br></p>
+<p>When is <span class="arithmatex">\(X^TX\)</span> invertible?</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="xtx"><span class="arithmatex">\(X^TX\)</span><a class="headerlink" href="#xtx" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(n \times n\)</span> matrix</li>
+<li>Symmetric</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="xtx_1"><span class="arithmatex">\(X^TX\)</span><a class="headerlink" href="#xtx_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+N(X) = N(X^TX)
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="xtx_2"><span class="arithmatex">\(X^TX\)</span><a class="headerlink" href="#xtx_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+N(X) = N(X^TX)
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><u>Proof</u></p>
+<p>If <span class="arithmatex">\(\theta \in N(X)\)</span>:</p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(X\theta =0\)</span></li>
+<li><span class="arithmatex">\(X^TX \theta = 0\)</span></li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="xtx_3"><span class="arithmatex">\(X^TX\)</span><a class="headerlink" href="#xtx_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+N(X) = N(X^TX)
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><u>Proof</u></p>
+<p>If <span class="arithmatex">\(\theta \in N(X)\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(X\theta =0\)</span></li>
+<li><span class="arithmatex">\(X^TX \theta = 0\)</span></li>
+</ul>
+<p>If <span class="arithmatex">\(\theta \in N(X^T X)\)</span></p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(X^TX \theta = 0\)</span></li>
+<li><span class="arithmatex">\(\theta^T X^TX \theta = 0\)</span></li>
+<li><span class="arithmatex">\((X \theta)^T (X \theta) = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta = 0\)</span></li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="xtx_4"><span class="arithmatex">\(X^TX\)</span><a class="headerlink" href="#xtx_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br></p>
+<p>If <span class="arithmatex">\(\text{rank}(X) = n\)</span>, <span class="arithmatex">\(X^TX\)</span> is invertible</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><u>Proof</u></p>
+<p>If <span class="arithmatex">\(\text{rank}(X) = n\)</span>:</p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(\text{nullity}(X) = 0\)</span></li>
+<li><span class="arithmatex">\(\text{nullity}(X^TX) = 0\)</span></li>
+<li><span class="arithmatex">\(\text{rank}(X^TX) = n\)</span></li>
+<li><span class="arithmatex">\(X^TX\)</span> is full rank, hence invertible</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br><br><br></p>
+<p>What does a linear regression model look like?</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="data_1">Data<a class="headerlink" href="#data_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><img alt="" src="../../assets/images/img_002.svg" width="800" /></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="linear-model">Linear model<a class="headerlink" href="#linear-model" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><img alt="" src="../../assets/images/img_003.svg" width="800" /></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><img alt="" src="../../assets/images/img_004.svg" width="800" /></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p>right</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections">Projections<a class="headerlink" href="#projections" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}
+$$
+(X^TX)\hat{\theta} = X^Ty
+$$
+<br><br></p>
+<p><span class="arithmatex">\(X \hat{\theta}\)</span> is an approximation for <span class="arithmatex">\(y\)</span></p>
+<p><br><br></p>
+<p>How are <span class="arithmatex">\(X \hat{\theta}\)</span> and <span class="arithmatex">\(y\)</span> related geometrically?</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_1">Projections<a class="headerlink" href="#projections_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}
+$$
+(X^TX)\hat{\theta} = X^Ty
+$$
+<br><br></p>
+<p><span class="arithmatex">\(X \hat{\theta}\)</span> is an approximation for <span class="arithmatex">\(y\)</span></p>
+<p><br><br></p>
+<p>How are <span class="arithmatex">\(X \hat{\theta}\)</span> and <span class="arithmatex">\(y\)</span> related geometrically?</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br><br>
+$$
+X = \begin{bmatrix}
+2 &amp; 6\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\
+2
+\end{bmatrix}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="projections_2">Projections<a class="headerlink" href="#projections_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="70%"}</p>
+<p><img alt="" src="../../assets/images/img_005.svg" width="700" /></p>
+<p>:::</p>
+<p>::: {.column width="30%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+X = \begin{bmatrix}
+2 &amp; 6\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\
+2
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_3">Projections<a class="headerlink" href="#projections_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="70%"}</p>
+<p><img alt="" src="../../assets/images/img_006.svg" width="700" /></p>
+<p>:::</p>
+<p>::: {.column width="30%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+X = \begin{bmatrix}
+2 &amp; 6\
+1 &amp; 3
+\end{bmatrix}, y = \begin{bmatrix}
+3\
+4
+\end{bmatrix}, X \hat{\theta} = \begin{bmatrix}
+4\
+2
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_4">Projections<a class="headerlink" href="#projections_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="50%"}</p>
+<p><img alt="" src="../../assets/images/img_007.svg" width="700" /></p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br></p>
+<p><br>
+$$
+e = y - X \hat{\theta}
+$$
+<br><br>
+$$
+e \perp C(X)
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_5">Projections<a class="headerlink" href="#projections_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br></p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_6">Projections<a class="headerlink" href="#projections_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br>
+$$
+e \perp x_i
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="projections_7">Projections<a class="headerlink" href="#projections_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br>
+$$
+e \perp x_i
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br>
+$$
+x_i^T e = 0
+$$
+:::</p>
+<p>:::</p>
+<h1 id="projections_8">Projections<a class="headerlink" href="#projections_8" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br>
+$$
+e \perp x_i
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br>
+$$
+x_i^T e = 0
+$$
+<br>
+$$
+X^T e = 0
+$$
+:::</p>
+<p>:::</p>
+<h1 id="projections_9">Projections<a class="headerlink" href="#projections_9" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br>
+$$
+e \perp x_i
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br>
+$$
+x_i^T e = 0
+$$
+<br>
+$$
+X^T e = 0
+$$
+<br>
+$$
+X^T(y - X\hat{\theta}) = 0
+$$
+:::</p>
+<p>:::</p>
+<h1 id="projections_10">Projections<a class="headerlink" href="#projections_10" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br><br>
+$$
+X = \begin{bmatrix}
+\vert &amp; &amp; \vert\
+x_1 &amp; \cdots &amp; x_n\
+\vert &amp; &amp; \vert
+\end{bmatrix}
+$$
+<br><br>
+$$
+e \perp x_i
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br>
+$$
+x_i^T e = 0
+$$
+<br>
+$$
+X^T e = 0
+$$
+<br>
+$$
+X^T(y - X\hat{\theta}) = 0
+$$
+<br>
+$$
+X^TX \hat{\theta} = X^T y
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Linear Algebra for ML</li>
+<li>Regression problem</li>
+<li>Dataset</li>
+<li>Linear regression model</li>
+<li>Algebra</li>
+<li><span class="arithmatex">\(X \theta = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta = y\)</span></li>
+<li><span class="arithmatex">\(X \theta \approx y\)</span></li>
+<li>Geometry</li>
+<li>Best-fit</li>
+<li>Projections</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

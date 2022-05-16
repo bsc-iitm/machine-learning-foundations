@@ -38,6 +38,8 @@ nav:
     - appendix/rank_one.md
     - appendix/matrix_product.md
     - appendix/density_estimation.md 
+  - Slides:
+    - slides/links.md
   - Contribute: contribute.md
 
 markdown_extensions:

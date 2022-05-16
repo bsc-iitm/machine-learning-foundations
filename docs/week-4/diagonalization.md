@@ -41,7 +41,7 @@ Consider the product $D^k$. This is extremely simple in the case of a diagonal m
 
 
 $$
-D^n = \text{diag}(a_1^k, \cdots, a_n^k)
+D^k = \text{diag}(a_1^k, \cdots, a_n^k)
 $$
 We won't prove this statement now. But this is quite easy to see.
 
@@ -109,7 +109,7 @@ Since, $\lambda_i \neq \lambda_j$ for $i \neq j$, we have, $v_j = 0$ for $j \neq
 
 ## Diagonalizability
 
-Now that we have seen some interesting properties concerning diagonal matrices, we shall study a special kind of matrices called **diagonalizable matrices**. These matrices are not diagonal, yet share a close kinship with them. Even if a matrix is not diagonal, can we hope that it is related in some way to a diagonal matrix?
+Now that we have seen some interesting properties concerning diagonal matrices, we shall study a special kind of matrices called **diagonalizable matrices**. These matrices are not necessarily diagonal, yet share a close kinship with them. Even if a matrix is not diagonal, can we hope that it is related in some way to a diagonal matrix?
 
 In the last section, we noted that the vectors in the standard basis are eigenvectors of a diagonal matrix. We will generalize this property. Assume that an $n \times n$ matrix has a set of $n$ linearly independent eigenvectors: $\beta = \{v_1, \cdots, v_n\}$. Then $\beta$ is a basis for $\mathbb{R}^n$. From this, we have a definition for diagonalizable matrices:
 
@@ -202,6 +202,46 @@ This gives an alternative definition for diagonalizable matrices:
 
 
 
+## Examples
+
+All diagonal matrices are diagonalizable. These are trivial examples of diagonalizable matrices. Let us take up a slightly non-trivial example of a diaongalizable matrix:
+
+
+$$
+A = \begin{bmatrix}
+4 & 3\\
+1 & 2
+\end{bmatrix}
+$$
+
+
+The eigenvalues are $1$ and $5$. The eigenvectors corresponding to these two eigenvalues are $[1, -1]^T$ and $[3, 1]^T$. If we let these two matrices be the columns of a matrix $Q$, then:
+
+
+
+
+$$
+Q = \begin{bmatrix}
+1 & 3\\
+-1 & 1
+\end{bmatrix}, Q^{-1} = \begin{bmatrix}
+\frac{1}{2} & -\frac{1}{2}\\
+\frac{1}{6} & \frac{1}{6}
+\end{bmatrix}, D = \begin{bmatrix}
+1 & 0\\
+0 & 5
+\end{bmatrix}
+$$
+
+
+We have:
+
+
+$$
+A = Q D Q^{-1}
+$$
+
+
 ## Properties
 
 Let us look at two observations which exemplify the relationship between diagonalizable matrices and their diagonal counterparts.
@@ -235,21 +275,24 @@ The two matrices have the same characteristic polynomial and hence the same eige
 
 If $A$ is a diagonalizable matrix, then:
 
+
 $$
 \begin{aligned}
 A^k &= (QDQ^{-1})^k\\\\
-&= (QDQ^{-1}) \cdots (QDQ^{-1})\\\\
+&= \underbrace{(QDQ^{-1}) \cdots (QDQ^{-1})}_{k \text{ blocks}}\\\\
 &= Q D^k Q^{-1}
 \end{aligned}
 $$
+
+
 We see that $A^{k}$ is also diagonalizable. The eigenvlaues of $A^k$ are the $k^{th}$ powers of the eigenvalues of $A$.
 
 
 
 ## Summary
 
-The following are equivalent definitions. An $n \times n$ matrix $A$ is diagonalizable if:
+Diagonalizable matrices are those matrices that are not necessarily diagonal, yet share a close kinship with them. The following are equivalent definitions. An $n \times n$ matrix $A$ is diagonalizable if:
 
-- $\mathbb{R}^n$ has a basis of eigenvectors of $A$
-- it is similar to a diagonal matrix
+- $\mathbb{R}^n$ has a basis of eigenvectors of $A$.
+- $A$ is similar to a diagonal matrix.
 

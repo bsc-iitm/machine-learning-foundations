@@ -194,4 +194,4 @@ The normal equations again!
 
 ## Summary
 
-If the parameters of the linear model obtained by solving the normal equations is $\hat{\theta}$, then the vector $A\hat{x}$ is the projection of the vector $y$ onto the column space of $X$.
+If the parameters of the linear model obtained by solving the normal equations is $\hat{\theta}$, then the vector $A\hat{\theta}$ is the projection of the vector $y$ onto the column space of $X$.

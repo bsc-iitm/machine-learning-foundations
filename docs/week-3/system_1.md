@@ -35,6 +35,7 @@ All this is fine, but how does it help us find all the solutions? If we can find
 
 The central idea in Gaussian elimination is to transform a matrix into its row-echelon form. Let us take up an example and work with that:
 
+
 $$
 X = \begin{bmatrix}
 1 & 0 & -1 & 0\\
@@ -42,6 +43,7 @@ X = \begin{bmatrix}
 3 & 1 & -1 & 1
 \end{bmatrix}
 $$
+
 
 
 Recall that we can apply a sequence of any of these three row operations on a matrix:
@@ -53,7 +55,6 @@ Recall that we can apply a sequence of any of these three row operations on a ma
 
 
 **Step-1**
-
 
 $$
 \begin{bmatrix}
@@ -68,9 +69,7 @@ $$
 \end{bmatrix}
 $$
 
-
 **Step-2**
-
 
 $$
 \begin{bmatrix}

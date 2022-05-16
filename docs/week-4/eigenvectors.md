@@ -71,7 +71,7 @@ This case corresponds to vectors whose direction remains unchanged after the lin
 
 ## Eigenvectors and Eigenvalues
 
-A *non-zero* vector which point in the same direction before and after the linear transformation is called an **eigenvector**. Since the direction of an eigenvector is unchanged by the transformation, it makes sense to look at the magnitude by which it is scaled after the transformation. This scalar value is called the **eigenvalue**. The eigenvector and the corresponding eigenvalue make up an eigenpair. For the matrix (linear transformation) that we have been working with, $\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)$ and $\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)$ are two eigenpairs.
+A *non-zero* vector which points in the same direction before and after the linear transformation is called an **eigenvector**. Since the direction of an eigenvector is unchanged by the transformation, it makes sense to look at the magnitude by which it is scaled after the transformation. This scalar value is called the **eigenvalue**. The eigenvector and the corresponding eigenvalue make up an eigenpair. For the matrix (linear transformation) that we have been working with, $\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)$ and $\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)$ are two eigenpairs.
 
 
 
@@ -104,7 +104,7 @@ Therefore, $u + v$ is also an eigenvector of $A$ with eigenvalue of $\lambda$. F
 
 ## Summary
 
-For a matrix $A$, a non-zero $x$ is an eigenvector with eigenvalue $\lambda$ if $Ax = \lambda x$.
+For a matrix $A$, a non-zero vector $x$ is an eigenvector with eigenvalue $\lambda$ if $Ax = \lambda x$.
 
 
 

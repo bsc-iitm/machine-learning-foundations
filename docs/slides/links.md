@@ -20,4 +20,4 @@
 
 [Fibonacci](../slides/week-4/week_4_7.html)
 
-[Real symmetric matrices](../slides/week-4/week_4_8.html)
+[Orthogonally diagonalizable matrices](../slides/week-4/week_4_8.html)

@@ -1,0 +1,2051 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>MLF | Lecture | Week-4 - Machine Learning Foundations</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-outline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Machine Learning Foundations" class="md-header__button md-logo" aria-label="Machine Learning Foundations" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning Foundations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MLF | Lecture | Week-4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Machine Learning Foundations" class="md-nav__button md-logo" aria-label="Machine Learning Foundations" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Machine Learning Foundations
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Week-1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Week-1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-1/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-1/linear_algebra/" class="md-nav__link">
+        Linear Algebra for ML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-1/ml_problem/" class="md-nav__link">
+        ML problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-1/dataset/" class="md-nav__link">
+        Datasets
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Week-2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week-2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../None" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Week-3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week-3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/linear_model/" class="md-nav__link">
+        Linear Regression
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/system_1/" class="md-nav__link">
+        Xθ = 0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/system_2/" class="md-nav__link">
+        Xθ = y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/least_squares/" class="md-nav__link">
+        Xθ ≈ y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/best_fit/" class="md-nav__link">
+        Best Fit Hyperplane
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-3/projections/" class="md-nav__link">
+        Projections
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Week-4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Week-4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week-4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/outline/" class="md-nav__link">
+        Outline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/transformations/" class="md-nav__link">
+        Linear Transformations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/eigenvectors/" class="md-nav__link">
+        Eigenvectors and Eigenvalues
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/char_polynomial/" class="md-nav__link">
+        Characteristic Polynomial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/computation/" class="md-nav__link">
+        Computing Eigenvectors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/diagonalization/" class="md-nav__link">
+        Diagonalization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/tests_diagonal/" class="md-nav__link">
+        Tests for Diagonalizability
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../week-4/fibonacci/" class="md-nav__link">
+        Fibonacci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Appendix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/gradients/" class="md-nav__link">
+        Gradients
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/cauchy_schwarz/" class="md-nav__link">
+        Cauchy-Schwarz Inequality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/rank_one/" class="md-nav__link">
+        Rank-1 matrices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/matrix_product/" class="md-nav__link">
+        Matrix product
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/properties/" class="md-nav__link">
+        Some properties
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/density_estimation/" class="md-nav__link">
+        Density Estimation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Slides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Slides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Slides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        Links
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="lecture-outline">Lecture Outline<a class="headerlink" href="#lecture-outline" title="Permanent link">&para;</a></h1>
+<p>::: incremental</p>
+<ul>
+<li>Linear Transformations</li>
+<li>Eigenvectors and Eigenvalues</li>
+<li>Characteristic Polynomial</li>
+<li>Computing Eigenvectors</li>
+<li><strong>Diagonalization</strong></li>
+<li>Tests for Diagonalizability</li>
+<li>Fibonacci</li>
+<li>Orthogonally Diagonalizable Matrices</li>
+</ul>
+<p>:::</p>
+<h1 id="diagonal-matrices">Diagonal Matrices<a class="headerlink" href="#diagonal-matrices" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; \ddots &amp;\
+&amp; &amp; a_n
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonal-matrices_1">Diagonal Matrices<a class="headerlink" href="#diagonal-matrices_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; \ddots &amp;\
+&amp; &amp; a_n
+\end{bmatrix}\\
+&amp;= \text{diag}(a_1, \cdots, a_n)
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1">Property-1<a class="headerlink" href="#property-1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_1 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+1\
+0\
+0
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_2 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+1\
+0
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_3 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+0\
+1
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="property-1_1">Property-1<a class="headerlink" href="#property-1_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_1 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+1\
+0\
+0
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+a_1\
+0\
+0
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_2 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+1\
+0
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+0\
+a_2\
+0
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_3 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+0\
+1
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+0\
+0\
+a_3
+\end{bmatrix}
+\end{aligned}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="property-1_2">Property-1<a class="headerlink" href="#property-1_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_1 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+1\
+0\
+0
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+a_1\
+0\
+0
+\end{bmatrix}\\
+&amp;= a_1 \cdot e_1
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_2 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+1\
+0
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+0\
+a_2\
+0
+\end{bmatrix}\\
+&amp;= a_2 \cdot e_2
+\end{aligned}
+$$
+:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br>
+$$
+\begin{aligned}
+De_3 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+0\
+0\
+1
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+0\
+0\
+a_3
+\end{bmatrix}\\
+&amp;= a_3 \cdot e_3
+\end{aligned}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="property-2">Property-2<a class="headerlink" href="#property-2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D^2 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_1">Property-2<a class="headerlink" href="#property-2_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D^2 &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+a_1^2 &amp; \
+&amp; a_2^2 &amp;\
+&amp; &amp; a_3^2
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_2">Property-2<a class="headerlink" href="#property-2_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D^k &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \cdots \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_3">Property-2<a class="headerlink" href="#property-2_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D^k &amp;= \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix} \cdots \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}
+a_1^k &amp; \
+&amp; a_2^k &amp;\
+&amp; &amp; a_3^k
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-3">Property-3<a class="headerlink" href="#property-3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+D = \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+|D| = 
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-3_1">Property-3<a class="headerlink" href="#property-3_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+D = \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+|D| = a_1 a_2a_3
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-4">Property-4<a class="headerlink" href="#property-4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+D = \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+D^{-1} = 
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-4_1">Property-4<a class="headerlink" href="#property-4_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+D = \begin{bmatrix}
+a_1 &amp; \
+&amp; a_2 &amp;\
+&amp; &amp; a_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+D^{-1} &amp;= \begin{bmatrix}
+\frac{1}{a_1} &amp; \
+&amp; \frac{1}{a_2} &amp;\
+&amp; &amp; \frac{1}{a_3}
+\end{bmatrix} 
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable">Diagonalizable<a class="headerlink" href="#diagonalizable" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>::: incremental</p>
+<ul>
+<li>Diagonal matrices have excellent properties.</li>
+<li>Even if a matrix is not diagonal, can we hope that it is related in some way to a diagonal matrix?</li>
+<li><strong>Diagonalizable matrices</strong> are not necessarily diagonal, yet share a close kinship with them.</li>
+<li>What are they and how are they related to diagonal matrices?</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_1">Diagonalizable<a class="headerlink" href="#diagonalizable_1" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>The vectors in the standard basis are ————— of a diagonal matrix.</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_2">Diagonalizable<a class="headerlink" href="#diagonalizable_2" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>The vectors in the standard basis are <span style="color:blue">eigenvectors</span> of a diagonal matrix.</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_3">Diagonalizable<a class="headerlink" href="#diagonalizable_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>::: incremental</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> is an <span class="arithmatex">\(n \times n\)</span> matrix</li>
+<li><strong>Condition:</strong> <span class="arithmatex">\(A\)</span> has <span class="arithmatex">\(n\)</span> linearly independent eigenvectors <span class="arithmatex">\(v_1, \cdots, v_n\)</span></li>
+<li><span class="arithmatex">\(\beta = \{v_1, \cdots, v_n\}\)</span> is a basis for <span class="arithmatex">\(\mathbb{R}^{n}\)</span></li>
+<li>We have a basis of eigenvectors of <span class="arithmatex">\(A\)</span></li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_4">Diagonalizable<a class="headerlink" href="#diagonalizable_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Definition-1</strong>: An <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span> is diagonalizable if there is a basis of eigenvectors for <span class="arithmatex">\(\mathbb{R}^n\)</span></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_5">Diagonalizable<a class="headerlink" href="#diagonalizable_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Definition-1</strong>: An <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span> is diagonalizable if there is a basis of eigenvectors for <span class="arithmatex">\(\mathbb{R}^n\)</span></p>
+<p><br></p>
+<p>Ok, so what?</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_6">Diagonalizable<a class="headerlink" href="#diagonalizable_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+Av_1 = \lambda_1v_1
+$$</p>
+<p>:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+Av_2 = \lambda_2v_2
+$$</p>
+<p>:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+Av_3 = \lambda_3v_3
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_7">Diagonalizable<a class="headerlink" href="#diagonalizable_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert\
+v_1\
+\vert
+\end{bmatrix} = \begin{bmatrix}
+\vert\
+\lambda_1 v_1\
+\vert
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert\
+v_2\
+\vert
+\end{bmatrix} = \begin{bmatrix}
+\vert\
+\lambda_2 v_2\
+\vert
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="33%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert\
+v_3\
+\vert
+\end{bmatrix} = \begin{bmatrix}
+\vert\
+\lambda_3 v_3\
+\vert
+\end{bmatrix}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_8">Diagonalizable<a class="headerlink" href="#diagonalizable_8" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+\lambda_1 v_1 &amp; \lambda_2 v_2 &amp; \lambda_3 v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_9">Diagonalizable<a class="headerlink" href="#diagonalizable_9" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_10">Diagonalizable<a class="headerlink" href="#diagonalizable_10" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p><br>
+$$
+Q = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix}, D = \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_11">Diagonalizable<a class="headerlink" href="#diagonalizable_11" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p><br>
+$$
+Q = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix}, D = \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A Q = QD
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_12">Diagonalizable<a class="headerlink" href="#diagonalizable_12" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p><br>
+$$
+Q = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix}, D = \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A Q = QD
+$$
+<br>
+$$
+\beta = {v_1, \cdots, v_n}
+$$
+:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_13">Diagonalizable<a class="headerlink" href="#diagonalizable_13" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p><br>
+$$
+Q = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix}, D = \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A Q = QD
+$$
+<br>
+$$
+\beta = {v_1, \cdots, v_n}
+$$
+<br>
+$$
+A = QDQ^{-1}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_14">Diagonalizable<a class="headerlink" href="#diagonalizable_14" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A\begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix} = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert
+\end{bmatrix} \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$</p>
+<p><br>
+$$
+Q = \begin{bmatrix}
+\vert &amp; \vert &amp; \vert\
+v_1 &amp; v_2 &amp; v_3\
+\vert &amp; \vert &amp; \vert\
+\end{bmatrix}, D = \begin{bmatrix}
+\lambda_1 &amp; &amp;\
+&amp; \lambda_2 &amp; \
+&amp; &amp; \lambda_3
+\end{bmatrix}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A Q = QD
+$$
+<br>
+$$
+\beta = {v_1, \cdots, v_n}
+$$
+<br>
+$$
+A = QDQ^{-1}
+$$</p>
+<p><br></p>
+<p><span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(D\)</span> are similar matrices</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_15">Diagonalizable<a class="headerlink" href="#diagonalizable_15" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Definition-2</strong>: An <span class="arithmatex">\(n \times n\)</span> matrix <span class="arithmatex">\(A\)</span> is diagonalizable if it is similar to a diagonal matrix.</p>
+<p><br></p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="diagonalizable_16">Diagonalizable<a class="headerlink" href="#diagonalizable_16" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$</p>
+<p>:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_3">Property-1<a class="headerlink" href="#property-1_3" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= 
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_4">Property-1<a class="headerlink" href="#property-1_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= |QDQ^{-1} - \lambda I|\\
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_5">Property-1<a class="headerlink" href="#property-1_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= |QDQ^{-1} - \lambda I|\\
+&amp;= |QDQ^{-1} - \lambda Q Q^{-1}|
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_6">Property-1<a class="headerlink" href="#property-1_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= |QDQ^{-1} - \lambda I|\\
+&amp;= |QDQ^{-1} - \lambda Q Q^{-1}|\\
+&amp;= |Q(D - \lambda I)Q^{-1}|
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_7">Property-1<a class="headerlink" href="#property-1_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= |QDQ^{-1} - \lambda I|\\
+&amp;= |QDQ^{-1} - \lambda Q Q^{-1}|\\
+&amp;= |Q(D - \lambda I)Q^{-1}|\\
+&amp;= |Q| \cdot |D - \lambda I| \cdot |Q^{-1}|
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-1_8">Property-1<a class="headerlink" href="#property-1_8" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+|A - \lambda I| &amp;= |QDQ^{-1} - \lambda I|\\
+&amp;= |QDQ^{-1} - \lambda Q Q^{-1}|\\
+&amp;= |Q(D - \lambda I)Q^{-1}|\\
+&amp;= |Q| \cdot |D - \lambda I| \cdot |Q^{-1}|\\
+&amp;= |D - \lambda I|
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_4">Property-2<a class="headerlink" href="#property-2_4" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+A^k &amp;=
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_5">Property-2<a class="headerlink" href="#property-2_5" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+A^k &amp;= (QDQ^{-1})^k
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_6">Property-2<a class="headerlink" href="#property-2_6" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+A^k &amp;= (QDQ^{-1})^k\\
+&amp;= \underbrace{(QDQ^{-1}) \cdots (QDQ^{-1})}_{k \text{ blocks}}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="property-2_7">Property-2<a class="headerlink" href="#property-2_7" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=center}</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+A = Q D Q^{-1}
+$$
+:::</p>
+<p>::: {.column width="50%"}</p>
+<p><br></p>
+<p><br>
+$$
+\begin{aligned}
+A^k &amp;= (QDQ^{-1})^k\\
+&amp;= \underbrace{(QDQ^{-1}) \cdots (QDQ^{-1})}_{k \text{ blocks}}\\
+&amp;= Q D^k Q^{-1}
+\end{aligned}
+$$</p>
+<p>:::</p>
+<p>:::</p>
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>::: {.columns align=left}</p>
+<p>::: {.column width="100%"}</p>
+<p><br></p>
+<p><br></p>
+<p>::: incremental</p>
+<p>The following are equivalent definitions of diagonalizablity. A matrix <span class="arithmatex">\(A\)</span> is diagonalizable if</p>
+<ul>
+<li><span class="arithmatex">\(\mathbb{R}^n\)</span> has a basis of eigenvectors of <span class="arithmatex">\(A\)</span></li>
+<li><span class="arithmatex">\(A\)</span> is similar to a diagonal matrix</li>
+</ul>
+<p>:::</p>
+<p>:::</p>
+<p>::: {.column width="0%"}</p>
+<p><br></p>
+<p><br></p>
+<p>:::</p>
+<p>:::</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

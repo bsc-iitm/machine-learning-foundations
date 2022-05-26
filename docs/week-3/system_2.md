@@ -165,7 +165,7 @@ $$
 
 
 
-This not a complete proof. We have only shown that $\theta_p + \theta_n$ is a solution. It may still not be clear why every solution should be of this form. But we will skip this argument in this course. Coming back to the example we are working with, how do we find the particular solution $\theta_p$? We set all independent variables to zero and solve for the dependent variables:
+This is not a complete proof. We have only shown that $\theta_p + \theta_n$ is a solution. It may still not be clear why every solution should be of this form. But we will skip this argument in this course. Coming back to the example we are working with, how do we find the particular solution $\theta_p$? We set all independent variables to zero and solve for the dependent variables:
 
 
 $$

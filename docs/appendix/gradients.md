@@ -57,12 +57,12 @@ The chain rule when multiple variables are involved can be a bit tricky. This is
 !!! warning
     Heavy use of algebra. Go slowly.  
 
-Intuitively, what does $\frac{\partial L}{\partial \theta_i}$ mean? This partial derivative measures the effect on the loss $L$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $L$ via $e$. There is a chain reaction: $x_1$ affects some of the variables in the vector $e$, which in turn affects $L$. To get a better feel for this, let us take an example:
+Intuitively, what does $\frac{\partial L}{\partial \theta_i}$ mean? This partial derivative measures the effect on the loss $L$ when $x_i$ is perturbed a little keeping all other variables constant. This perturbation propagates to $L$ via $e$. There is a chain reaction: $\theta_1$ affects some of the variables in the vector $e$, which in turn affects $L$. To get a better feel for this, let us take an example:
 
 
 $$
 \begin{aligned}
-e &= X\theta - b\\\\
+e &= X\theta - y\\\\
 \begin{bmatrix}
 e_1\\
 e_2\\
@@ -157,6 +157,7 @@ $$
 
 
 The matrix $J$ is called the Jacobian matrix. It represents the partial derivatives of each component of the vector $e$ with respect to each component of the vector, $\theta$. That is, every element of the Jacobian is of the form:
+
 
 $$
 J_{ij} = \cfrac{\partial e_j}{\partial \theta_i}

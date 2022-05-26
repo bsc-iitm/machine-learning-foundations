@@ -32,11 +32,13 @@ nav:
     - week-4/computation.md
     - week-4/diagonalization.md
     - week-4/tests_diagonal.md
+    - week-4/fibonacci.md
   - Appendix:
     - appendix/gradients.md
     - appendix/cauchy_schwarz.md
     - appendix/rank_one.md
     - appendix/matrix_product.md
+    - appendix/properties.md
     - appendix/density_estimation.md 
   - Slides:
     - slides/links.md

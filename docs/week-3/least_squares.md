@@ -37,7 +37,7 @@ $$
 
 If you are seeing $\arg \min$ for the first time, think about it like a function (in the programming sense):
 
-- Find the value the minimizes the expression
+- Find the value that minimizes the expression
 - Return this value to the user
 
 
@@ -78,7 +78,7 @@ $$
 $$
 
 
-Let us now compute the gradient and set it to zero. If you want a detailed mathematical explanation of how the gradient is computed, refer to the section on [gradients](../appendix/gradients.md):
+Let us now compute the gradient and set it to zero. If you want a detailed mathematical explanation of how the gradient is computed, refer to the section on [gradients](../appendix/gradients.md){target=_blank}:
 
 
 
@@ -101,7 +101,7 @@ $$
 $$
 
 
-We still don't know if this is corresponds to a minima. Rest assured that this is indeed a minima. But we won't take up the proof now. The other worrying part is what happens if the matrix $X^TX$ is singular or non-invertible. This is also something that we skip for the time being.
+We still don't know if this corresponds to a minima. Rest assured that this is indeed a minima. But we won't take up the proof now. The other worrying part is what happens if the matrix $X^TX$ is singular or non-invertible. When is the matrix $X^TX$ invertible? If you are interested in knowing when this happens, you can refer to this [section](../appendix/properties.md){target=_blank} on properties of this matrix.
 
 
 
@@ -128,4 +128,14 @@ From a ML standpoint, recall the housing dataset with which we started. $e_i$ is
 
 
 ## Summary
+
+When $y$ is not in the column space of $X$, we look for an approximate solution. One way to specify a good approximation is to find a $\hat{\theta}$ that minimizes the following loss function:
+$$
+L = (X \theta - y)^T(X \theta - y)
+$$
+This $\hat{\theta}$ is given by the solution to the normal equations:
+$$
+(X^TX) \hat{\theta} = X^T y
+$$
+
 

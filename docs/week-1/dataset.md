@@ -50,7 +50,7 @@ This is by far the most challenging scenario. We don't have access to the data. 
 
 ## Supervision
 
-Labeling is an important part of the ML pipeline, especially if we want to do some prediction on top of the data. However, there may be situations where labeling is not practically feasible. In such cases, we will have to settle with unlabeled data. Therefore, datasets in ML can be classified into two categories:
+Labeling a dataset is an important part of the data preparation process. However, there may be situations where labeling is not practically feasible. In such cases, we will have to settle with unlabeled data. Therefore, datasets in ML can be classified into two categories:
 
 
 

@@ -135,7 +135,7 @@ The second property is easy to see. Assume that the polynomial splits into $n$ f
 
 
 $$
-|A - \lambda I| = (\lambda - \lambda_1) \cdots (\lambda - \lambda_n)
+|A - \lambda I| = (\lambda_1 - \lambda) \cdots (\lambda_n - \lambda)
 $$
 
 

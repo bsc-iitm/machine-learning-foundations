@@ -4,3 +4,9 @@ For the next three weeks, our setting will be unsupervised learning. We won't ha
 
 In this week, we will focus on concepts called eigenvalues and eigenvectors which are the building blocks for the methods that we will develop in weeks 5 and 6. Though we have been using the variable $X$ for the data-matrix all through last week, it would be convenient to use the variable $A$ for the next few weeks.
 
+- Geometrically, what does a linear transformation do to vectors?
+- What are eigenvectors and eigenvalues?
+- How do we find the eigenvalues of a matrix?
+- How do we find the eigenvectors of a matrix?
+- What is diagonalization?
+- How do we know if a matrix is diagonalizable?

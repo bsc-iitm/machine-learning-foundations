@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MLF | Lecture | Week-4</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">MLF | Lecture | Week-4</h1>
+</div>
+<div id="lecture-outline" class="slide section level1">
+<h1>Lecture Outline</h1>
+<div>
+<ul class="incremental">
+<li>Linear Transformations</li>
+<li><strong>Eigenvectors and Eigenvalues</strong></li>
+<li>Characteristic Polynomial</li>
+<li>Computing Eigenvectors</li>
+<li>Diagonalization</li>
+<li>Tests for Diagonalizability</li>
+<li>Fibonacci</li>
+<li>Orthogonally Diagonalizable Matrices</li>
+</ul>
+</div>
+</div>
+<div id="eigenvectors" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{T = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-1" class="slide section level1">
+<h1>Eigenvectors</h1>
+<video controls width="1000" loop autoplay>
+<source src="../../assets/videos/mat_5.mp4">
+</video>
+</div>
+<div id="eigenvectors-2" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u = \begin{bmatrix}
+-1\\
+1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Tu &amp;= \begin{bmatrix}
+-2\\
+2
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-3" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u = \begin{bmatrix}
+-1\\
+1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Tu &amp;= \begin{bmatrix}
+-2\\
+2
+\end{bmatrix}\\\\
+&amp;= 2u
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-4" class="slide section level1">
+<h1>Eigenvectors</h1>
+<video controls width="1000" loop autoplay>
+<source src="../../assets/videos/mat_6.mp4">
+</video>
+</div>
+<div id="eigenvectors-5" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u = \begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Tu &amp;= \begin{bmatrix}
+4\\
+2
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-6" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u = \begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Tu &amp;= \begin{bmatrix}
+4\\
+2
+\end{bmatrix}\\\\
+&amp;\neq \lambda u
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenpair" class="slide section level1">
+<h1>Eigenpair</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>For a linear transformation <span class="math inline">\(T\)</span>, a non-zero vector <span class="math inline">\(v\)</span> is called an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span> if:</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenpair-1" class="slide section level1">
+<h1>Eigenpair</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>For a linear transformation <span class="math inline">\(T\)</span>, a non-zero vector <span class="math inline">\(v\)</span> is called an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span> if:</p>
+<p><br> <span class="math display">\[
+\boxed{\huge{T v = \lambda v}}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenpair-2" class="slide section level1">
+<h1>Eigenpair</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>For a linear transformation <span class="math inline">\(T\)</span>, a non-zero vector <span class="math inline">\(v\)</span> is called an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span> if:</p>
+<p><br> <span class="math display">\[
+\boxed{\huge{T v = \lambda v}}
+\]</span></p>
+<p><br></p>
+<p><br></p>
+<p><span class="math inline">\((\lambda, v)\)</span> is called an eigenpair of <span class="math inline">\(T\)</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenpair-3" class="slide section level1">
+<h1>Eigenpair</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>For a matrix <span class="math inline">\(T\)</span>, a non-zero vector <span class="math inline">\(v\)</span> is called an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span> if:</p>
+<p><br> <span class="math display">\[
+\boxed{\huge{T v = \lambda v}}
+\]</span></p>
+<p><br></p>
+<p><br></p>
+<p><span class="math inline">\((\lambda, v)\)</span> is called an eigenpair of <span class="math inline">\(T\)</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="example" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+T = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\left (2, \begin{bmatrix}-1\\1\end{bmatrix} \right)
+\]</span> <br> <span class="math display">\[
+\left (3, \begin{bmatrix}1\\0\end{bmatrix} \right)
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-7" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>Why should an eigenvector be non-zero?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-8" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>Why should an eigenvector be non-zero?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+T0 = \lambda 0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-9" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>Why should an eigenvector be non-zero?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+T0 = \lambda 0
+\]</span> <br></p>
+<p>How many values can <span class="math inline">\(\lambda\)</span> take?</p>
+</div>
+</div>
+</div>
+<div id="eigenspace" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(ku\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(ku) &amp;= 
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-1" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(ku\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(ku) &amp;= k \cdot Tu
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-2" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(ku\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(ku) &amp;= k \cdot Tu\\\\
+&amp;= k \cdot \lambda u
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-3" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(ku\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(ku) &amp;= k \cdot Tu\\\\
+&amp;= k \cdot \lambda u\\\\
+&amp;= \lambda \cdot (ku)
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-4" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(ku\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(ku) &amp;= k \cdot Tu\\\\
+&amp;= k \cdot \lambda u\\\\
+&amp;= \lambda \cdot (ku)
+\end{aligned}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(ku\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, where <span class="math inline">\(k \neq 0\)</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-5" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are eigenvectors of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(u + v\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(u + v) &amp;= 
+\end{aligned}
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-6" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are eigenvectors of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(u + v\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(u + v) &amp;= Tu + Tv
+\end{aligned}
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-7" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are eigenvectors of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(u + v\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(u + v) &amp;= Tu + Tv\\\\
+&amp;= \lambda u + \lambda v
+\end{aligned}
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-8" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are eigenvectors of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(u + v\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(u + v) &amp;= Tu + Tv\\\\
+&amp;= \lambda u + \lambda v\\\\
+&amp;= \lambda(u + v)
+\end{aligned}
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-9" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are eigenvectors of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span>, then what can you say about <span class="math inline">\(u + v\)</span>?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+T(u + v) &amp;= Tu + Tv\\\\
+&amp;= \lambda u + \lambda v\\\\
+&amp;= \lambda(u + v)
+\end{aligned}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(u + v\)</span> is an eigenvector of <span class="math inline">\(T\)</span> with eigenvalue <span class="math inline">\(\lambda\)</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-10" class="slide section level1">
+<h1>Eigenspace</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{E = \{u\ \vert\ Tu = \lambda u, u \in \mathbb{R}^n \}}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+</body>
+</html>

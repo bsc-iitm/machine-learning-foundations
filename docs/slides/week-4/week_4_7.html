@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MLF | Lecture | Week-4</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">MLF | Lecture | Week-4</h1>
+</div>
+<div id="lecture-outline" class="slide section level1">
+<h1>Lecture Outline</h1>
+<div>
+<ul class="incremental">
+<li>Linear Transformations</li>
+<li>Eigenvectors and Eigenvalues</li>
+<li>Characteristic Polynomial</li>
+<li>Computing Eigenvectors</li>
+<li>Diagonalization</li>
+<li>Tests for Diagonalizability</li>
+<li><strong>Fibonacci</strong></li>
+<li>Orthogonally Diagonalizable Matrices</li>
+</ul>
+</div>
+</div>
+<div id="application" class="slide section level1">
+<h1>Application</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>What is an application of diagonalization?</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+0, 1, 1, 2, 3, 5, 8, \cdots
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci-1" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><span class="math inline">\(F_k\)</span> is the <span class="math inline">\(k^{th}\)</span> term of the sequence</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci-2" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+F_{k + 2}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci-3" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+F_{k + 2} = F_{k + 1} + F_{k}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci-4" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+F_{k + 2} &amp;= F_{k + 1} + F_{k}\\\\
+F_{k + 1} &amp;= F_{k + 1}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="fibonacci-5" class="slide section level1">
+<h1>Fibonacci</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+F_{k + 2} &amp;= 1 \cdot F_{k + 1} + 1 \cdot F_{k}\\\\
+F_{k + 1} &amp;= 1 \cdot F_{k + 1} + 0 \cdot F_{k}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="matrix-form" class="slide section level1">
+<h1>Matrix form</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+F_{k + 2}\\
+F_{k + 1}
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="matrix-form-1" class="slide section level1">
+<h1>Matrix form</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+F_{k + 2}\\
+F_{k + 1}
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="matrix-form-2" class="slide section level1">
+<h1>Matrix form</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+F_{k + 2}\\
+F_{k + 1}
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}, u_k = \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="matrix-form-3" class="slide section level1">
+<h1>Matrix form</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+F_{k + 2}\\
+F_{k + 1}
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}, u_k = \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-1" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-2" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+u_1 = Au_0
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-3" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+u_1 = Au_0
+\]</span> <br> <span class="math display">\[
+\begin{aligned}
+u_2 &amp;= Au_1
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-4" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+u_1 = Au_0
+\]</span> <br> <span class="math display">\[
+\begin{aligned}
+u_2 &amp;= Au_1\\
+&amp;= A^2 u_0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-5" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+u_1 = Au_0
+\]</span> <br> <span class="math display">\[
+\begin{aligned}
+u_2 &amp;= A^2u_0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-6" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+u_{k + 1} = A u_k
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+u_0 = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+u_1 = Au_0
+\]</span> <br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= A^ku_0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-7" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{u_k = A^k u_0}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-8" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{u_k = A^k u_0}
+\]</span> <br></p>
+<p>How do we compute <span class="math inline">\(A^k\)</span>?</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="recurrence-relation-9" class="slide section level1">
+<h1>Recurrence Relation</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\huge{u_k = A^k u_0}
+\]</span> <br></p>
+<p>How do we compute <span class="math inline">\(A^k\)</span>?</p>
+<p><br></p>
+<p>Diagonalization</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="diagonalization" class="slide section level1">
+<h1>Diagonalization</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}
+\]</span> <br></p>
+<p>Is <span class="math inline">\(A\)</span> diagonalizable?</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvalues" class="slide section level1">
+<h1>Eigenvalues</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\begin{aligned}
+\quad \ \ \begin{vmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{vmatrix} &amp;= 0
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvalues-1" class="slide section level1">
+<h1>Eigenvalues</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\begin{aligned}
+\begin{vmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{vmatrix} &amp;= 0\\\\\\
+(1 - \lambda)(-\lambda) - 1 &amp;= 0
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvalues-2" class="slide section level1">
+<h1>Eigenvalues</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><span class="math display">\[
+\begin{aligned}
+\begin{vmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{vmatrix} &amp;= 0\\\\\\
+(1 - \lambda)(-\lambda) - 1 &amp;= 0\\\\\\
+\lambda^2 - \lambda - 1 &amp;= 0
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvalues-3" class="slide section level1">
+<h1>Eigenvalues</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{aligned}
+\begin{vmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{vmatrix} &amp;= 0\\\\\\
+(1 - \lambda)(-\lambda) - 1 &amp;= 0\\\\\\
+\lambda^2 - \lambda - 1 &amp;= 0\\\\
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\lambda_1 = \cfrac{1 - \sqrt{5}}{2}, \lambda_2 = \cfrac{1 + \sqrt{5}}{2}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+\quad \quad\ \  (A - \lambda I)v &amp;= 0\\\\
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-1" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - \lambda I)v &amp;= 0\\\\
+\begin{bmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{bmatrix}\begin{bmatrix}
+v_1\\
+v_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-2" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - \lambda I)v &amp;= 0\\\\
+\begin{bmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{bmatrix}\begin{bmatrix}
+v_1\\
+v_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+\cfrac{v_1}{v_2} &amp;= \lambda
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-3" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - \lambda I)v &amp;= 0\\\\
+\begin{bmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{bmatrix}\begin{bmatrix}
+v_1\\
+v_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+\cfrac{v_1}{v_2} &amp;= \lambda
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+\lambda_1\\
+1
+\end{bmatrix}, \begin{bmatrix}
+\lambda_2\\
+1
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="eigenvectors-4" class="slide section level1">
+<h1>Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - \lambda I)v &amp;= 0\\\\
+\begin{bmatrix}
+1 - \lambda &amp; 1\\
+1 &amp; -\lambda
+\end{bmatrix}\begin{bmatrix}
+v_1\\
+v_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+\cfrac{v_1}{v_2} &amp;= \lambda
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{bmatrix}
+\lambda_1\\
+1
+\end{bmatrix}, \begin{bmatrix}
+\lambda_2\\
+1
+\end{bmatrix}
+\]</span> <br></p>
+<p>We have two linearly independent eigenvectors.</p>
+</div>
+</div>
+</div>
+<div id="diagonalizable" class="slide section level1">
+<h1>Diagonalizable</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}
+\]</span></p>
+<p><br> <span class="math display">\[
+Q = \begin{bmatrix}
+\lambda_1 &amp; \lambda_2\\ 
+1 &amp; 1
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+D = \begin{bmatrix}
+\lambda_1 &amp; 0\\
+0 &amp; \lambda_2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="diagonalizable-1" class="slide section level1">
+<h1>Diagonalizable</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}
+\]</span></p>
+<p><br> <span class="math display">\[
+Q = \begin{bmatrix}
+\lambda_1 &amp; \lambda_2\\ 
+1 &amp; 1
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+D = \begin{bmatrix}
+\lambda_1 &amp; 0\\
+0 &amp; \lambda_2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+A = QDQ^{-1}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="diagonalizable-2" class="slide section level1">
+<h1>Diagonalizable</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+A = \begin{bmatrix}
+1 &amp; 1\\
+1 &amp; 0
+\end{bmatrix}
+\]</span></p>
+<p><br> <span class="math display">\[
+Q = \begin{bmatrix}
+\lambda_1 &amp; \lambda_2\\ 
+1 &amp; 1
+\end{bmatrix}, Q^{-1} = \cfrac{1}{\lambda_1 - \lambda_2}\begin{bmatrix}
+1 &amp; -\lambda_2\\
+-1 &amp; \lambda_1
+\end{bmatrix}
+\]</span> <br> <span class="math display">\[
+D = \begin{bmatrix}
+\lambda_1 &amp; 0\\
+0 &amp; \lambda_2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+A = QDQ^{-1}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="formula" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+u_k = A^k u_0
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="formula-1" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+u_k = A^k u_0
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= (QDQ^{-1})^k u_0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="formula-2" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+u_k = A^k u_0
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= (QDQ^{-1})^k u_0\\\\
+&amp;= Q D^k Q^{-1} u_0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="formula-3" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= Q D^k Q^{-1} u_0 \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad\ \ 
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="formula-4" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= Q D^k Q^{-1} u_0\\\\
+&amp;= \cfrac{1}{\lambda_1 - \lambda_2} \begin{bmatrix}
+\lambda_1 &amp; \lambda_2\\ 
+1 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+\lambda_1^k &amp; 0\\
+0 &amp; \lambda_2^k
+\end{bmatrix} \begin{bmatrix}
+1 &amp; -\lambda_2\\
+-1 &amp; \lambda_1
+\end{bmatrix} \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="formula-5" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+u_k &amp;= Q D^k Q^{-1} u_0\\\\
+&amp;= \cfrac{1}{\lambda_1 - \lambda_2} \begin{bmatrix}
+\lambda_1 &amp; \lambda_2\\ 
+1 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+\lambda_1^k &amp; 0\\
+0 &amp; \lambda_2^k
+\end{bmatrix} \begin{bmatrix}
+1 &amp; -\lambda_2\\
+-1 &amp; \lambda_1
+\end{bmatrix} \begin{bmatrix}
+1\\
+0
+\end{bmatrix}\\\\
+&amp;= \cfrac{1}{\lambda_1 - \lambda_2}  \begin{bmatrix}
+\lambda_1^{k + 1} - \lambda_2^{k + 1}\\
+\lambda_1^{k} - \lambda_2^{k}
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="formula-6" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+u_k = \cfrac{1}{\lambda_1 - \lambda_2}  \begin{bmatrix}
+\lambda_1^{k + 1} - \lambda_2^{k + 1}\\
+\lambda_1^{k} - \lambda_2^{k}
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+u_k = \begin{bmatrix}
+F_{k + 1}\\
+F_{k}
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="formula-7" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+F_k = \cfrac{1}{\lambda_1 - \lambda_2} \left(\lambda_1^k - \lambda_2^k \right)
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="formula-8" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\lambda_1 = \cfrac{1 - \sqrt{5}}{2}, \lambda_2 = \cfrac{1 + \sqrt{5}}{2}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+F_k = \cfrac{1}{\lambda_1 - \lambda_2} \left(\lambda_1^k - \lambda_2^k \right)
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="formula-9" class="slide section level1">
+<h1>Formula</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\boxed{F_k = \cfrac{1}{\sqrt{5}} \left[  \left(\cfrac{1 + \sqrt{5}}{2} \right)^k - \left(\cfrac{1 - \sqrt{5}}{2} \right)^k \right]}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+</body>
+</html>

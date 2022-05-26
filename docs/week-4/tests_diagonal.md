@@ -1,4 +1,4 @@
-# Test for Diagonalizability
+# Tests for Diagonalizability
 
 !!! question
 	How do we know if a matrix is diagonalizable?
@@ -119,7 +119,7 @@ This gives us $v_2 = 0$ and $v_1 = k$, where $k$ is some non-zero real number. T
 
 ## Summary
 
-Not all matrices are diagonalizable. There are two tests for diagonlizability:
+Not all matrices are diagonalizable. There are two tests for diagonalizability:
 
 - Negative test: if a matrix doesn't have $n$ eigenvalues, it is not diagonalizable.
 - Positive test: if a matrix has $n$ distinct eigenvalues, then it is diagonalizable.

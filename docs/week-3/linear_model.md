@@ -7,7 +7,7 @@
 
 ## Motivation
 
-Let us return to the [housing dataset](../week-1/linear_algebra.md). Consider two houses, one which has $1000$ square feet and the other which has $2000$ square feet. As the area of the house increases, the selling price is going to go up. Take another feature, say the distance from the nearest school. If the distance increases, then the selling price goes down. Perhaps the effect may not be as drastic. If we have access to only these two features, one function or model could be as follows:
+Let us return to the [housing dataset](../week-1/linear_algebra.md). Consider two houses, one which has an area of $1000$ square feet and the other which has an area of $2000$ square feet. As the area of the house increases, the selling price is going to go up. Take another feature, say the distance from the nearest school. If the distance increases, then the selling price goes down. Perhaps the effect may not be as drastic. If we have access to only these two features, one function or model could be as follows:
 $$
 \text{Selling-price} = 2 \times \text{Area} - 0.2 \times \text{Distance} + \text{Constant}
 $$

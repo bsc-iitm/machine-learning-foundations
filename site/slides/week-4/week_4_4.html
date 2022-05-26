@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MLF | Lecture | Week-4</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">MLF | Lecture | Week-4</h1>
+</div>
+<div id="lecture-outline" class="slide section level1">
+<h1>Lecture Outline</h1>
+<div>
+<ul class="incremental">
+<li>Linear Transformations</li>
+<li>Eigenvectors and Eigenvalues</li>
+<li>Characteristic Polynomial</li>
+<li><strong>Computing Eigenvectors</strong></li>
+<li>Diagonalization</li>
+<li>Tests for Diagonalizability</li>
+<li>Fibonacci</li>
+<li>Orthogonally Diagonalizable Matrices</li>
+</ul>
+</div>
+</div>
+<div id="computing-eigenvectors" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="computing-eigenvectors-1" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - 2I) x &amp;= 0\\\\
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="computing-eigenvectors-2" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - 2I) x &amp;= 0\\\\
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="computing-eigenvectors-3" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - 2I) x &amp;= 0\\\\
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+x_1 + x_2 &amp;= 0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="computing-eigenvectors-4" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - 2I) x &amp;= 0\\\\
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+x_1 + x_2 &amp;= 0
+\end{aligned}
+\]</span> <span class="math inline">\(\begin{bmatrix}-1\\1\end{bmatrix}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> with eigenvalue <span class="math inline">\(2\)</span></p>
+</div>
+</div>
+</div>
+<div id="computing-eigenvectors-5" class="slide section level1">
+<h1>Computing Eigenvectors</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\lambda = 2\)</span> is an eigenvalue. What are the corresponding eigenvectors?</p>
+</div><div class="column" style="width:50%;">
+<p><br> <span class="math display">\[
+\begin{aligned}
+(A - 2I) x &amp;= 0\\\\
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 0
+\end{bmatrix} \begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix} &amp;= \begin{bmatrix}
+0\\
+0
+\end{bmatrix}\\\\
+x_1 + x_2 &amp;= 0
+\end{aligned}
+\]</span> <span class="math inline">\(\begin{bmatrix}-1\\1\end{bmatrix}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> with eigenvalue <span class="math inline">\(2\)</span></p>
+<p><br></p>
+<p><span class="math inline">\(\text{span} \left ( \begin{bmatrix}-1\\1\end{bmatrix} \right)\)</span> is the the eigenspace corresponding to <span class="math inline">\(\lambda = 2\)</span></p>
+</div>
+</div>
+</div>
+<div id="eigenspace-and-nullspace" class="slide section level1">
+<h1>Eigenspace and Nullspace</h1>
+<p><br></p>
+<p><br></p>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<div>
+<ul class="incremental">
+<li><p>If <span class="math inline">\((\lambda, v)\)</span> is an eigenpair, then <span class="math inline">\((A - \lambda I) v = 0\)</span></p></li>
+<li><p>Then, <span class="math inline">\(v\)</span> belongs to the nullspace of <span class="math inline">\(A - \lambda I\)</span></p></li>
+<li><p>Every non-zero vector in <span class="math inline">\(N(A - \lambda I)\)</span> is an eigenvector for <span class="math inline">\(\lambda\)</span></p></li>
+<li><p>Find a basis <span class="math inline">\(B\)</span> for the nullspace of <span class="math inline">\(A - \lambda I\)</span></p></li>
+<li><p><span class="math inline">\(\text{span}(B)\)</span> is nothing but the eigenspace corresponding to <span class="math inline">\(\lambda\)</span></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:0%;">
+
+</div>
+</div>
+</div>
+</body>
+</html>

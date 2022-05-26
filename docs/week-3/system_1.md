@@ -112,7 +112,7 @@ The first nonzero entry in a row is called a pivot. Let us call the row-echelon 
 !!! note "Useful result"
 	If $P$ is the row-echelon form of $X$, then $X\theta = 0$ if and only if $P\theta = 0$
 
-Thus, the nullspace of a matrix and its row-echelon matrix are the same. This lets us forget about $X$ and deal with its row-echelon form directly.
+Thus, the nullspace of a matrix and the nullspace of its row-echelon matrix are the same.. This lets us forget about $X$ and deal with its row-echelon form directly.
 
 
 

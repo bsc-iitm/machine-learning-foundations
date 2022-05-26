@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MLF | Lecture | Week-4</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">MLF | Lecture | Week-4</h1>
+</div>
+<div id="lecture-outline" class="slide section level1">
+<h1>Lecture Outline</h1>
+<div>
+<ul class="incremental">
+<li>Linear Transformations</li>
+<li>Eigenvectors and Eigenvalues</li>
+<li><strong>Characteristic Polynomial</strong></li>
+<li>Computing Eigenvectors</li>
+<li>Diagonalization</li>
+<li>Tests for Diagonalizability</li>
+<li>Fibonacci</li>
+<li>Orthogonally Diagonalizable Matrices</li>
+</ul>
+</div>
+</div>
+<div id="characteristic-polynomial" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>How do we find the eigenvalues of a matrix <span class="math inline">\(A\)</span>?</p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-1" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Ax &amp;= \lambda x
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-2" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Ax &amp;= \lambda x\\\\
+Ax &amp;= \lambda Ix\\\\
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-3" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Ax &amp;= \lambda x\\\\
+Ax &amp;= \lambda Ix\\\\
+Ax - \lambda I x &amp;= 0
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-4" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br></p>
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+Ax &amp;= \lambda x\\\\
+Ax &amp;= \lambda Ix\\\\
+Ax - \lambda I x &amp;= 0\\\\
+(A - \lambda I)x &amp;= 0
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-5" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="left">
+<div class="column" style="width:100%;">
+<p><br><br></p>
+<div>
+<ul class="incremental">
+<li><p>Let <span class="math inline">\(x\)</span> be an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span><br />
+</p></li>
+<li><p>Then <span class="math inline">\((A - \lambda I)x = 0\)</span></p></li>
+<li><p><span class="math inline">\(x\)</span> is in the nullspace of <span class="math inline">\(A - \lambda I\)</span></p></li>
+<li><p>The linear transformation corresponding to <span class="math inline">\(A - \lambda I\)</span> is not one-one</p></li>
+<li><p>The linear transformation is not invertible</p></li>
+<li><p><span class="math inline">\(|A - \lambda I| = 0\)</span></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="example" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="example-1" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+|A - \lambda I| &amp;= 0\\\\
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="example-2" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+|A - \lambda I| &amp;= 0\\\\
+\begin{vmatrix}
+3 - \lambda &amp; 1\\
+0 &amp; 2 - \lambda
+\end{vmatrix} &amp;= 0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="example-3" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+|A - \lambda I| &amp;= 0\\\\
+\begin{vmatrix}
+3 - \lambda &amp; 1\\
+0 &amp; 2 - \lambda
+\end{vmatrix} &amp;= 0\\\\
+(3 - \lambda)(2 - \lambda) &amp;= 0
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="example-4" class="slide section level1">
+<h1>Example</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+A = \begin{bmatrix}
+3 &amp; 1\\
+0 &amp; 2
+\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+\begin{aligned}
+|A - \lambda I| &amp;= 0\\\\
+\begin{vmatrix}
+3 - \lambda &amp; 1\\
+0 &amp; 2 - \lambda
+\end{vmatrix} &amp;= 0\\\\
+(3 - \lambda)(2 - \lambda) &amp;= 0\\\\
+\lambda &amp;= 2, 3
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="characteristic-polynomial-6" class="slide section level1">
+<h1>Characteristic Polynomial</h1>
+<div class="columns" align="center">
+<div class="column" style="width:100%;">
+<p><br><br> <span class="math display">\[
+|A - \lambda I| = (\lambda_1 - \lambda) \cdots (\lambda_n - \lambda)
+\]</span></p>
+</div><div class="column" style="width:0%;">
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="properties" class="slide section level1">
+<h1>Properties</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<div>
+<ul class="incremental">
+<li>The sum of the eigenvalues is equal to the trace of the matrix.</li>
+<li>The product of the eigenvalues is equal to the determinant of the matrix.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="properties-1" class="slide section level1">
+<h1>Properties</h1>
+<div class="columns" align="left">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<ul>
+<li>The sum of the eigenvalues is equal to the trace of the matrix.</li>
+<li>The product of the eigenvalues is equal to the determinant of the matrix.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<div>
+<ul class="incremental">
+<li><span class="math inline">\(\lambda_1 + \cdots + \lambda_n = \text{tr}(A)\)</span></li>
+<li><span class="math inline">\(\lambda_1 \cdots \lambda_n = |A|\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="properties-2" class="slide section level1">
+<h1>Properties</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+|A - \lambda I| = (\lambda_1 - \lambda) \cdots (\lambda_n - \lambda)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If we set <span class="math inline">\(\lambda = 0\)</span>, we have:</p>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="properties-3" class="slide section level1">
+<h1>Properties</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+|A - \lambda I| = (\lambda_1 - \lambda) \cdots (\lambda_n - \lambda)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If we set <span class="math inline">\(\lambda = 0\)</span>, we have:</p>
+<p><br></p>
+<p><span class="math display">\[
+|A| = \lambda_1 \cdots \lambda_n
+\]</span> <br></p>
+</div>
+</div>
+</div>
+<div id="properties-4" class="slide section level1">
+<h1>Properties</h1>
+<div class="columns" align="center">
+<div class="column" style="width:50%;">
+<p><br></p>
+<p><br> <span class="math display">\[
+|A - \lambda I| = (\lambda_1 - \lambda) \cdots (\lambda_n - \lambda)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><br></p>
+<p><br></p>
+<p>If we set <span class="math inline">\(\lambda = 0\)</span>, we have:</p>
+<p><br></p>
+<p><span class="math display">\[
+|A| = \lambda_1 \cdots \lambda_n
+\]</span> <br></p>
+<p>The determinant of a matrix is equal to the product of its eigenvalues.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

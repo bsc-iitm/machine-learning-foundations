@@ -442,15 +442,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vector-form" class="md-nav__link">
-    Vector form
+  <a href="#linear-model" class="md-nav__link">
+    Linear model
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrix-form" class="md-nav__link">
-    Matrix form
+  <a href="#learning-problem" class="md-nav__link">
+    Learning problem
   </a>
   
 </li>
@@ -944,15 +944,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vector-form" class="md-nav__link">
-    Vector form
+  <a href="#linear-model" class="md-nav__link">
+    Linear model
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#matrix-form" class="md-nav__link">
-    Matrix form
+  <a href="#learning-problem" class="md-nav__link">
+    Learning problem
   </a>
   
 </li>
@@ -997,7 +997,7 @@ This is what is called a linear model. The values <span class="arithmatex">\(2\)
 <p>All models are wrong, but some are useful.</p>
 </div>
 </div>
-<h2 id="vector-form">Vector form<a class="headerlink" href="#vector-form" title="Permanent link">&para;</a></h2>
+<h2 id="linear-model">Linear model<a class="headerlink" href="#linear-model" title="Permanent link">&para;</a></h2>
 <p>Generalizing this, let us say that we have a feature vector <span class="arithmatex">\(x\)</span> and a weight vector <span class="arithmatex">\(\theta\)</span>. Recall that the housing data has six features:</p>
 <div class="arithmatex">\[
 x = \begin{bmatrix}
@@ -1074,7 +1074,7 @@ x_6
 <p class="admonition-title">Note</p>
 <p>All vectors will be expressed as column vectors. If we want to express a row-vector, then it will be denoted as <span class="arithmatex">\(x^T\)</span>, where <span class="arithmatex">\(x\)</span> is some column-vector.</p>
 </div>
-<h2 id="matrix-form">Matrix form<a class="headerlink" href="#matrix-form" title="Permanent link">&para;</a></h2>
+<h2 id="learning-problem">Learning problem<a class="headerlink" href="#learning-problem" title="Permanent link">&para;</a></h2>
 <p>So much for one house. But we have several houses. All these can be clubbed into a data-matrix. This is nothing but stacking all feature-vectors one below the other. Likewise, we can stack all selling prices into a label-vector:</p>
 <div class="arithmatex">\[
 \begin{bmatrix}
@@ -1104,13 +1104,36 @@ X\theta = y
 <li>Does the equation <span class="arithmatex">\(X\theta = y\)</span> have a solution?</li>
 <li>If it doesn't have a solution, then how do we estimate <span class="arithmatex">\(\theta\)</span>?</li>
 </ul>
-<p>We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question. <strong>Readers are requested to understand this equation more from a mathematical standpoint.  Please spend some time on the following point before proceeding further:</strong></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>In general, even if the relationship between the features and label is linear, we will always have some noise. So, <span class="arithmatex">\(X \theta \neq y\)</span> is what we observe in practice. However, we will still study <span class="arithmatex">\(X \theta = y\)</span> from a purely mathematical standpoint. A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. What has been presented here is just a motivation for studying the system of linear equations <span class="arithmatex">\(X \theta = y\)</span>. For a more accurate handling of this topic, please refer to weeks 2 and 3 of the MLT course.</p>
-</div>
+<p>The answer to the first question is that, the equation <span class="arithmatex">\(X \theta = y\)</span> <strong>does not</strong> have a solution in practice. This could be because of the following reasons:</p>
+<ul>
+<li><strong>Case-1</strong>: The relationship between <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(y\)</span> is not linear.</li>
+<li><strong>Case-2</strong>: Even if the relationship is linear, it is corrupted by some noise <span class="arithmatex">\(\epsilon\)</span>.</li>
+</ul>
+<p>Recall the quote with which we began this unit: "all models are wrong, but some are useful." In the first case, we can't do much. We would have to abandon the simple linear model and go for more complex models. In the second case, we still have hope. This situation is generally expressed as follows:</p>
+<div class="arithmatex">\[
+y = X \theta + \epsilon
+\]</div>
+<p>Here, <span class="arithmatex">\(\epsilon\)</span> is some error term. The general approach in such situations is to find a set of weights that minimizes the error in prediction. This error in prediction can be quantified in terms of a <strong>loss function</strong>:</p>
+<div class="arithmatex">\[
+L(\theta) =(X \theta - y)^T (X \theta - y)
+\]</div>
+<p>This equation is to be understood as follows:</p>
+<ul>
+<li><span class="arithmatex">\((X, y)\)</span>: labeled dataset</li>
+<li><span class="arithmatex">\(y\)</span>: actual selling price</li>
+<li><span class="arithmatex">\(X \theta\)</span>: predicted selling price</li>
+</ul>
+<p>The learning problem in linear regression can be formulated as finding a vector of weights — <span class="arithmatex">\(\theta\)</span> — that will minimize the loss <span class="arithmatex">\(L(\theta)\)</span>. Before solving this problem, we will spend some time revisiting the following systems of equations:</p>
+<ul>
+<li><span class="arithmatex">\(X \theta = 0\)</span></li>
+<li><span class="arithmatex">\(X \theta = y\)</span></li>
+</ul>
+<p>This study is purely from a mathematical standpoint.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as <span class="arithmatex">\(f(x) = \theta^T x\)</span>. If the labeled dataset is <span class="arithmatex">\((X, y)\)</span>, our task is to learn the parameters <span class="arithmatex">\(\theta\)</span>. Before going there, we shall first study the system of equations <span class="arithmatex">\(X \theta = y\)</span>.</p>
+<p>A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as <span class="arithmatex">\(f(x) = \theta^T x\)</span>. If the labeled dataset is <span class="arithmatex">\((X, y)\)</span>, our task is to learn the parameters <span class="arithmatex">\(\theta\)</span> from the data by minimizing a loss function defined as:
+$$
+L(\theta) = (X \theta - y)^T(X \theta - y)
+$$</p>
 
               
             </article>

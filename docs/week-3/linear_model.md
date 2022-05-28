@@ -21,7 +21,7 @@ This is what is called a linear model. The values $2$ and $-0.2$ are called the 
 
 
 
-## Vector form
+## Linear model
 
 Generalizing this, let us say that we have a feature vector $x$ and a weight vector $\theta$. Recall that the housing data has six features:
 
@@ -129,7 +129,7 @@ If $x$ is the feature vector of a house, then $f(x)$ will be its predicted selli
 
 
 
-## Matrix form
+## Learning problem
 
 So much for one house. But we have several houses. All these can be clubbed into a data-matrix. This is nothing but stacking all feature-vectors one below the other. Likewise, we can stack all selling prices into a label-vector:
 
@@ -177,13 +177,55 @@ We are given both $X$ and $y$. This is nothing but our labeled dataset. We have 
 
 
 
-We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question. **Readers are requested to understand this equation more from a mathematical standpoint.  Please spend some time on the following point before proceeding further:**
+The answer to the first question is that, the equation $X \theta = y$ **does not** have a solution in practice. This could be because of the following reasons:
 
-!!! important
-    In general, even if the relationship between the features and label is linear, we will always have some noise. So, $X \theta \neq y$ is what we observe in practice. However, we will still study $X \theta = y$ from a purely mathematical standpoint. A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. What has been presented here is just a motivation for studying the system of linear equations $X \theta = y$. For a more accurate handling of this topic, please refer to weeks 2 and 3 of the MLT course.
+
+
+- **Case-1**: The relationship between $X$ and $y$ is not linear.
+- **Case-2**: Even if the relationship is linear, it is corrupted by some noise $\epsilon$.
+
+
+
+Recall the quote with which we began this unit: "all models are wrong, but some are useful." In the first case, we can't do much. We would have to abandon the simple linear model and go for more complex models. In the second case, we still have hope. This situation is generally expressed as follows:
+
+
+$$
+y = X \theta + \epsilon
+$$
+
+
+Here, $\epsilon$ is some error term. The general approach in such situations is to find a set of weights that minimizes the error in prediction. This error in prediction can be quantified in terms of a **loss function**:
+
+
+$$
+L(\theta) =(X \theta - y)^T (X \theta - y)
+$$
+
+
+This equation is to be understood as follows:
+
+- $(X, y)$: labeled dataset
+- $y$: actual selling price
+- $X \theta$: predicted selling price
+
+
+
+The learning problem in linear regression can be formulated as finding a vector of weights — $\theta$ — that will minimize the loss $L(\theta)$. Before solving this problem, we will spend some time revisiting the following systems of equations:
+
+
+
+- $X \theta = 0$
+- $X \theta = y$
+
+
+
+This study is purely from a mathematical standpoint.
 
 
 
 ## Summary
 
-A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as $f(x) = \theta^T x$. If the labeled dataset is $(X, y)$, our task is to learn the parameters $\theta$. Before going there, we shall first study the system of equations $X \theta = y$.
+A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as $f(x) = \theta^T x$. If the labeled dataset is $(X, y)$, our task is to learn the parameters $\theta$ from the data by minimizing a loss function defined as:
+$$
+L(\theta) = (X \theta - y)^T(X \theta - y)
+$$

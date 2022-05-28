@@ -112,10 +112,22 @@ x_6
 \end{bmatrix}
 $$
 
+The linear model is therefore expressed as:
+
+
+$$
+\boxed{\huge{f(x) = \theta^T x}}
+$$
+
+
+If $x$ is the feature vector of a house, then $f(x)$ will be its predicted selling price. We call $\theta$ the weights or parameters of the model.
+
+
+
 !!! note
     All vectors will be expressed as column vectors. If we want to express a row-vector, then it will be denoted as $x^T$, where $x$ is some column-vector.
 
- 
+
 
 ## Matrix form
 
@@ -156,7 +168,7 @@ $$
 
 
 
-We are given both $X$ and $y$. This is nothing but our labeled dataset. We have to find $\theta$. This leaves us with two questions:
+We are given both $X$ and $y$. This is nothing but our labeled dataset. We have to learn $\theta$. This leaves us with two questions:
 
 
 
@@ -165,13 +177,13 @@ We are given both $X$ and $y$. This is nothing but our labeled dataset. We have 
 
 
 
-We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question.
+We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question. **Readers are requested to understand this equation more from a mathematical standpoint.  Please spend some time on the following point before proceeding further:**
 
-!!! Note
-    A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. For a more accurate handling of this topic, please refer to week-2 of the MLT course. 
+!!! important
+    In general, even if the relationship between the features and label is linear, we will always have some noise. So, $X \theta \neq y$ is what we observe in practice. However, we will still study $X \theta = y$ from a purely mathematical standpoint. A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. What has been presented here is just a motivation for studying the system of linear equations $X \theta = y$. For a more accurate handling of this topic, please refer to weeks 2 and 3 of the MLT course.
 
 
 
 ## Summary
 
-A linear regression model assumes a linear relationship between inputs and outputs. This results in a system of linear equation of the form $X\theta = y$.
+A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as $f(x) = \theta^T x$. If the labeled dataset is $(X, y)$, our task is to learn the parameters $\theta$. Before going there, we shall first study the system of equations $X \theta = y$.

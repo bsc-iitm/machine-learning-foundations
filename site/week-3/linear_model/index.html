@@ -1065,6 +1065,11 @@ x_5\\
 x_6
 \end{bmatrix}
 \]</div>
+<p>The linear model is therefore expressed as:</p>
+<div class="arithmatex">\[
+\boxed{\huge{f(x) = \theta^T x}}
+\]</div>
+<p>If <span class="arithmatex">\(x\)</span> is the feature vector of a house, then <span class="arithmatex">\(f(x)\)</span> will be its predicted selling price. We call <span class="arithmatex">\(\theta\)</span> the weights or parameters of the model.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All vectors will be expressed as column vectors. If we want to express a row-vector, then it will be denoted as <span class="arithmatex">\(x^T\)</span>, where <span class="arithmatex">\(x\)</span> is some column-vector.</p>
@@ -1094,18 +1099,18 @@ y_{100}
 <div class="arithmatex">\[
 X\theta = y
 \]</div>
-<p>We are given both <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(y\)</span>. This is nothing but our labeled dataset. We have to find <span class="arithmatex">\(\theta\)</span>. This leaves us with two questions:</p>
+<p>We are given both <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(y\)</span>. This is nothing but our labeled dataset. We have to learn <span class="arithmatex">\(\theta\)</span>. This leaves us with two questions:</p>
 <ul>
 <li>Does the equation <span class="arithmatex">\(X\theta = y\)</span> have a solution?</li>
 <li>If it doesn't have a solution, then how do we estimate <span class="arithmatex">\(\theta\)</span>?</li>
 </ul>
-<p>We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. For a more accurate handling of this topic, please refer to week-2 of the MLT course. </p>
+<p>We can see how an ML problem has now turned into a linear algebra problem! We will try to answer the first question and then move on to the second question. <strong>Readers are requested to understand this equation more from a mathematical standpoint.  Please spend some time on the following point before proceeding further:</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In general, even if the relationship between the features and label is linear, we will always have some noise. So, <span class="arithmatex">\(X \theta \neq y\)</span> is what we observe in practice. However, we will still study <span class="arithmatex">\(X \theta = y\)</span> from a purely mathematical standpoint. A lot of details about the linear regression model have been skipped. This presentation has tried to bring out the mathematical details. What has been presented here is just a motivation for studying the system of linear equations <span class="arithmatex">\(X \theta = y\)</span>. For a more accurate handling of this topic, please refer to weeks 2 and 3 of the MLT course.</p>
 </div>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>A linear regression model assumes a linear relationship between inputs and outputs. This results in a system of linear equation of the form <span class="arithmatex">\(X\theta = y\)</span>.</p>
+<p>A linear regression model assumes a linear relationship between inputs and outputs, where the model is expressed as <span class="arithmatex">\(f(x) = \theta^T x\)</span>. If the labeled dataset is <span class="arithmatex">\((X, y)\)</span>, our task is to learn the parameters <span class="arithmatex">\(\theta\)</span>. Before going there, we shall first study the system of equations <span class="arithmatex">\(X \theta = y\)</span>.</p>
 
               
             </article>

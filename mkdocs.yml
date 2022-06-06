@@ -33,6 +33,9 @@ nav:
     - week-4/diagonalization.md
     - week-4/tests_diagonal.md
     - week-4/fibonacci.md
+  - Week-5:
+    - week-5/complex_numbers.md
+    - week-5/complex_vectors.md
   - Appendix:
     - appendix/gradients.md
     - appendix/cauchy_schwarz.md
